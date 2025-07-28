@@ -1,195 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Portifolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Lexend+Deca:wght@100..900&display=swap"
+        rel="stylesheet" />
 </head>
 
 <body>
     <header id="header">
         <nav id="nav">
-            <li class="nav-items"><a href="#">Home</a></li>
-            <li class="nav-items"><a href="#">Sobre Mim</a></li>
-            <li class="nav-items"><a href="#">Techs & Tools</a></li>
-            <li class="nav-items"><a href="#">Projetos</a></li>
+            <li class="nav-items"><a href="#hero">Home</a></li>
+            <li class="nav-items"><a href="#about">Sobre Mim</a></li>
+            <li class="nav-items"><a href="#techs">Techs & Tools</a></li>
+            <li class="nav-items"><a href="#projetos">Projetos</a></li>
         </nav>
     </header>
 
-    <section id="Hero">
-        <h1>Ola! Me Chamo Vitor Levi</h1>
-        <h2>Desenvolvedor Full-Stack Web</h2>
-        <div class="social-links">
+    <div id="particles-js"></div>
 
+    <section id="hero">
+        <h1>
+            <span id="typed-hello"></span><span class="cursor" id="cursor1">|</span>
+        </h1>
+        <h2>
+            <span id="typed-name"></span><span class="cursor" id="cursor2">|</span>
+        </h2>
+        <div class="social-links" id="social-links">
+            <a href="#"><img src="images/github.png" alt="GitHub" /></a>
+            <a href="#"><img src="images/linkedin.png" alt="LinkedIn" /></a>
         </div>
     </section>
 
+
     <section id="about">
-        <h1>Sobre Mim</h1>
+        <h1 class="title">Sobre Mim</h1>
         <div class="content">
-            <h2>Meu nome é Vitor Levi, tenho 17 anos e estou no terceiro ano do Ensino Médio em uma escola técnica,
-                cursando Desenvolvimento de Sistemas. Programo há dois anos e atuo como desenvolvedor full stack,
-                trabalhando com front-end e back-end.
+            <h2>Meu nome é <span class="destaq">Vitor Levi</span>, tenho 17 anos e estou no 3º ano do Ensino Médio em
+                uma
+                escola profissionalizante, cursando <span class="destaq">Desenvolvimento de Sistemas</span>. Sou <span
+                    class="destaq">Desenvolvedor há 2 anos</span> e atuo como <span class="destaq">Desenvolvedor Full
+                    Stack</span>,
+                trabalhando com <span class="destaq">Front-end</span> e <span class="destaq">Back-end</span>.
 
-                Busco entregar soluções com foco em performance, usabilidade e qualidade, entendendo o sistema de forma
-                completa, desde a modelagem de dados até a experiência do usuário.
+                Busco entregar soluções com foco em <span class="destaq">performance, usabilidade e qualidade</span>,
+                entendendo
+                o sistema como um todo — da <span class="destaq">modelagem de dados à experiência do usuário.</span>
 
-                Sou dedicado, curioso e apaixonado por aprendizado contínuo, sempre explorando novas tecnologias para
-                tornar meus projetos mais eficientes e escaláveis.
+                <span class="destaq">Sou dedicado e apaixonado por aprendizado contínuo</span>, sempre explorando novas
+                tecnologias para criar <span class="destaq">projetos eficientes e escaláveis.</span>
             </h2>
-            <img src="images/profile.jpg" alt="">
+            <img src="images/profile.jpg" alt="Foto de Vitor Levi" />
         </div>
     </section>
 
     <section id="techs">
-        <h1>Tecnologias</h1>
+        <h1 class="title">Tecnologias & Ferramentas</h1>
         <div class="cards">
-
             <div class="card">
                 <img src="images/html.png" alt="HTML5" width="48" />
                 <h1>HTML5</h1>
                 <p>Linguagem de marcação usada para estruturar o conteúdo da web, como textos, imagens, links e
-                    formulários. É a base de toda página web.</p>
+                    formulários.
+                    É a base de toda página web.</p>
             </div>
 
             <div class="card">
                 <img src="images/css.png" alt="CSS3" width="48" />
                 <h1>CSS3</h1>
                 <p>Folhas de estilo responsáveis por definir o visual das páginas HTML, como cores, espaçamentos, fontes
-                    e posicionamento dos elementos.</p>
+                    e
+                    posicionamento dos elementos.</p>
             </div>
 
             <div class="card">
                 <img src="images/javascript.png" alt="JavaScript" width="48" />
                 <h1>JAVASCRIPT</h1>
                 <p>Linguagem de programação que permite adicionar interatividade às páginas web, como animações,
-                    validações de formulários e manipulação do DOM.</p>
+                    validações de
+                    formulários e manipulação do DOM.</p>
             </div>
 
             <div class="card">
                 <img src="images/react.png" alt="ReactJS" width="48" />
                 <h1>REACTJS</h1>
                 <p>Biblioteca JavaScript focada na construção de interfaces de usuário. Utiliza componentes
-                    reutilizáveis e oferece alta performance com renderização eficiente.</p>
+                    reutilizáveis e oferece
+                    alta performance com renderização eficiente.</p>
             </div>
 
             <div class="card">
                 <img src="https://skillicons.dev/icons?i=styledcomponents" alt="Styled Components" width="48" />
                 <h1>STYLED COMPONENTS</h1>
                 <p>Biblioteca de estilização para React que permite escrever CSS diretamente dentro dos componentes
-                    JavaScript, promovendo encapsulamento e modularidade.</p>
+                    JavaScript,
+                    promovendo encapsulamento e modularidade.</p>
             </div>
 
             <div class="card">
                 <img src="images/node.png" alt="NodeJS" width="48" />
                 <h1>NODEJS</h1>
                 <p>Ambiente de execução JavaScript no servidor. Permite construir aplicações backend escaláveis usando a
-                    mesma linguagem do frontend.</p>
+                    mesma
+                    linguagem do frontend.</p>
             </div>
             <div class="card">
                 <img src="images/express.png" alt="ExpressJS" width="48" />
                 <h1>EXPRESSJS</h1>
                 <p>Framework web minimalista para Node.js, usado para construir APIs e servidores de forma simples,
-                    rápida e flexível. É leve, mas poderoso, e permite organizar rotas, middlewares e integrações com
-                    facilidade.</p>
+                    rápida e
+                    flexível. É leve, mas poderoso, e permite organizar rotas, middlewares e integrações com facilidade.
+                </p>
             </div>
 
             <div class="card">
                 <img src="images/mysql.png" alt="MySQL" width="48" />
                 <h1>MYSQL</h1>
                 <p>Sistema de gerenciamento de banco de dados relacional. Utiliza linguagem SQL para armazenar e
-                    manipular dados estruturados com alta confiabilidade.</p>
+                    manipular dados
+                    estruturados com alta confiabilidade.</p>
             </div>
 
             <div class="card">
                 <img src="images/mongodb.png" alt="MongoDB" width="48" />
                 <h1>MONGODB</h1>
                 <p>Banco de dados NoSQL orientado a documentos. Flexível, escalável e ideal para aplicações modernas que
-                    lidam com dados dinâmicos e não estruturados.</p>
+                    lidam com
+                    dados dinâmicos e não estruturados.</p>
             </div>
 
             <div class="card">
                 <img src="images/git.png" alt="Git" width="48" />
                 <h1>GIT</h1>
                 <p>Sistema de controle de versão distribuído. Permite gerenciar o histórico de alterações no código,
-                    colaborar em equipe e reverter mudanças quando necessário.</p>
+                    colaborar em
+                    equipe e reverter mudanças quando necessário.</p>
             </div>
 
             <div class="card">
                 <img src="images/postman.png" alt="Postman" width="48" />
                 <h1>POSTMAN</h1>
                 <p>Ferramenta para testar e documentar APIs REST. Facilita o envio de requisições HTTP, visualização de
-                    respostas e automação de testes.</p>
+                    respostas
+                    e automação de testes.</p>
             </div>
             <div class="card">
-                <img src="images/axios.png" alt="Postman" width="48" />
+                <img src="images/axios.png" alt="Axios" width="48" />
                 <h1>Axios</h1>
-                <p>Ferramenta para testar e documentar APIs REST. Facilita o envio de requisições HTTP, visualização de
-                    respostas e automação de testes.</p>
+                <p>Cliente HTTP para navegador e Node.js, facilita requisições e manipulação de respostas.</p>
             </div>
             <div class="card">
-                <img src="images/sequelize.png" alt="Postman" width="48" />
+                <img src="images/sequelize.png" alt="Sequelize" width="48" />
                 <h1>Sequelize</h1>
-                <p>Ferramenta para testar e documentar APIs REST. Facilita o envio de requisições HTTP, visualização de
-                    respostas e automação de testes.</p>
+                <p>ORM para Node.js que facilita a manipulação de bancos relacionais como MySQL através de código
+                    JavaScript.</p>
             </div>
             <div class="card">
-                <img src="images/mongoose.png" alt="Postman" width="48" />
-                <h1>POSTMAN</h1>
-                <p>Ferramenta para testar e documentar APIs REST. Facilita o envio de requisições HTTP, visualização de
-                    respostas e automação de testes.</p>
+                <img src="images/mongoose.png" alt="Mongoose" width="48" />
+                <h1>Mongoose</h1>
+                <p>Biblioteca para modelar objetos MongoDB em Node.js, facilitando a validação e manipulação de dados.
+                </p>
             </div>
             <div class="card">
-                <img src="images/jwt.png" alt="Postman" width="48" />
+                <img src="images/jwt.png" alt="JWT" width="48" />
                 <h1>JWT</h1>
-                <p>Ferramenta para testar e documentar APIs REST. Facilita o envio de requisições HTTP, visualização de
-                    respostas e automação de testes.</p>
+                <p>JSON Web Token para autenticação e troca segura de informações entre cliente e servidor.</p>
             </div>
         </div>
     </section>
 
-
-
     <section id="projetos">
-        Projetos
+        <h1 class="title">Projetos</h1>
         <div class="projetos-cards">
             <div class="project">
-                <img src="" alt="">
+                <img src="" alt="" />
                 <h2>PeixeControl</h2>
                 <div class="stack">
                     <img src="images/react.png" alt="ReactJS" width="48" />
                     <img src="https://skillicons.dev/icons?i=styledcomponents" alt="Styled Components" width="48" />
+                    <img src="images/axios.png" alt="Axios" width="48" />
                     <img src="images/node.png" alt="NodeJS" width="48" />
                     <img src="images/express.png" alt="ExpressJS" width="48" />
+                    <img src="images/javascript.png" alt="JavaScript" width="48" />
+                    <img src="images/jwt.png" alt="JWT" width="48" />
                     <img src="images/mongodb.png" alt="MongoDB" width="48" />
-                    <img src="images/mongoose.png" alt="Postman" width="48" />
+                    <img src="images/mongoose.png" alt="Mongoose" width="48" />
                     <img src="images/postman.png" alt="Postman" width="48" />
-                    <img src="images/jwt.png" alt="Postman" width="48" />
-                    <img src="images/axios.png" alt="Postman" width="48" />
                 </div>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto sit odit exercitationem enim eligendi
-                    nesciunt, fugit ex sint aspernatur laudantium veniam fugiat vero, illum nemo iure distinctio eveniet
-                    sunt eum?</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis enim consectetur numquam quae, amet
+                    quia
+                    hic veritatis doloribus, voluptates dolorem obcaecati eius facere commodi quo. Numquam nostrum
+                    quaerat nam
+                    laborum.</p>
             </div>
+
             <div class="project">
-                <img src="" alt="">
+                <img src="" alt="" />
                 <h2>GoalLive</h2>
                 <div class="stack">
                     <img src="images/react.png" alt="ReactJS" width="48" />
                     <img src="https://skillicons.dev/icons?i=styledcomponents" alt="Styled Components" width="48" />
+                    <img src="images/axios.png" alt="Axios" width="48" />
                     <img src="images/postman.png" alt="Postman" width="48" />
-                    <img src="images/axios.png" alt="Postman" width="48" />
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus natus fuga itaque mollitia
-                    quibusdam culpa veritatis quia at officiis cumque illo tenetur possimus optio repellat, voluptas
-                    deserunt necessitatibus doloremque. Dolores?</p>
+                    quibusdam culpa
+                    veritatis quia at officiis cumque illo tenetur possimus optio repellat, voluptas deserunt
+                    necessitatibus
+                    doloremque. Dolores?</p>
             </div>
+
             <div class="project">
-                <img src="" alt="">
+                <img src="" alt="" />
                 <h2>Fome!!</h2>
                 <div class="stack">
                     <img src="images/html.png" alt="HTML5" width="48" />
@@ -197,25 +227,59 @@
                     <img src="images/javascript.png" alt="JavaScript" width="48" />
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus natus fuga itaque mollitia
-                    quibusdam culpa veritatis quia at officiis cumque illo tenetur possimus optio repellat, voluptas
-                    deserunt necessitatibus doloremque. Dolores?</p>
+                    quibusdam culpa
+                    veritatis quia at officiis cumque illo tenetur possimus optio repellat, voluptas deserunt
+                    necessitatibus
+                    doloremque. Dolores?</p>
+            </div>
+
+            <div class="project">
+                <img src="" alt="" />
+                <h2>Thoughts</h2>
+                <div class="stack">
+                    <img src="images/html.png" alt="HTML5" width="48" />
+                    <img src="images/css.png" alt="CSS3" width="48" />
+                    <img src="images/javascript.png" alt="JavaScript" width="48" />
+                    <img src="images/node.png" alt="NodeJS" width="48" />
+                    <img src="images/express.png" alt="ExpressJS" width="48" />
+                    <img src="images/mysql.png" alt="MySQL" width="48" />
+                    <img src="images/sequelize.png" alt="Sequelize" width="48" />
+                    <img src="images/axios.png" alt="Axios" width="48" />
+                    <img src="images/postman.png" alt="Postman" width="48" />
+                </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus natus fuga itaque mollitia
+                    quibusdam culpa
+                    veritatis quia at officiis cumque illo tenetur possimus optio repellat, voluptas deserunt
+                    necessitatibus
+                    doloremque. Dolores?</p>
             </div>
         </div>
     </section>
 
     <footer>
         <div id="footer-content">
-            <span id="copyright">
-                &copy 2025 Vitor Levi
-            </span>
-
+            <span id="copyright">&copy; 2025 Vitor Levi</span>
             <div class="social-links">
-                <a href="https://github.com/DevVitorlevi" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/vitor-levi/" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><img src="images/github.png" alt="GitHub"></a>
+                <a href="#"><img src="images/linkedin.png" alt="LinkedIn"></a>
             </div>
         </div>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80 },
+                size: { value: 3 },
+                move: { speed: 2 },
+                color: { value: "#ffffff" },
+                opacity: { value: 0.5 }
+            }
+        });
+    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

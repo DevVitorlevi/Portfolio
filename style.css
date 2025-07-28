@@ -1,0 +1,156 @@
+/* Reset e base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    /* === Cores === */
+    --cor-fundo: #000000;
+    --cor-texto: #FFFFFF;
+
+    /* === Tipografia === */
+    --fonte-principal: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Lexend Deca', sans-serif;
+
+    --peso-fonte-regular: 400;
+    --peso-fonte-semi-negrito: 600;
+    --peso-fonte-negrito: 700;
+
+
+    /* === Botões === */
+    --botao-bg-primario: var(--cor-fundo);
+    --botao-cor-texto: var(--cor-texto);
+    --botao-fonte: var(--fonte-principal);
+    --botao-padding: 10px 24px;
+    --botao-borda-raio: 8px;
+}
+
+body {
+    height: 100vh;
+    font-family: var(--fonte-principal);
+}
+
+/* Fundo animado (estrelas ou partículas) */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: var(--cor-fundo);
+}
+
+/* Header fixo com efeito vidro */
+#header {
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 2rem 0;
+    font-size: 1.4rem;
+    z-index: 10;
+}
+
+/* Navegação */
+#nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: var(--fonte-principal);
+}
+
+#hero {
+    height: 90vh;
+    padding: 10rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    font-size: 2rem;
+    color: #fff;
+    font-family: var(--fonte-principal);
+}
+
+/* Títulos */
+#hero h1 {
+    font-size: 3rem;
+    font-weight: var(--peso-fonte-negrito, 700);
+    white-space: nowrap;
+}
+
+#hero h2 {
+    font-size: 2rem;
+    font-weight: var(--peso-fonte-semi-negrito, 600);
+    white-space: nowrap;
+    min-height: 2.5rem;
+    /* pra evitar salto ao digitar */
+}
+
+/* Cursor piscando */
+.cursor {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 3rem;
+    color: #fff;
+    margin-left: 3px;
+    animation: blink 1s steps(2, start) infinite;
+    user-select: none;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.social-links a img {
+    transition: transform 0.3s ease;
+    width: 40px;
+    height: 40px;
+}
+
+.social-links a {
+    background-color: #FFFFFF;
+    padding: 0.5rem;
+    height: 62px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.social-links a:hover img {
+    transform: scale(1.2);
+}
+
+/* Título geral reutilizável */
+.title {
+    font-family: var(--fonte-principal);
+    font-size: 1.4rem;
+}
