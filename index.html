@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portifolio</title>
+    <title>Portfólio - Vitor Levi</title>
+
+    <!-- Font Awesome para ícones do menu hamburguer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -13,52 +15,61 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Lexend+Deca:wght@100..900&display=swap"
         rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
 </head>
 
 <body>
     <header id="header">
+        <!-- Botão hamburguer para mobile -->
+        <button id="hamburger" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Menu de navegação -->
         <nav id="nav">
-            <li class="nav-items"><a href="#hero">Home</a></li>
-            <li class="nav-items"><a href="#about">Sobre Mim</a></li>
-            <li class="nav-items"><a href="#techs">Techs & Tools</a></li>
-            <li class="nav-items"><a href="#projetos">Projetos</a></li>
+            <ul class="nav-list">
+                <li><a href="#hero">Início</a></li>
+                <li><a href="#about">Sobre Mim</a></li>
+                <li><a href="#techs">Techs & Tools</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
         </nav>
     </header>
-
-    <div id="particles-js"></div>
-
+    <div id="overlay"></div>
     <section id="hero">
         <h1>
-            <span id="typed-hello"></span><span class="cursor" id="cursor1">|</span>
+            Olá! Me chamo Vitor Levi <span class="cursor" id="cursor1" style="display: none"></span>
         </h1>
         <h2>
-            <span id="typed-name"></span><span class="cursor" id="cursor2">|</span>
+            <span id="h2">Desenvolvedor</span>
+            <span id="typed-role" class="gradient-text"></span><span class="cursor">|</span>
         </h2>
+
         <div class="social-links" id="social-links">
             <a href="#"><img src="images/gith.png" alt="GitHub" /></a>
             <a href="#"><img src="images/linkedin.png" alt="LinkedIn" /></a>
         </div>
+        <div id="particles-js"></div>
     </section>
 
-
+    <div id="stars-js"></div>
 
     <section id="about">
         <p class="subtitle animate fade-left" data-delay="0.1s">
-            Meu nome é <span class="destaq">Vitor Levi</span>, tenho 17 anos e estou no 3º ano do Ensino
-            Médio em
-            uma
+            Meu nome é <span class="destaq">Vitor Levi</span>, tenho 17 anos e estou no 3º ano do Ensino Médio em uma
             escola profissionalizante, cursando <span class="destaq">Desenvolvimento de Sistemas</span>. Sou
-            <span class="destaq">Desenvolvedor há 2 anos</span> e atuo como <span class="destaq">Desenvolvedor
-                Full
+            <span class="destaq">Desenvolvedor há 2 anos</span> e atuo como <span class="destaq">Desenvolvedor Full
                 Stack</span>,
-            trabalhando com <span class="destaq">Front-end</span> e <span class="destaq">Back-end</span>.
-            Busco entregar soluções com foco em <span class="destaq">performance, usabilidade e
-                qualidade</span>,
-            entendendo
-            o sistema como um todo — da <span class="destaq">modelagem de dados à experiência do usuário.</span>
-            <span class="destaq">Sou dedicado e apaixonado por aprendizado contínuo</span>, sempre explorando
-            novas
-            tecnologias para criar <span class="destaq">projetos eficientes e escaláveis.</span>
+            trabalhando com <span class="destaq">Front-end</span> e <span class="destaq">Back-end</span>. Busco entregar
+            soluções
+            com foco em <span class="destaq">performance, usabilidade e qualidade</span>, entendendo o sistema como um
+            todo — da
+            <span class="destaq">modelagem de dados à experiência do usuário.</span> <span class="destaq">Sou dedicado e
+                apaixonado por aprendizado
+                contínuo</span>, sempre explorando novas tecnologias para criar <span class="destaq">projetos eficientes
+                e escaláveis.</span>
         </p>
         <div id="image" class="animate zoom-in" data-delay="0.4s"></div>
     </section>
@@ -124,17 +135,17 @@
             </div>
             <div class="card animate fade-up" data-delay="1.4s">
                 <img src="images/jwt.png" alt="JWT" width="48" />
-                <h1>JWT</h1>
+                <h1>JWT </h1>
             </div>
         </div>
     </section>
 
-
     <section id="projetos">
         <h1 class="title animate fade-up" data-delay="0s">Projetos</h1>
-        <div class="project animate fade-right" data-delay="0s">
-            <div class="project">
-                <img src="images/image.png" alt="" class="image" />
+
+        <div class="projetos-cards">
+            <div class="project animate fade-right" data-delay="0s">
+                <img src="images/image.png" alt="PeixeControl" class="image" />
                 <h2>PeixeControl</h2>
                 <div class="stack">
                     <img src="images/react.png" alt="ReactJS" width="48" />
@@ -148,17 +159,18 @@
                     <img src="images/mongoose.png" alt="Mongoose" width="48" />
                     <img src="images/postman.png" alt="Postman" width="48" />
                 </div>
-                <p class="subtitle">Aplicação web responsiva para controle de estoque e vendas em peixarias. Permite
-                    cadastrar peixes, registrar vendas, gerar relatórios diários/mensais e emitir PDFs. Destaques:
-                    carrinho dinâmico, alerta de estoque baixo e interface intuitiva.</p>
+                <p class="subtitle">
+                    Aplicação web responsiva para controle de estoque e vendas em peixarias. Permite cadastrar peixes,
+                    registrar vendas, gerar relatórios diários/mensais e emitir PDFs. Destaques: carrinho dinâmico,
+                    alerta de estoque baixo e interface intuitiva.
+                </p>
                 <div class="buttons">
-                    <a href="">Acesse</a>
-                    <a href="">Codigo</a>
+                    <a href="#" id="code">Acesse</a>
+                    <a href="#" id="github">Código</a>
                 </div>
             </div>
-
             <div class="project animate fade-right" data-delay="0.2s">
-                <img src="images/image.png" alt="" class="image" />
+                <img src="images/image.png" alt="GoalLive" class="image" />
                 <h2>GoalLive</h2>
                 <div class="stack">
                     <img src="images/react.png" alt="ReactJS" width="48" />
@@ -166,40 +178,36 @@
                     <img src="images/axios.png" alt="Axios" width="48" />
                     <img src="images/postman.png" alt="Postman" width="48" />
                 </div>
-                <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus natus fuga
-                    itaque mollitia
-                    quibusdam culpa
-                    veritatis quia at officiis cumque illo tenetur possimus optio repellat, voluptas deserunt
-                    necessitatibus
-                    doloremque. Dolores?</p>
+                <p class="subtitle">
+                    GoalLive é uma plataforma responsiva para acompanhar jogos de futebol ao vivo, com placares em tempo
+                    real, filtro por campeonatos e visual moderno. Exibe escudos, tempo de jogo, substituições e mais,
+                    com design escuro e suporte total a mobile.
+                </p>
                 <div class="buttons">
-                    <a href="">Acesse</a>
-                    <a href="">Codigo</a>
+                    <a href="#" id="code">Acesse</a>
+                    <a href="#" id="github">Código</a>
                 </div>
             </div>
-
             <div class="project animate fade-right" data-delay="0.4s">
-                <img src="images/image.png" alt="" class="image" />
+                <img src="images/image.png" alt="Fome!!" class="image" />
                 <h2>Fome!!</h2>
                 <div class="stack">
                     <img src="images/html.png" alt="HTML5" width="48" />
                     <img src="images/css.png" alt="CSS3" width="48" />
                     <img src="images/javascript.png" alt="JavaScript" width="48" />
                 </div>
-                <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus natus fuga
-                    itaque mollitia
-                    quibusdam culpa
-                    veritatis quia at officiis cumque illo tenetur possimus optio repellat, voluptas deserunt
-                    necessitatibus
-                    doloremque. Dolores?</p>
+                <p class="subtitle">
+                    Landing page moderna para restaurante, com fotos apetitosas dos pratos e avaliaçõesdos clientes.
+                    Design responsivo que transmite confiança e valoriza a experiência gastronômica, criando um ambiente
+                    acolhedor para visitantes em qualquer dispositivo.
+                </p>
                 <div class="buttons">
-                    <a href="">Acesse</a>
-                    <a href="">Codigo</a>
+                    <a href="#" id="code">Acesse</a>
+                    <a href="#" id="github">Código</a>
                 </div>
             </div>
-
             <div class="project animate fade-right" data-delay="0.6s">
-                <img src="images/image.png" alt="" class="image" />
+                <img src="images/image.png" alt="Thoughts" class="image" />
                 <h2>Thoughts</h2>
                 <div class="stack">
                     <img src="images/html.png" alt="HTML5" width="48" />
@@ -212,35 +220,60 @@
                     <img src="images/axios.png" alt="Axios" width="48" />
                     <img src="images/postman.png" alt="Postman" width="48" />
                 </div>
-                <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus natus fuga
-                    itaque mollitia
-                    quibusdam culpa
-                    veritatis quia at officiis cumque illo tenetur possimus optio repellat, voluptas deserunt
-                    necessitatibus
-                    doloremque. Dolores?</p>
+                <p class="subtitle">
+                    Plataforma para usuários compartilharem ideias e pensamentos de forma livre e interativa. Permite
+                    criar, editar, curtir e comentar publicações, com layout limpo, responsivo e foco na troca de
+                    experiências entre pessoas.
+                </p>
                 <div class="buttons">
-                    <a href="">Acesse</a>
-                    <a href="">Codigo</a>
+                    <a href="#" id="code">Acesse</a>
+                    <a href="#" id="github">Código</a>
                 </div>
             </div>
-
         </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="nameTyping.js"></script>
+    <script src="particules.js"></script>
+    <script src="stars.js"></script>
+    <script src="scrollObserver.js"></script>
 
     <script>
-        particlesJS("particles-js", {
-            particles: {
-                number: { value: 80 },
-                size: { value: 3 },
-                move: { speed: 2 },
-                color: { value: "#ffffff" },
-                opacity: { value: 0.5 }
+        const hamburger = document.getElementById('hamburger');
+        const navList = document.querySelector('.nav-list');
+        const overlay = document.getElementById('overlay');
+
+        function openMenu() {
+            navList.classList.add('open');
+            overlay.classList.add('active');
+            hamburger.innerHTML = '<i class="fas fa-times"></i>';
+        }
+
+        function closeMenu() {
+            navList.classList.remove('open');
+            overlay.classList.remove('active');
+            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        }
+
+        hamburger.addEventListener('click', () => {
+            if (navList.classList.contains('open')) {
+                closeMenu();
+            } else {
+                openMenu();
             }
         });
+
+        overlay.addEventListener('click', () => {
+            closeMenu();
+        });
+
+        document.querySelectorAll('.nav-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+            });
+        });
     </script>
-    <script src="script.js"></script>
 </body>
 
 </html>
