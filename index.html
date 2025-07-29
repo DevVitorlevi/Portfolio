@@ -31,7 +31,7 @@
                 <li><a href="#hero">Início</a></li>
                 <li><a href="#about">Sobre Mim</a></li>
                 <li><a href="#techs">Techs & Tools</a></li>
-                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#services">Serviços</a></li>
                 <li><a href="#projetos">Projetos</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
@@ -39,13 +39,15 @@
     </header>
     <div id="overlay"></div>
     <section id="hero">
-        <h1>
-            Olá! Me chamo Vitor Levi <span class="cursor" id="cursor1" style="display: none"></span>
-        </h1>
-        <h2>
-            <span id="h2">Desenvolvedor</span>
-            <span id="typed-role" class="gradient-text"></span><span class="cursor">|</span>
-        </h2>
+        <div class="text">
+            <h1>
+                Olá! Me chamo Vitor Levi <span class="cursor" id="cursor1" style="display: none"></span>
+            </h1>
+            <h2>
+                <span id="h2">Desenvolvedor</span>
+                <span id="typed-role" class="gradient-text"></span><span class="cursor">|</span>
+            </h2>
+        </div>
 
         <div class="social-links" id="social-links">
             <a href="#"><img src="images/gith.png" alt="GitHub" /></a>
@@ -140,6 +142,60 @@
         </div>
     </section>
 
+    <section id="services">
+        <h1 class="title animate fade-up" data-delay="0s">Serviços</h1>
+        <div class="services-cards">
+            <div class="service-card animate fade-right" data-delay="0s">
+                <i class="fa-solid fa-code"></i>
+                <h3 class="service-card__title">Desenvolvimento Web Full-stack</h3>
+                <p class="service-card__description">
+                    Criação de aplicações completas, cuidando tanto do frontend quanto do backend para entregar soluções
+                    robustas e escaláveis.
+                </p>
+                <ul class="service-card__list">
+                    <li class="service-card__list-item">- Sistemas responsivos com integração a APIs RESTful</li>
+                    <li class="service-card__list-item">- Painéis administrativos com autenticação e controle de acesso
+                    </li>
+                    <li class="service-card__list-item">- Plataformas com persistência de dados e lógica de negócio
+                        modular</li>
+                </ul>
+            </div>
+
+            <div class="service-card animate fade-right" data-delay="0.4s">
+                <i class="fa-solid fa-laptop-code"></i>
+                <h3 class="service-card__title">Desenvolvimento Web Front-end</h3>
+                <p class="service-card__description">
+                    Foco no frontend para construir interfaces intuitivas e responsivas que garantem ótima
+                    experiência
+                    ao usuário.
+                </p>
+                <ul class="service-card__list">
+                    <li class="service-card__list-item">- Interfaces responsivas com abordagem Mobile First</li>
+                    <li class="service-card__list-item">- Implementação de layouts dinâmicos com animações suaves
+                    </li>
+                    <li class="service-card__list-item">- Design System customizado com componentes reutilizáveis
+                    </li>
+                </ul>
+            </div>
+            <div class="service-card animate fade-right" data-delay="0.8s">
+                <i class="fa-solid fa-server"></i>
+                <h3 class="service-card__title">Desenvolvimento Web Back-end</h3>
+                <p class="service-card__description">
+                    Desenvolvimento de APIs, lógica de negócio e integração com bancos de dados para suportar aplicações
+                    eficientes e seguras.
+                </p>
+                <ul class="service-card__list">
+                    <li class="service-card__list-item">- Estruturação de APIs RESTful escaláveis</li>
+                    <li class="service-card__list-item">- Gerenciamento de dados com modelagem eficiente</li>
+                    <li class="service-card__list-item">- Autenticação baseada em tokens e controle de acesso</li>
+                </ul>
+            </div>
+
+        </div>
+
+
+    </section>
+
     <section id="projetos">
         <h1 class="title animate fade-up" data-delay="0s">Projetos</h1>
 
@@ -169,7 +225,7 @@
                     <a href="#" id="github">Código</a>
                 </div>
             </div>
-            <div class="project animate fade-right" data-delay="0.2s">
+            <div class="project animate fade-right" data-delay="0.4s">
                 <img src="images/image.png" alt="GoalLive" class="image" />
                 <h2>GoalLive</h2>
                 <div class="stack">
@@ -188,7 +244,7 @@
                     <a href="#" id="github">Código</a>
                 </div>
             </div>
-            <div class="project animate fade-right" data-delay="0.4s">
+            <div class="project animate fade-right" data-delay="0.8s">
                 <img src="images/image.png" alt="Fome!!" class="image" />
                 <h2>Fome!!</h2>
                 <div class="stack">
@@ -206,7 +262,7 @@
                     <a href="#" id="github">Código</a>
                 </div>
             </div>
-            <div class="project animate fade-right" data-delay="0.6s">
+            <div class="project animate fade-right" data-delay="1.2s">
                 <img src="images/image.png" alt="Thoughts" class="image" />
                 <h2>Thoughts</h2>
                 <div class="stack">
@@ -232,48 +288,20 @@
             </div>
         </div>
     </section>
-
+    <section id="contato">
+        <h1 class="title animate fade-up" data-delay="0s"> Contato</h1>
+        <div class="metricas">
+            <div class="metricas-card"> 2+ Anos de Experiência</div>
+            <div class="metricas-card"> 40+ Projetos</div>
+            <div class="metricas-card"> 1200+ Commits</div>
+        </div>
+    </section>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="nameTyping.js"></script>
     <script src="particules.js"></script>
     <script src="stars.js"></script>
     <script src="scrollObserver.js"></script>
-
-    <script>
-        const hamburger = document.getElementById('hamburger');
-        const navList = document.querySelector('.nav-list');
-        const overlay = document.getElementById('overlay');
-
-        function openMenu() {
-            navList.classList.add('open');
-            overlay.classList.add('active');
-            hamburger.innerHTML = '<i class="fas fa-times"></i>';
-        }
-
-        function closeMenu() {
-            navList.classList.remove('open');
-            overlay.classList.remove('active');
-            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-
-        hamburger.addEventListener('click', () => {
-            if (navList.classList.contains('open')) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        });
-
-        overlay.addEventListener('click', () => {
-            closeMenu();
-        });
-
-        document.querySelectorAll('.nav-list a').forEach(link => {
-            link.addEventListener('click', () => {
-                closeMenu();
-            });
-        });
-    </script>
+    <script src="menuH.js"></script>
 </body>
 
 </html>

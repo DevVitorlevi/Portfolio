@@ -15,7 +15,7 @@
 
     /* === Tipografia === */
     --fonte-principal: 'Audiowide', sans-serif;
-    --fonte-secundaria: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Lexend Deca', sans-serif;
 
     --peso-fonte-regular: 400;
     --peso-fonte-semi-negrito: 600;
@@ -53,7 +53,7 @@ body {
     width: 100%;
     height: 100%;
     z-index: -2;
-    background-color: #000000;
+    background-color: #010010;
 }
 
 #header {
@@ -65,7 +65,7 @@ body {
     border-radius: 20px;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(15px);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.113), rgba(0, 0, 0, 0.969));
+    background-color: rgba(255, 255, 255, 0.022);
     font-size: 1.4rem;
     z-index: 9999;
     display: flex;
@@ -153,6 +153,10 @@ body {
     font-family: var(--fonte-principal);
 }
 
+#hero .text {
+    margin-top: 10rem;
+}
+
 /* Títulos */
 #hero h1 {
     font-size: 5rem;
@@ -231,7 +235,7 @@ body {
 
 .subtitle {
     font-weight: 400;
-    font-family: var(--fonte-secundaria);
+    font-family: 'Lexend Deca';
 }
 
 #about .subtitle {
@@ -241,7 +245,9 @@ body {
 }
 
 .destaq {
-    color: blueviolet;
+    background: linear-gradient(90deg, #7B2FF7, #2983f0);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #image {
@@ -297,13 +303,72 @@ body {
 .card h1 {
     font-size: 1.25rem;
     color: #ffffff;
+    font-family: 'Lexend Deca';
 }
 
-.card .subtitle {
-    font-size: 0.95rem;
-    color: #ffffff;
-    line-height: 1.4;
+#services {
+    margin: 1rem;
+    margin-bottom: 200px;
+
+}
+
+#services i {
+    font-size: 50px;
+    background: linear-gradient(90deg, #7B2FF7, #2983f0);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.services-cards {
+    display: flex;
+    align-items: stretch;
+    /* Faz os filhos terem a mesma altura */
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    /* Recomendado para espaçamento consistente */
+}
+
+
+.service-card {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
+    border-radius: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    max-width: 400px;
+    min-height: 100%;
+}
+
+
+.service-card__title {
+    background: linear-gradient(90deg, #7B2FF7, #2983f0);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.6rem;
+}
+
+.service-card__description {
+    font-size: 1.2rem;
+    font-family: var(--fonte-secundaria);
+}
+
+.service-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.service-card__list-item {
+    font-family: var(--fonte-secundaria);
 }
 
 #projetos {
@@ -313,9 +378,8 @@ body {
 .projetos-cards {
     display: flex;
     align-items: stretch;
-    /* faz todos os cards terem a mesma altura */
     justify-content: center;
-    gap: 1rem;
+    gap: 2rem;
     flex-wrap: wrap;
 }
 
@@ -334,10 +398,7 @@ body {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     margin-bottom: 100px;
     width: 100%;
-
     max-width: 400px;
-
-    height: 550px;
 
 }
 
@@ -362,9 +423,9 @@ body {
 .project .subtitle {
     text-align: left;
     font-family: var(--fonte-secundaria);
-    font-weight: 100;
+    font-weight: 400;
     padding: 0 2rem;
-    font-size: .8rem;
+    font-size: 1rem;
 }
 
 .buttons {
