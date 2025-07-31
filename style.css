@@ -15,12 +15,8 @@
     --cor-texto: #FFFFFF;
 
     /* === Tipografia === */
-    --fonte-principal: 'Audiowide', sans-serif;
-    --fonte-secundaria: 'Lexend Deca', sans-serif;
+    --fonte-principal: 'Poppins', sans-serif;
 
-    --peso-fonte-regular: 400;
-    --peso-fonte-semi-negrito: 600;
-    --peso-fonte-negrito: 700;
 
     /* === Botões === */
     --botao-bg-primario: var(--cor-fundo);
@@ -34,6 +30,7 @@ body {
     font-family: var(--fonte-principal);
     background-color: transparent;
     overflow-x: hidden;
+
 }
 
 /* Fundo animado (estrelas ou partículas) */
@@ -95,7 +92,6 @@ body {
 .nav-list li a {
     color: white;
     font-family: var(--fonte-principal);
-    font-weight: var(--peso-fonte-regular);
     font-size: 1.2rem;
     cursor: pointer;
     display: block;
@@ -276,11 +272,12 @@ body {
     font-size: 2.8rem;
     text-align: center;
     margin-bottom: 2rem;
+    font-weight: 300;
 }
 
 .subtitle {
     font-weight: 400;
-    font-family: 'Lexend Deca';
+    font-family: var(--fonte-principal);
 }
 
 #about .subtitle {
@@ -415,7 +412,8 @@ body {
 .card h1 {
     font-size: 1.25rem;
     color: #ffffff;
-    font-family: 'Lexend Deca';
+    font-family: var(--fonte-principal);
+    font-weight: 400;
 }
 
 #services {
@@ -546,6 +544,8 @@ body {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 1.6rem;
+    font-family: var(--fonte-principal);
+    font-weight: 400;
 }
 
 .service-card__description {
@@ -605,10 +605,9 @@ body {
     overflow: hidden;
     will-change: transform, box-shadow;
     z-index: 0;
-    /* garante que o ::before fique atrás */
 }
 
-/* Conteúdo dentro da .project fica acima do reflexo */
+
 .project * {
     position: relative;
     z-index: 1;
@@ -641,7 +640,6 @@ body {
     z-index: -1;
 }
 
-/* Hover: brilho sobe e passa da esquerda para direita */
 .project:hover::before {
     opacity: 1;
     animation: shine-move 1.2s linear forwards;
@@ -649,15 +647,12 @@ body {
     /* começa em cima */
 }
 
-/* Unhover: brilho desce e passa da direita para esquerda */
 .project:not(:hover)::before {
     opacity: 1;
     animation: shine-move-reverse 1.2s linear forwards;
     top: 20%;
-    /* começa mais baixo */
 }
 
-/* Keyframes para o brilho subindo da esquerda para direita */
 @keyframes shine-move {
     0% {
         left: -75%;
@@ -676,7 +671,6 @@ body {
     }
 }
 
-/* Keyframes para o brilho descendo da direita para esquerda */
 @keyframes shine-move-reverse {
     0% {
         left: 125%;
@@ -695,7 +689,6 @@ body {
     }
 }
 
-/* Estilo da imagem dentro do projeto */
 .project .image {
     width: 100%;
     height: auto;
@@ -704,7 +697,7 @@ body {
     display: block;
     position: relative;
     z-index: 1;
-    /* garante estar acima do reflexo */
+
 }
 
 
@@ -725,10 +718,14 @@ body {
 
 .project .subtitle {
     text-align: left;
-    font-family: var(--fonte-secundaria);
+    font-family: var(--fonte-principal);
     font-weight: 400;
     padding: 0 2rem;
     font-size: 1rem;
+}
+
+.project h2 {
+    font-weight: 400;
 }
 
 .buttons {
@@ -751,14 +748,14 @@ body {
     border-radius: 10px;
     margin-bottom: 1rem;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 400;
     text-align: center;
     transition: 0.4s ease-in-out;
     flex: 1;
     font-size: 1.3rem;
 }
 
-/* Botão: Ver Projeto (cor roxa neon) */
+
 #code {
     background-color: #42038f;
     color: white;
@@ -769,7 +766,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Botão: Acessar Código (cor preta) */
+
 #github {
     background-color: #000;
     color: white;
@@ -920,16 +917,14 @@ textarea {
     box-shadow: 0 0 110px 5px #7B2FF7aa;
 }
 
-/* Media queries para telas pequenas */
-@media (max-width: 1024px) {
+@media screen and (max-width: 992px) {
     #header {
-        width: 90vw;
+        width: 100vw;
         padding: 1rem 1.5rem;
     }
 
     #hero {
         padding: 8rem 1.5rem;
-        font-size: 1.8rem;
     }
 
     #hero h1 {
@@ -948,24 +943,43 @@ textarea {
     #about {
         margin: 2rem 1rem;
         height: auto;
-        flex-direction: column;
         gap: 2rem;
-        justify-content: center;
-        align-items: center;
+    }
+
+    .about-card {
+        gap: 1rem;
+    }
+
+    .metricas {
+        gap: 10rem;
+    }
+
+    .data p {
+        font-size: 1rem;
+    }
+
+    .data .destaq {
+        font-size: 3rem;
+    }
+
+    .services-cards .service-card:nth-child(3) {
+        flex-basis: 100%;
+        max-width: 100%;
     }
 
     .services-cards {
         gap: 1.6rem;
+        margin: 0 2rem;
     }
 
     .services-cards .service-card:nth-child(3) {
         flex-basis: 80%;
-        max-width: 80%;
+        max-width: 100%;
     }
 
     #about .subtitle {
-        width: 100%;
-        font-size: 1.3rem;
+        width: 60%;
+        font-size: 1.2rem;
         margin-left: 0;
     }
 
@@ -990,7 +1004,16 @@ textarea {
     }
 
     #projetos {
-        margin: 2rem 1rem 6rem 1rem;
+        margin: 1rem;
+    }
+
+    .projetos-cards {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 colunas */
+        gap: 2rem;
+        justify-items: center;
+        /* centraliza os cards */
     }
 
     .project .image {
@@ -998,13 +1021,35 @@ textarea {
     }
 
     .project {
-        margin-bottom: 3rem;
-        padding: 1rem;
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 0;
+
     }
 
     .project .subtitle {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        padding: 0 1rem;
     }
+
+    .buttons {
+        gap: .6rem;
+        margin: 1rem;
+    }
+
+    .buttons a {
+        padding: 0.5rem 1.2rem;
+        font-size: 1.3rem;
+    }
+
+    #contact-form {
+        width: 80%;
+    }
+
+}
+
+/* Mobile (telas até 768px) */
+@media screen and (max-width: 768px) {
 
     /* Mostrar botão hamburguer */
     #hamburger {
@@ -1060,11 +1105,6 @@ textarea {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-}
-
-/* Mobile (telas até 768px) */
-@media screen and (max-width: 1000px) and (max-width:1023px) {
-
     /* Ajuste geral dos títulos e textos para telas pequenas */
     #hero {
         font-size: 1.4rem;
@@ -1072,16 +1112,16 @@ textarea {
     }
 
     #hero h1 {
-        font-size: 2.8rem;
+        font-size: 3.6rem;
         white-space: normal;
     }
 
     #hero #h2 {
-        font-size: 2rem;
+        font-size: 3rem;
     }
 
     .gradient-text {
-        font-size: 2rem;
+        font-size: 3rem;
     }
 
     .social-links a img {
@@ -1123,10 +1163,6 @@ textarea {
         margin: 0 auto;
     }
 
-    .services-cards .service-card:nth-child(3) {
-        flex-basis: 100%;
-        max-width: 100%;
-    }
 
 
     .services-cards {
@@ -1159,6 +1195,10 @@ textarea {
         font-size: 1.3rem;
     }
 
+    .projetos-cards {
+        display: flex;
+    }
+
     .project {
         max-width: 600px;
     }
@@ -1171,10 +1211,6 @@ textarea {
         font-size: 50px;
     }
 
-    #contact-form {
-        width: 80%;
-        gap: 1rem;
-    }
 
     .buttons {
         gap: .6rem;
@@ -1192,12 +1228,15 @@ textarea {
         margin: 0 4rem;
     }
 
+    #contact-form {
+        width: 80%;
+    }
 
 }
 
 @media screen and (max-width:600px) {
     #about {
-        margin: 2rem;
+        margin: 1rem;
     }
 
     .about-card {
@@ -1206,7 +1245,8 @@ textarea {
     }
 
     #about .subtitle {
-        font-size: 1rem;
+        font-size: 1.2rem;
+        width: 90%;
     }
 
     .metricas {
@@ -1228,17 +1268,17 @@ textarea {
 
 
     #hero h1 {
-        font-size: 2rem;
+        font-size: 2.3rem;
         white-space: normal;
     }
 
     #hero #h2 {
-        font-size: 1.3rem;
+        font-size: 1.8rem;
     }
 
 
     .gradient-text {
-        font-size: 1.3rem;
+        font-size: 1.8rem;
     }
 
     .cursor {
@@ -1264,6 +1304,17 @@ textarea {
         font-size: 1rem;
     }
 
+    .service-card__list-item {
+        font-size: .8rem;
+    }
+
+    .services-cards .service-card:nth-child(3),
+    .service-card:nth-child(2),
+    .service-card:nth-child(1) {
+        flex-basis: 85%;
+        max-width: 85%;
+    }
+
     #services i {
         font-size: 40px;
     }
@@ -1274,17 +1325,17 @@ textarea {
     }
 
     .stack img {
-        width: 25px;
+        width: 30px;
     }
 
     .project .subtitle {
-        padding: 0;
-        font-size: .8rem;
+        padding: 0 1rem;
+        font-size: 1rem;
     }
 
     .buttons {
         gap: .3rem;
-        margin: 0;
+        margin: 1rem;
     }
 
 
@@ -1302,11 +1353,17 @@ textarea {
         font-size: 1.4rem;
     }
 
+
     #contact-form input,
     #contact-form button,
     #contact-form textarea {
         font-size: 1rem;
     }
+
+    .social-links a img {
+        width: 50px;
+    }
+
 }
 
 @media (max-width: 400px) {
@@ -1314,4 +1371,18 @@ textarea {
         grid-template-columns: repeat(2, 1fr);
         /* até 400px */
     }
+
+    #about .subtitle {
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .stack img {
+        width: 30px;
+    }
+
+    .stack {
+        gap: .4rem;
+    }
+
 }
