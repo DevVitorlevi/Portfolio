@@ -17,6 +17,7 @@
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
 </head>
+<div class="about-cards-container"></div>
 
 <body>
     <header id="header">
@@ -29,12 +30,15 @@
             <ul class="nav-list">
                 <li><a href="#hero">Início</a></li>
                 <li><a href="#about">Sobre Mim</a></li>
+                <li><a href="#certificacoes">Certificações</a></li>
                 <li><a href="#techs">Techs & Tools</a></li>
                 <li><a href="#services">Serviços</a></li>
                 <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#diferenciais-tecnicos">Diferenciais Técnicos</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
+
     </header>
     <div id="overlay"></div>
     <section id="hero">
@@ -47,99 +51,127 @@
                 <span id="typed-role" class="gradient-text"></span><span class="cursor">|</span>
             </h2>
         </div>
-
-        <div class="social-links" id="social-links">
-            <a href="#"><img src="images/gith.png" alt="GitHub" /></a>
-            <a href="#"><img src="images/linkedin.png" alt="LinkedIn" /></a>
-        </div>
         <div id="particles-js"></div>
     </section>
 
     <div id="stars-js"></div>
 
-    <section id="about">
-        <p class="subtitle animate fade-left" data-delay="0.1s">
-            Meu nome é <span class="destaq">Vitor Levi</span>, tenho 17 anos e estou no 3º ano do Ensino Médio em uma
-            escola profissionalizante, cursando <span class="destaq">Desenvolvimento de Sistemas</span>. Sou
-            <span class="destaq">Desenvolvedor há 2 anos</span> e atuo como <span class="destaq">Desenvolvedor Full
-                Stack</span>,
-            trabalhando com <span class="destaq">Front-end</span> e <span class="destaq">Back-end</span>. Busco entregar
-            soluções
-            com foco em <span class="destaq">performance, usabilidade e qualidade</span>, entendendo o sistema como um
-            todo — da
-            <span class="destaq">modelagem de dados à experiência do usuário.</span> <span class="destaq">Sou dedicado e
-                apaixonado por aprendizado
-                contínuo</span>, sempre explorando novas tecnologias para criar <span class="destaq">projetos eficientes
-                e escaláveis.</span>
-        </p>
-        <div id="image" class="animate zoom-in" data-delay="0.4s"></div>
+    <section id="about" class="animate fade-left" data-delay="0.1s">
+
+
+        <!-- Card Apresentação Pessoal -->
+        <div class="about-card">
+            <p class="subtitle">
+                Meu nome é <span class="destaq">Vitor Levi</span>, tenho 17 anos e estou no 3º ano do Ensino Médio
+                em uma
+                escola profissionalizante, cursando <span class="destaq">Desenvolvimento de Sistemas</span>. Sou uma
+                pessoa
+                dedicada e apaixonada por aprendizado contínuo, sempre buscando evoluir e explorar novas
+                tecnologias. Meu
+                objetivo é criar soluções que unam <span class="destaq">performance</span>, <span
+                    class="destaq">usabilidade</span> e <span class="destaq">qualidade</span>, entendendo o sistema
+                como um
+                todo, da modelagem de dados à experiência do usuário.
+            </p>
+            <div id="image" class="animate zoom-in" data-delay="0.4s"></div>
+        </div>
+
+
+        <div class="metricas">
+            <div class="data">
+                <span class="destaq">2+</span>
+                <p>Anos de Experiência</p>
+            </div>
+            <div class="data">
+                <span class="destaq">40+</span>
+                <p>Projetos Feitos</p>
+            </div>
+            <div class="data">
+                <span class="destaq">1200+</span>
+                <p>Commits no GitHub</p>
+            </div>
+        </div>
+        </div>
     </section>
 
     <section id="techs">
         <h1 class="title animate fade-up" data-delay="0s">Tecnologias & Ferramentas</h1>
         <div class="cards">
+
+            <!-- Skill Icons para tecnologias suportadas -->
             <div class="card animate fade-up" data-delay="0s">
-                <img src="images/html.png" alt="HTML5" width="48" />
+                <img src="https://skillicons.dev/icons?i=html" alt="HTML5" width="48" />
                 <h1>HTML5</h1>
             </div>
             <div class="card animate fade-up" data-delay="0.1s">
-                <img src="images/css.png" alt="CSS3" width="48" />
+                <img src="https://skillicons.dev/icons?i=css" alt="CSS3" width="48" />
                 <h1>CSS3</h1>
             </div>
             <div class="card animate fade-up" data-delay="0.2s">
-                <img src="images/javascript.png" alt="JavaScript" width="48" />
+                <img src="https://skillicons.dev/icons?i=javascript" alt="JavaScript" width="48" />
                 <h1>JavaScript</h1>
             </div>
             <div class="card animate fade-up" data-delay="0.3s">
-                <img src="images/react.png" alt="ReactJS" width="48" />
+                <img src="https://skillicons.dev/icons?i=react" alt="ReactJS" width="48" />
                 <h1>ReactJS</h1>
             </div>
             <div class="card animate fade-up" data-delay="0.4s">
                 <img src="https://skillicons.dev/icons?i=styledcomponents" alt="Styled Components" width="48" />
-                <h1>Styled Components</h1>
+                <h1>Styled</h1>
             </div>
             <div class="card animate fade-up" data-delay="0.5s">
-                <img src="images/node.png" alt="NodeJS" width="48" />
+                <img src="https://skillicons.dev/icons?i=nodejs" alt="NodeJS" width="48" />
                 <h1>NodeJS</h1>
             </div>
+            <!-- SVGs customizados para tecnologias que Skill Icons não tem -->
             <div class="card animate fade-up" data-delay="0.6s">
-                <img src="images/express.png" alt="ExpressJS" width="48" />
+                <!-- ExpressJS SVG simplificado -->
+                <img src="https://skillicons.dev/icons?i=express" alt="ExpressJS" width="48" />
                 <h1>ExpressJS</h1>
             </div>
             <div class="card animate fade-up" data-delay="0.7s">
-                <img src="images/mysql.png" alt="MySQL" width="48" />
-                <h1>MySQL</h1>
+                <!-- Axios SVG -->
+                <img src="https://skillicons.dev/icons?i=npm" alt="Axios" width="48" />
+                <h1>Npm</h1>
             </div>
             <div class="card animate fade-up" data-delay="0.8s">
-                <img src="images/sequelize.png" alt="Sequelize" width="48" />
-                <h1>Sequelize</h1>
-            </div>
-            <div class="card animate fade-up" data-delay="0.9s">
-                <img src="images/mongodb.png" alt="MongoDB" width="48" />
+                <img src="https://skillicons.dev/icons?i=mongodb" alt="MongoDB" width="48" />
                 <h1>MongoDB</h1>
             </div>
-            <div class="card animate fade-up" data-delay="1.0s">
-                <img src="images/mongoose.png" alt="Mongoose" width="48" />
-                <h1>Mongoose</h1>
+
+            <div class="card animate fade-up" data-delay="0.9s">
+                <img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" width="48" />
+                <h1>MySQL</h1>
             </div>
+            <div class=" card animate fade-up" data-delay="1.0s">
+                <!-- Sequelize SVG -->
+                <img src="https://skillicons.dev/icons?i=sequelize" alt="Sequelize" width="48" />
+                <h1>Sequelize</h1>
+            </div>
+
             <div class="card animate fade-up" data-delay="1.1s">
-                <img src="images/git.png" alt="Git" width="48" />
-                <h1>Git</h1>
-            </div>
-            <div class="card animate fade-up" data-delay="1.2s">
-                <img src="images/postman.png" alt="Postman" width="48" />
+                <!-- Postman SVG -->
+                <img src="https://skillicons.dev/icons?i=postman" alt="Postman" />
                 <h1>Postman</h1>
             </div>
+            <div class="card animate fade-up" data-delay="1.2s">
+                <img src="https://skillicons.dev/icons?i=git" alt="Git" width="48" />
+                <h1>Git</h1>
+            </div>
+
             <div class="card animate fade-up" data-delay="1.3s">
-                <img src="images/axios.png" alt="Axios" width="48" />
-                <h1>Axios</h1>
+                <img src="https://skillicons.dev/icons?i=github" alt="Git" width="48" />
+                <h1>Github</h1>
             </div>
             <div class="card animate fade-up" data-delay="1.4s">
-                <img src="images/jwt.png" alt="JWT" width="48" />
-                <h1>JWT </h1>
+                <!-- JWT SVG (usando JSON Web Token) -->
+                <img src="https://skillicons.dev/icons?i=vercel" alt="JWT" width="48" />
+                <h1>Vercel</h1>
             </div>
+
         </div>
     </section>
+
 
     <section id="services">
         <h1 class="title animate fade-up" data-delay="0s">Serviços</h1>
@@ -203,16 +235,13 @@
                 <img src="images/image.png" alt="PeixeControl" class="image" />
                 <h2>PeixeControl</h2>
                 <div class="stack">
-                    <img src="images/react.png" alt="ReactJS" width="48" />
-                    <img src="https://skillicons.dev/icons?i=styledcomponents" alt="Styled Components" width="48" />
-                    <img src="images/axios.png" alt="Axios" width="48" />
-                    <img src="images/node.png" alt="NodeJS" width="48" />
-                    <img src="images/express.png" alt="ExpressJS" width="48" />
-                    <img src="images/javascript.png" alt="JavaScript" width="48" />
-                    <img src="images/jwt.png" alt="JWT" width="48" />
-                    <img src="images/mongodb.png" alt="MongoDB" width="48" />
-                    <img src="images/mongoose.png" alt="Mongoose" width="48" />
-                    <img src="images/postman.png" alt="Postman" width="48" />
+                    <img src="https://skillicons.dev/icons?i=react" alt="ReactJS" />
+                    <img src="https://skillicons.dev/icons?i=styledcomponents" alt="Styled Components" />
+                    <img src="https://skillicons.dev/icons?i=javascript" alt="Styled Components" />
+                    <img src="https://skillicons.dev/icons?i=nodejs" alt="NodeJS" />
+                    <img src="https://skillicons.dev/icons?i=express" alt="ExpressJS" />
+                    <img src="https://skillicons.dev/icons?i=mongodb" alt="MongoDB" />
+                    <img src="https://skillicons.dev/icons?i=postman" alt="Postman" />
                 </div>
                 <p class="subtitle">
                     Aplicação web responsiva para controle de estoque e vendas em peixarias. Permite cadastrar peixes,
@@ -220,18 +249,22 @@
                     alerta de estoque baixo e interface intuitiva.
                 </p>
                 <div class="buttons">
-                    <a href="#" id="code">Acesse</a>
-                    <a href="#" id="github">Código</a>
+                    <a href="https://peixe-control.vercel.app/" id="code" target="_blank">
+                        <div class="button-content"><i class="fa-solid fa-globe"></i><span>Acesse</span></div>
+                    </a>
+                    <a href="https://github.com/DevVitorlevi/PeixeControl" id="github" target="_blank">
+                        <div class="button-content"><i class="fa-brands fa-github"></i><span>Código</span></div>
+                    </a>
                 </div>
             </div>
             <div class="project animate fade-right" data-delay="0.4s">
-                <img src="images/image.png" alt="GoalLive" class="image" />
+                <img src="images/image copy.png" alt="GoalLive" class="image" />
                 <h2>GoalLive</h2>
                 <div class="stack">
-                    <img src="images/react.png" alt="ReactJS" width="48" />
-                    <img src="https://skillicons.dev/icons?i=styledcomponents" alt="Styled Components" width="48" />
-                    <img src="images/axios.png" alt="Axios" width="48" />
-                    <img src="images/postman.png" alt="Postman" width="48" />
+                    <img src="https://skillicons.dev/icons?i=react" alt="ReactJS" />
+                    <img src="https://skillicons.dev/icons?i=styledcomponents" alt="Styled Components" />
+                    <img src="https://skillicons.dev/icons?i=javascript" alt="Styled Components" />
+                    <img src="https://skillicons.dev/icons?i=postman" alt="Postman" />
                 </div>
                 <p class="subtitle">
                     GoalLive é uma plataforma responsiva para acompanhar jogos de futebol ao vivo, com placares em tempo
@@ -239,17 +272,21 @@
                     com design escuro e suporte total a mobile.
                 </p>
                 <div class="buttons">
-                    <a href="#" id="code">Acesse</a>
-                    <a href="#" id="github">Código</a>
+                    <a href="https://goal-live.vercel.app/" id="code" target="_blank">
+                        <div class="button-content"><i class="fa-solid fa-globe"></i><span>Acesse</span></div>
+                    </a>
+                    <a href="https://github.com/DevVitorlevi/GoalLive" id="github" target="_blank">
+                        <div class="button-content"><i class="fa-brands fa-github"></i><span>Código</span></div>
+                    </a>
                 </div>
             </div>
             <div class="project animate fade-right" data-delay="0.8s">
-                <img src="images/image.png" alt="Fome!!" class="image" />
+                <img src="images/image copy 2.png" alt="Fome!!" class="image" />
                 <h2>Fome!!</h2>
                 <div class="stack">
-                    <img src="images/html.png" alt="HTML5" width="48" />
-                    <img src="images/css.png" alt="CSS3" width="48" />
-                    <img src="images/javascript.png" alt="JavaScript" width="48" />
+                    <img src="https://skillicons.dev/icons?i=html" alt="HTML5" width="48" />
+                    <img src="https://skillicons.dev/icons?i=css" alt="CSS3" width="48" />
+                    <img src="https://skillicons.dev/icons?i=javascript" alt="JavaScript" width="48" />
                 </div>
                 <p class="subtitle">
                     Landing page moderna para restaurante, com fotos apetitosas dos pratos e avaliaçõesdos clientes.
@@ -257,23 +294,26 @@
                     acolhedor para visitantes em qualquer dispositivo.
                 </p>
                 <div class="buttons">
-                    <a href="#" id="code">Acesse</a>
-                    <a href="#" id="github">Código</a>
+                    <a href="https://landing-page--rust.vercel.app/" id="code" target="_blank">
+                        <div class="button-content"><i class="fa-solid fa-globe"></i><span>Acesse</span></div>
+                    </a>
+                    <a href="https://github.com/DevVitorlevi/Fome" id="github" target="_blank">
+                        <div class="button-content"><i class="fa-brands fa-github"></i><span>Código</span></div>
+                    </a>
                 </div>
             </div>
             <div class="project animate fade-right" data-delay="1.2s">
                 <img src="images/image.png" alt="Thoughts" class="image" />
                 <h2>Thoughts</h2>
                 <div class="stack">
-                    <img src="images/html.png" alt="HTML5" width="48" />
-                    <img src="images/css.png" alt="CSS3" width="48" />
-                    <img src="images/javascript.png" alt="JavaScript" width="48" />
-                    <img src="images/node.png" alt="NodeJS" width="48" />
-                    <img src="images/express.png" alt="ExpressJS" width="48" />
-                    <img src="images/mysql.png" alt="MySQL" width="48" />
-                    <img src="images/sequelize.png" alt="Sequelize" width="48" />
-                    <img src="images/axios.png" alt="Axios" width="48" />
-                    <img src="images/postman.png" alt="Postman" width="48" />
+                    <img src="https://skillicons.dev/icons?i=html" alt="ReactJS" />
+                    <img src="https://skillicons.dev/icons?i=css" alt="Styled Components" />
+                    <img src="https://skillicons.dev/icons?i=javascript" alt="Styled Components" />
+                    <img src="https://skillicons.dev/icons?i=nodejs" alt="NodeJS" />
+                    <img src="https://skillicons.dev/icons?i=express" alt="ExpressJS" />
+                    <img src="https://skillicons.dev/icons?i=mysql" alt="MySQL" width="48" />
+                    <img src="https://skillicons.dev/icons?i=sequelize" alt="Sequelize" width="48" />
+                    <img src="https://skillicons.dev/icons?i=postman" alt="Postman" />
                 </div>
                 <p class="subtitle">
                     Plataforma para usuários compartilharem ideias e pensamentos de forma livre e interativa. Permite
@@ -281,27 +321,60 @@
                     experiências entre pessoas.
                 </p>
                 <div class="buttons">
-                    <a href="#" id="code">Acesse</a>
-                    <a href="#" id="github">Código</a>
+                    <a href="#" id="code">
+                        <div class="button-content"><i class="fa-solid fa-globe"></i><span>Acesse</span></div>
+                    </a>
+                    <a href="https://github.com/DevVitorlevi/Thoughts" target="_blank" id="github">
+                        <div class="button-content"><i class="fa-brands fa-github"></i><span>Código</span></div>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
     <section id="contato">
-        <h1 class="title animate fade-up" data-delay="0s"> Contato</h1>
-        <div class="metricas">
-            <div class="metricas-card"> 2+ Anos de Experiência</div>
-            <div class="metricas-card"> 40+ Projetos</div>
-            <div class="metricas-card"> 1200+ Commits</div>
+        <h2 class="title animate fade-up" data-delay="0s">Contato</h2>
+        <p class="subtitle">
+            Vamos conversar! Me encontre nas redes abaixo ou envie um e-mail direto.
+        </p>
+        <div class="contato-content">
+            <form id="contact-form">
+                <h1>Entre Em Contato</h1>
+                <input type="text" name="from_name" placeholder="Seu nome" required />
+                <input type="email" name="reply_to" placeholder="Seu E-mail" required />
+                <textarea name="message" placeholder="Sua mensagem" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+
+            <div class="social-links">
+
+                <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <img src="https://skillicons.dev/icons?i=github" alt="GitHub" width="61px" />
+                </a>
+
+
+                <a href="https://www.linkedin.com/in/seu-perfil" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn">
+                    <img src="https://skillicons.dev/icons?i=linkedin" alt="LinkedIn" width="61px" />
+                </a>
+
+                <a href="https://www.linkedin.com/in/seu-perfil" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn">
+                    <img src="images/1000040).png" alt="LinkedIn" width="61px" />
+                </a>
+
+            </div>
         </div>
-        <hr>
-        <div class="social-links" id="social-links">
-            <a href="#"><img src="images/gith.png" alt="GitHub" /></a>
-            <a href="#"><img src="images/linkedin.png" alt="LinkedIn" /></a>
-            <a href="#"><img src="images/PikPng.com_logo-whatsapp-png_494277.png" alt=""></a>
-        </div>
+
     </section>
+
+    <footer>
+        <p>© 2025 Vitor Levi. Todos os direitos reservados.</p>
+    </footer>
+
+
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="emailJs.js"></script>
     <script src="nameTyping.js"></script>
     <script src="particules.js"></script>
     <script src="stars.js"></script>

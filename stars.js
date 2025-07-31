@@ -19,7 +19,7 @@ particlesJS("stars-js", {
     },
     move: {
       enable: true,
-      speed: 0.1,
+      speed: 1.3,
       direction: "none",
       random: true,
       straight: false,

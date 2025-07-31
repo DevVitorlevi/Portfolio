@@ -6,6 +6,7 @@
     color: white;
     list-style: none;
     text-decoration: none;
+
 }
 
 :root {
@@ -99,11 +100,12 @@ body {
     cursor: pointer;
     display: block;
     padding: 0.5rem 0;
-    transition: color 0.3s ease;
 }
 
 .nav-list li a:hover {
-    color: #7B2FF7;
+    background: linear-gradient(90deg, #7B2FF7, #2983f0);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Botão hamburguer escondido no desktop */
@@ -153,10 +155,6 @@ body {
     font-family: var(--fonte-principal);
 }
 
-#hero .text {
-    margin-top: 10rem;
-}
-
 /* Títulos */
 #hero h1 {
     font-size: 5rem;
@@ -203,27 +201,74 @@ body {
 .social-links {
     display: flex;
     gap: 2rem;
-    align-items: center;
-    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+    animation-delay: 0.5s;
+    /* pequena pausa */
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .social-links a img {
     transition: transform 0.3s ease;
-    width: 60px;
-    height: 60px;
 }
 
 .social-links a:hover img {
     transform: scale(1.2);
 }
 
+
 /* Título geral reutilizável */
 #about {
-    margin: 3rem;
+    margin: 4rem;
     height: 90vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 10rem;
+
+}
+
+.about-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20rem;
+}
+
+
+.metricas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-bottom: 10px;
+    width: 100%;
+    gap: 20rem;
+}
+
+.metricas::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #7B2FF7, #2983f0);
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .title {
@@ -239,7 +284,7 @@ body {
 }
 
 #about .subtitle {
-    width: 50vw;
+    width: 800px;
     font-size: 1.6rem;
     margin-left: 2rem;
 }
@@ -262,9 +307,9 @@ body {
 }
 
 #techs {
-    padding: 4rem 2rem;
     text-align: center;
-    margin: 3rem;
+    margin-left: 4rem;
+    margin-right: 4rem;
     margin-bottom: 12rem;
 }
 
@@ -275,30 +320,97 @@ body {
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(5, 1fr);
+    /* padrão: 5 colunas */
     gap: 2rem;
-    justify-items: center;
-    align-items: stretch;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(2px);
-    border-radius: 2rem;
-    min-width: unset;
-    width: 100%;
-    padding: 0.8rem;
-    max-width: 16rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 2rem;
+    backdrop-filter: blur(4px);
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+/* Conteúdo da card acima do ::before */
+.card * {
+    position: relative;
+    z-index: 1;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(123, 47, 247, 0.3),
+        0 0 40px rgba(41, 131, 240, 0.2);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 20%;
+    height: 200%;
+    background: linear-gradient(120deg,
+            transparent 0%,
+            rgba(123, 47, 247, 0.25) 40%,
+            rgba(123, 47, 247, 0.5) 50%,
+            rgba(41, 131, 240, 0.5) 55%,
+            rgba(41, 131, 240, 0.25) 60%,
+            transparent 100%);
+    transform: skew(25deg);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+/* Hover: reflexo vai da esquerda para direita */
+.card:hover::before {
+    opacity: 1;
+    animation: shine-move 1.2s linear forwards;
+}
+
+/* Unhover: reflexo volta da direita para esquerda */
+.card:not(:hover)::before {
+    opacity: 1;
+    animation: shine-move-reverse 1.2s linear forwards;
+}
+
+@keyframes shine-move {
+    0% {
+        left: -75%;
+    }
+
+    100% {
+        left: 125%;
+    }
+}
+
+@keyframes shine-move-reverse {
+    0% {
+        left: 125%;
+    }
+
+    100% {
+        left: -75%;
+    }
 }
 
 .card img {
-    margin-bottom: 2rem;
     width: 80px;
 }
+
+
 
 .card h1 {
     font-size: 1.25rem;
@@ -307,28 +419,26 @@ body {
 }
 
 #services {
-    margin: 1rem;
     margin-bottom: 200px;
-
 }
 
 #services i {
     font-size: 50px;
     background: linear-gradient(90deg, #7B2FF7, #2983f0);
+    -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
 }
 
 .services-cards {
     display: flex;
     align-items: stretch;
-    /* Faz os filhos terem a mesma altura */
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem;
-    /* Recomendado para espaçamento consistente */
+    gap: 5rem;
 }
-
 
 .service-card {
     flex: 1 1 300px;
@@ -342,11 +452,93 @@ body {
     border-radius: 2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     text-align: left;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
     width: 100%;
     max-width: 400px;
     min-height: 100%;
+    position: relative;
+    overflow: hidden;
+    will-change: transform, box-shadow;
+    transition: transform 0.3s ease-in-out;
+    /* Removido box-shadow da transição para entrada instantânea */
 }
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(123, 47, 247, 0.3),
+        0 0 40px rgba(41, 131, 240, 0.2);
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 20%;
+    height: 200%;
+    background: linear-gradient(120deg,
+            transparent 0%,
+            rgba(123, 47, 247, 0.25) 40%,
+            rgba(123, 47, 247, 0.5) 50%,
+            rgba(41, 131, 240, 0.5) 55%,
+            rgba(41, 131, 240, 0.25) 60%,
+            transparent 100%);
+    transform: skew(25deg);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: -1;
+}
+
+/* Hover: brilho anima da esquerda para a direita */
+.service-card:hover::before {
+    opacity: 1;
+    animation: shine-move 1.2s linear forwards;
+    top: -50%;
+    /* posicionamento inicial */
+}
+
+/* Unhover: brilho anima da direita para a esquerda (volta) */
+.service-card:not(:hover)::before {
+    opacity: 1;
+    animation: shine-move-reverse 1.2s linear forwards;
+    top: -50%;
+    /* mesma posição inicial para a reversa */
+}
+
+/* Animação normal: brilho vai da esquerda para direita */
+@keyframes shine-move {
+    0% {
+        left: -75%;
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 125%;
+        opacity: 0;
+    }
+}
+
+/* Animação reversa: brilho vai da direita para esquerda */
+@keyframes shine-move-reverse {
+    0% {
+        left: 125%;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        left: -75%;
+        opacity: 0.8;
+    }
+}
+
 
 
 .service-card__title {
@@ -383,11 +575,22 @@ body {
     flex-wrap: wrap;
 }
 
+.buttons {
+    gap: .3rem;
+    margin: 0;
+}
+
+
+.buttons a {
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+}
+
 .project {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* empurra o conteúdo para ocupar todo o espaço */
     gap: 1rem;
     background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(2px);
@@ -395,24 +598,124 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease;
     margin-bottom: 100px;
     width: 100%;
     max-width: 400px;
-
+    overflow: hidden;
+    will-change: transform, box-shadow;
+    z-index: 0;
+    /* garante que o ::before fique atrás */
 }
 
+/* Conteúdo dentro da .project fica acima do reflexo */
+.project * {
+    position: relative;
+    z-index: 1;
+}
 
+.project:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(123, 47, 247, 0.3),
+        0 0 40px rgba(41, 131, 240, 0.2);
+}
+
+.project::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 20%;
+    height: 200%;
+    background: linear-gradient(120deg,
+            transparent 0%,
+            rgba(123, 47, 247, 0.25) 40%,
+            rgba(123, 47, 247, 0.5) 50%,
+            rgba(41, 131, 240, 0.5) 55%,
+            rgba(41, 131, 240, 0.25) 60%,
+            transparent 100%);
+    transform: skew(25deg);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+}
+
+/* Hover: brilho sobe e passa da esquerda para direita */
+.project:hover::before {
+    opacity: 1;
+    animation: shine-move 1.2s linear forwards;
+    top: -50%;
+    /* começa em cima */
+}
+
+/* Unhover: brilho desce e passa da direita para esquerda */
+.project:not(:hover)::before {
+    opacity: 1;
+    animation: shine-move-reverse 1.2s linear forwards;
+    top: 20%;
+    /* começa mais baixo */
+}
+
+/* Keyframes para o brilho subindo da esquerda para direita */
+@keyframes shine-move {
+    0% {
+        left: -75%;
+        top: 20%;
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 125%;
+        top: -50%;
+        opacity: 0;
+    }
+}
+
+/* Keyframes para o brilho descendo da direita para esquerda */
+@keyframes shine-move-reverse {
+    0% {
+        left: 125%;
+        top: -50%;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        left: -75%;
+        top: 20%;
+        opacity: 0.8;
+    }
+}
+
+/* Estilo da imagem dentro do projeto */
 .project .image {
     width: 100%;
     height: auto;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     display: block;
+    position: relative;
+    z-index: 1;
+    /* garante estar acima do reflexo */
 }
 
+
 .stack img {
-    width: 30px;
+    width: 35px;
+}
+
+.stack {
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
 }
 
 .stack img:hover {
@@ -436,6 +739,13 @@ body {
     margin: 0 2rem;
 }
 
+.button-content {
+    display: flex;
+    gap: .4rem;
+    align-items: center;
+    justify-content: center;
+}
+
 .buttons a {
     padding: 0.7rem 1.6rem;
     border-radius: 10px;
@@ -445,6 +755,7 @@ body {
     text-align: center;
     transition: 0.4s ease-in-out;
     flex: 1;
+    font-size: 1.3rem;
 }
 
 /* Botão: Ver Projeto (cor roxa neon) */
@@ -514,19 +825,99 @@ body {
     transition-delay: var(--delay, 0s);
 }
 
-/* ========================
-   RESPONSIVO + MENU HAMBURGUER
-=========================== */
+.data .destaq {
+    font-size: 4rem;
+}
 
-/* Botão hamburguer escondido no desktop */
+footer {
+    padding: 1.6rem;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(255, 255, 255, 0.022);
+    text-align: center;
+}
+
 #hamburger {
     display: none;
+
+    .buttons {
+        gap: .3rem;
+        margin: 0;
+    }
+
+
+    .buttons a {
+        padding: 0.5rem 1.2rem;
+        font-size: 1rem;
+    }
+
     background: transparent;
     border: none;
     font-size: 2.5rem;
     color: white;
     cursor: pointer;
     z-index: 10000;
+    text-align: center;
+}
+
+#contato {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.contato-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#contact-form {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.6rem;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
+    border-radius: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    margin: 1rem;
+    width: 40%;
+    border-radius: 1rem;
+}
+
+::placeholder {
+    color: white;
+}
+
+#contact-form input,
+#contact-form button,
+#contact-form textarea {
+    padding: 0.8rem;
+    font-size: 1.5rem;
+    font-family: var(--fonte-principal);
+    width: 100%;
+    color: white;
+    background-color: transparent;
+    border-radius: 0.4rem;
+    border: 2px solid #42038f;
+    transition: ease-in-out .4s;
+    resize: none;
+}
+
+textarea {
+    height: 150px;
+}
+
+/* Efeito ao focar (opcional) */
+#contact-form input:focus,
+#contact-form textarea:focus,
+#contact-form button:hover {
+    box-shadow: 0 0 110px 5px #7B2FF7aa;
 }
 
 /* Media queries para telas pequenas */
@@ -563,6 +954,15 @@ body {
         align-items: center;
     }
 
+    .services-cards {
+        gap: 1.6rem;
+    }
+
+    .services-cards .service-card:nth-child(3) {
+        flex-basis: 80%;
+        max-width: 80%;
+    }
+
     #about .subtitle {
         width: 100%;
         font-size: 1.3rem;
@@ -594,8 +994,7 @@ body {
     }
 
     .project .image {
-        width: 100%;
-        max-width: 100%;
+        border-radius: 0;
     }
 
     .project {
@@ -606,10 +1005,6 @@ body {
     .project .subtitle {
         font-size: 1rem;
     }
-}
-
-/* Mobile (telas até 768px) */
-@media (max-width: 768px) {
 
     /* Mostrar botão hamburguer */
     #hamburger {
@@ -665,6 +1060,11 @@ body {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
+}
+
+/* Mobile (telas até 768px) */
+@media screen and (max-width: 1000px) and (max-width:1023px) {
+
     /* Ajuste geral dos títulos e textos para telas pequenas */
     #hero {
         font-size: 1.4rem;
@@ -685,13 +1085,114 @@ body {
     }
 
     .social-links a img {
-        width: 40px;
-        height: 40px;
+        width: 70px;
+
+    }
+
+
+    .about-card {
+        flex-direction: column;
+        gap: 4rem;
     }
 
     #about .subtitle {
-        font-size: 1.1rem;
+        font-size: 1.6rem;
+
     }
+
+    .metricas {
+        margin-top: 2rem;
+        gap: 7rem;
+    }
+
+    .data {
+        align-items: center;
+    }
+
+    .data .destaq {
+        font-size: 3rem;
+    }
+
+    .data p {
+        font-size: 1rem;
+    }
+
+    #image {
+        width: 450px;
+        height: 450px;
+        margin: 0 auto;
+    }
+
+    .services-cards .service-card:nth-child(3) {
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+
+
+    .services-cards {
+        gap: 1.6rem;
+        margin: 0 1rem;
+    }
+
+    .service-card {
+        max-width: 380px;
+    }
+
+    .service-card__list-item {
+        font-size: 1.2rem;
+    }
+
+    .stack {
+        gap: 1rem;
+    }
+
+    .stack img {
+        width: 45px;
+    }
+
+    .project h2 {
+        font-size: 2rem;
+    }
+
+    .project .subtitle {
+        padding: 0;
+        font-size: 1.3rem;
+    }
+
+    .project {
+        max-width: 600px;
+    }
+
+    .project .image {
+        border-radius: 1rem;
+    }
+
+    #services i {
+        font-size: 50px;
+    }
+
+    #contact-form {
+        width: 80%;
+        gap: 1rem;
+    }
+
+    .buttons {
+        gap: .6rem;
+        margin: 0;
+    }
+
+
+    .buttons a {
+        padding: 0.8rem 1.2rem;
+        font-size: 1.3rem;
+    }
+
+    #contato p {
+        font-size: 1.4rem;
+        margin: 0 4rem;
+    }
+
+
 }
 
 @media screen and (max-width:600px) {
@@ -699,29 +1200,118 @@ body {
         margin: 2rem;
     }
 
+    .about-card {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    #about .subtitle {
+        font-size: 1rem;
+    }
+
+    .metricas {
+        margin-top: 2rem;
+        gap: 1rem;
+    }
+
+    .data {
+        align-items: start;
+    }
+
+    .data .destaq {
+        font-size: 2rem;
+    }
+
+    .data p {
+        font-size: .8rem;
+    }
+
+
     #hero h1 {
         font-size: 2rem;
         white-space: normal;
     }
 
     #hero #h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
+
 
     .gradient-text {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
-    .cards {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .cursor {
+        font-size: 1.5rem
     }
 
     #image {
         width: 250px;
         height: 250px;
         margin: 0 auto;
+    }
+
+    .service-card {
+        padding: 1rem;
+        max-width: 300px;
+    }
+
+    .service-card__title {
+        font-size: 1.2rem;
+    }
+
+    .service-card__description {
+        font-size: 1rem;
+    }
+
+    #services i {
+        font-size: 40px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(3, 1fr);
+        /* entre 401px e 600px */
+    }
+
+    .stack img {
+        width: 25px;
+    }
+
+    .project .subtitle {
+        padding: 0;
+        font-size: .8rem;
+    }
+
+    .buttons {
+        gap: .3rem;
+        margin: 0;
+    }
+
+
+    .buttons a {
+        padding: 0.5rem 1.2rem;
+        font-size: 1rem;
+    }
+
+    #contato p {
+        font-size: 1rem;
+        margin: 1rem;
+    }
+
+    #contact-form h1 {
+        font-size: 1.4rem;
+    }
+
+    #contact-form input,
+    #contact-form button,
+    #contact-form textarea {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+        /* até 400px */
     }
 }
