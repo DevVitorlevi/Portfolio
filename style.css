@@ -418,6 +418,7 @@ body {
 
 #services {
     margin-bottom: 200px;
+    margin: 1rem;
 }
 
 #services i {
@@ -435,7 +436,7 @@ body {
     align-items: stretch;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 5rem;
+    gap: 2rem;
 }
 
 .service-card {
@@ -561,10 +562,6 @@ body {
 
 .service-card__list-item {
     font-family: var(--fonte-secundaria);
-}
-
-#projetos {
-    margin: 5rem;
 }
 
 .projetos-cards {
@@ -917,6 +914,58 @@ textarea {
     box-shadow: 0 0 110px 5px #7B2FF7aa;
 }
 
+@media screen and (max-width: 1024px) {
+    #about {
+        margin: 3rem 1rem;
+        height: auto;
+        gap: 2rem;
+    }
+
+    .about-card {
+        gap: 1rem;
+    }
+
+    #image {
+        width: 330px;
+        height: 330px;
+        margin: 0 auto;
+    }
+
+    #about .subtitle {
+        width: 60%;
+        font-size: 1.4rem;
+        margin-left: 0;
+    }
+
+    .metricas {
+        gap: 10rem;
+    }
+
+    .data p {
+        font-size: 1.3rem;
+    }
+
+    .data .destaq {
+        font-size: 4rem;
+    }
+
+    .services-cards {
+        gap: 2rem;
+    }
+
+    .services-cards .service-card:nth-child(3) {
+        flex-basis: 81%;
+        max-width: 81%;
+    }
+
+
+    #projetos {
+        margin: 1rem;
+    }
+
+
+}
+
 @media screen and (max-width: 992px) {
     #header {
         width: 100vw;
@@ -1007,14 +1056,6 @@ textarea {
         margin: 1rem;
     }
 
-    .projetos-cards {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        /* 2 colunas */
-        gap: 2rem;
-        justify-items: center;
-        /* centraliza os cards */
-    }
 
     .project .image {
         border-radius: 0;
