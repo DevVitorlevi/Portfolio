@@ -1,0 +1,188 @@
+#services {
+    margin: 1rem;
+    padding: 2rem 1rem;
+}
+
+#services i {
+    font-size: 40px;
+    background: linear-gradient(90deg, #7B2FF7, #2983f0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    display: inline-block;
+}
+
+.services-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-items: center;
+}
+
+.service-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(2px);
+    border-radius: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    will-change: transform, box-shadow;
+    transition: transform 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fade-up 0.8s ease-out forwards;
+    animation-delay: var(--delay, 0s);
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px rgba(123, 47, 247, 0.3),
+        0 0 40px rgba(41, 131, 240, 0.2);
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -75%;
+    width: 20%;
+    height: 200%;
+    background: linear-gradient(120deg,
+            transparent 0%,
+            rgba(123, 47, 247, 0.25) 40%,
+            rgba(123, 47, 247, 0.5) 50%,
+            rgba(41, 131, 240, 0.5) 55%,
+            rgba(41, 131, 240, 0.25) 60%,
+            transparent 100%);
+    transform: skew(25deg);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: -1;
+}
+
+.service-card:hover::before {
+    opacity: 1;
+    animation: shine-move 1.2s linear forwards;
+}
+
+.service-card:not(:hover)::before {
+    opacity: 1;
+    animation: shine-move-reverse 1.2s linear forwards;
+}
+
+.service-card__title {
+    font-size: 1.2rem;
+    font-family: var(--fonte-principal);
+    font-weight: 400;
+}
+
+.service-card__description {
+    font-size: 1rem;
+}
+
+.service-card__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.service-card__list-item {
+    font-size: 0.8rem;
+}
+
+/* Tablet (768px+) - 2 colunas, com 3º ocupando a linha toda */
+@media screen and (min-width: 768px) {
+    .services-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-cards .service-card:nth-child(3) {
+        grid-column: span 2;
+    }
+}
+
+/* Desktop (992px+) - 3 colunas, sem span */
+@media screen and (min-width: 992px) {
+    .services-cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+    }
+
+    .services-cards .service-card:nth-child(3) {
+        grid-column: auto;
+    }
+
+    #services {
+        padding: 4rem 2rem;
+    }
+
+    .service-card {
+        padding: 2rem;
+    }
+
+    #services i {
+        font-size: 50px;
+    }
+
+    .service-card__title {
+        font-size: 1.5rem;
+    }
+
+    .service-card__description {
+        font-size: 1.1rem;
+    }
+
+    .service-card__list-item {
+        font-size: 0.9rem;
+    }
+}
+
+/* Animação fade-up com delay controlado */
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Brilho diagonal (hover) */
+@keyframes shine-move {
+    0% {
+        left: -75%;
+    }
+
+    100% {
+        left: 125%;
+    }
+}
+
+@keyframes shine-move-reverse {
+    0% {
+        left: 125%;
+    }
+
+    100% {
+        left: -75%;
+    }
+}
