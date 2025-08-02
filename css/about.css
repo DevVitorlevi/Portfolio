@@ -56,7 +56,7 @@
 .data {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
 }
 
 .data .destaq {
@@ -107,6 +107,12 @@
 
     .data .destaq {
         font-size: 4rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .data {
+        align-items: start;
     }
 }
 

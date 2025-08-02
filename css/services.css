@@ -13,29 +13,6 @@
     display: inline-block;
 }
 
-/* Lista tradicional que aparece no mobile e desktop */
-.services-list.no-carousel {
-    display: block;
-}
-
-/* Wrapper do carrossel - só aparece no tablet */
-.carousel-wrapper {
-    display: none;
-    position: relative;
-    overflow: hidden;
-    max-width: 100%;
-}
-
-/* Cards listados em grid na lista tradicional */
-.services-cards {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.6rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    justify-items: center;
-}
-
 /* Estilo dos cards */
 .service-card {
     width: 100%;
@@ -114,8 +91,18 @@
     font-size: 0.8rem;
 }
 
-/* ====== CARROSSEL PARA TABLET (768px - 1099px) ====== */
+/* ====== MOBILE (<=767px) ====== */
+@media screen and (max-width: 767px) {
+    .carousel-wrapper {
+        display: none !important;
+    }
 
+    .services-list.no-carousel {
+        display: block;
+    }
+}
+
+/* ====== TABLET (768px - 1099px) ====== */
 @media screen and (min-width: 768px) and (max-width: 1099px) {
 
     /* Oculta lista tradicional */
@@ -126,6 +113,7 @@
     /* Mostra wrapper do carrossel */
     .carousel-wrapper {
         display: block;
+        position: relative;
         overflow: hidden;
         max-width: 100%;
         padding: 1rem 0;
@@ -209,20 +197,15 @@
     }
 }
 
-/* ====== MOBILE (<=767px) E DESKTOP (>=1100px) - LISTA TRADICIONAL ====== */
-@media screen and (max-width: 767px),
-screen and (min-width: 1100px) {
+/* ====== DESKTOP (>=1100px) ====== */
+@media screen and (min-width: 1100px) {
+
+    /* Oculta carrossel */
     .carousel-wrapper {
         display: none !important;
     }
 
-    .services-list.no-carousel {
-        display: block !important;
-    }
-}
-
-/* ====== DESKTOP: GRID 3 COLUNAS ====== */
-@media screen and (min-width: 1100px) {
+    /* Mostra lista tradicional em grid */
     .services-list.no-carousel {
         display: grid;
         grid-template-columns: repeat(3, 1fr);

@@ -2,11 +2,15 @@
     text-align: center;
     font-size: 1rem;
     margin: 1rem;
-    padding: 2rem 1rem;
+}
+
+#contato p {
+    margin-bottom: 1rem;
 }
 
 .contato-content {
     display: flex;
+    gap: 1rem;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -63,10 +67,6 @@ textarea {
 .social-links {
     display: flex;
     gap: 1.5rem;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.8s ease forwards;
-    animation-delay: 0.5s;
 }
 
 .social-links a img {
@@ -77,6 +77,7 @@ textarea {
 .social-links a:hover img {
     transform: scale(1.2);
 }
+
 
 /* Tablet (768px+) */
 @media screen and (min-width: 768px) {

@@ -112,16 +112,17 @@ body {
     transform: translateX(0);
 }
 
-/* Fade Up */
 .animate.fade-up {
     transform: translateY(40px);
     transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
 }
 
 .animate.fade-up.show {
     transform: translateY(0);
     opacity: 1;
 }
+
 
 /* Fade Down */
 .animate.fade-down {
