@@ -10,6 +10,7 @@ import Projects from "./components/features/projects/Projects"
 import Contact from "./components/features/contact/Contact"
 import { GlobalStyles } from "./styles/GlobalStyles"
 
+//Common
 function App() {
 
 

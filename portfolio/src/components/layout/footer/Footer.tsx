@@ -1,7 +1,9 @@
 
 const Footer = () => {
     return (
-        <div>Footer</div>
+        <>
+            @2025 Vitor Levi. Todos os Direitos Reservados
+        </>
     )
 }
 

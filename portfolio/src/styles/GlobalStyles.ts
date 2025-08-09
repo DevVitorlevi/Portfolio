@@ -1,32 +1,5 @@
 // src/styles/GlobalStyles.ts
-import { createGlobalStyle, keyframes } from 'styled-components';
-
-export const blink = keyframes`
-  0%, 50% {
-    opacity: 1;
-  }
-  51%, 100% {
-    opacity: 0;
-  }
-`;
-
-export const shineMove = keyframes`
-  0% {
-    left: -75%;
-  }
-  100% {
-    left: 125%;
-  }
-`;
-
-export const shineMoveReverse = keyframes`
-  0% {
-    left: 125%;
-  }
-  100% {
-    left: -75%;
-  }
-`;
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   /* Reset e variáveis */
@@ -34,7 +7,7 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: white;
+    color: black;
     list-style: none;
     text-decoration: none;
   }
