@@ -1,8 +1,14 @@
+import Title from "../../common/title/Title"
+import TechsCards from "./TechsCards/TechsCards"
+
 
 
 const Techs = () => {
     return (
-        <div>Techs</div>
+        <>
+            <Title text="Tecnologias & Ferramentas" />
+            <TechsCards />
+        </>
     )
 }
 

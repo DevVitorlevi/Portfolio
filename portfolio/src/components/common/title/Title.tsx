@@ -1,8 +1,11 @@
-
-const Title = () => {
-    return (
-        <div>Title</div>
-    )
+import React from 'react';
+import { Titulo } from './TitleStyle';
+interface TitleProps {
+    text: string;
 }
 
-export default Title
+const Title: React.FC<TitleProps> = ({ text }) => {
+    return <Titulo>{text}</Titulo>;
+};
+
+export default Title;

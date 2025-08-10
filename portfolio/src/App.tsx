@@ -39,11 +39,11 @@ function App() {
         <ParticlesWrapper>
           <Particles
             particleColors={["#220279", "#540bdc"]}
-            particleCount={1000}
+            particleCount={600}
             particleSpread={10}
-            speed={0.2}
+            speed={0.1}
             particleBaseSize={100}
-            moveParticlesOnHover={false}
+            moveParticlesOnHover={true}
             alphaParticles={false}
             disableRotation={false}
           />
