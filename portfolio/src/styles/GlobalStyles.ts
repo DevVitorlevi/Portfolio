@@ -7,14 +7,14 @@ export const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: black;
+    color: white;
     list-style: none;
     text-decoration: none;
   }
 
   body {
     font-family: 'Poppins', sans-serif;
-    background-color: transparent;
+    background-color: black;
     overflow-x: hidden;
   }
 `;

@@ -7,16 +7,15 @@ export const HeaderWrapper = styled.header`
   z-index: 9999;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(20px);
-  background-color: rgba(255, 0, 0, 1);
+  background-color: #1212123d;
   font-size: 1.4rem;
-  border-radius: 0 0 20px 20px;
 `;
 
 export const HeaderContent = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,7 +51,7 @@ export const NavList = styled.ul<{ $open: boolean }>`
   height: 100vh;
   width: 70vw;
   max-width: 320px;
-  background-color: var(#121212);
+  background-color: #1212123d;
   flex-direction: column;
   align-items: flex-start;
   padding: 4rem 2rem;

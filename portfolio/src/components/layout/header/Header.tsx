@@ -21,7 +21,7 @@ export const Header: React.FC = () => {
             <HeaderWrapper id="header">
                 <HeaderContent>
                     <HamburgerButton id="hamburger" aria-label="Menu" onClick={toggleMenu}>
-                        {menuOpen ? <X size={24} /> : <Menu size={24} />}
+                        {menuOpen ? <X size={34} /> : <Menu size={34} />}
                     </HamburgerButton>
 
                     <nav id="nav">
