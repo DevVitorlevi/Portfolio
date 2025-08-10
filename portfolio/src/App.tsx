@@ -39,7 +39,7 @@ function App() {
         <ParticlesWrapper>
           <Particles
             particleColors={["#220279", "#540bdc"]}
-            particleCount={800}
+            particleCount={1000}
             particleSpread={10}
             speed={0.2}
             particleBaseSize={100}

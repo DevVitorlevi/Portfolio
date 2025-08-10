@@ -1,7 +1,12 @@
+import AboutContent from "./aboutContent/AboutContent"
+import Metrics from "./metrics/Metrics"
 
 const About = () => {
     return (
-        <div>About</div>
+        <>
+            <AboutContent />
+            <Metrics />
+        </>
     )
 }
 
