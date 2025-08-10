@@ -9,7 +9,9 @@ import Services from "./components/features/services/Services"
 import Projects from "./components/features/projects/Projects"
 import Contact from "./components/features/contact/Contact"
 import { GlobalStyles } from "./styles/GlobalStyles"
+import SplashCursor from './components/animations/SplashCursor'
 
+<SplashCursor />
 //Common
 function App() {
 
@@ -17,6 +19,7 @@ function App() {
   return (
     <>
       <GlobalStyles />
+      <SplashCursor />
       <Header />
       <Hero />
       <About />
