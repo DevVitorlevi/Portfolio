@@ -23,4 +23,6 @@ export const GlobalStyles = createGlobalStyle`
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+
 `;
