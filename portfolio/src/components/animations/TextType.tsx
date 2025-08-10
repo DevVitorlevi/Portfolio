@@ -1,18 +1,16 @@
 "use client";
 
-import React, { useEffect, useRef, useState, createElement } from "react";
-import type { HTMLAttributes } from "react";
-import type { ElementType } from "react";
-
+import { ElementType, useEffect, useRef, useState, createElement } from "react";
 import { gsap } from "gsap";
 import "./TextType.css";
 
-interface VariableSpeed {
-    min: number;
-    max: number;
-}
-
-interface TextTypeProps extends HTMLAttributes<HTMLElement> {
+interface TextTypeProps {
+    className?: string;
+    showCursor?: boolean;
+    hideCursorWhileTyping?: boolean;
+    cursorCharacter?: string | React.ReactNode;
+    cursorBlinkDuration?: number;
+    cursorClassName?: string;
     text: string | string[];
     as?: ElementType;
     typingSpeed?: number;
@@ -20,20 +18,14 @@ interface TextTypeProps extends HTMLAttributes<HTMLElement> {
     pauseDuration?: number;
     deletingSpeed?: number;
     loop?: boolean;
-    className?: string;
-    showCursor?: boolean;
-    hideCursorWhileTyping?: boolean;
-    cursorCharacter?: React.ReactNode;
-    cursorClassName?: string;
-    cursorBlinkDuration?: number;
     textColors?: string[];
-    variableSpeed?: VariableSpeed;
+    variableSpeed?: { min: number; max: number };
     onSentenceComplete?: (sentence: string, index: number) => void;
     startOnVisible?: boolean;
     reverseMode?: boolean;
 }
 
-const TextType: React.FC<TextTypeProps> = ({
+const TextType = ({
     text,
     as: Component = "div",
     typingSpeed = 50,
@@ -53,24 +45,24 @@ const TextType: React.FC<TextTypeProps> = ({
     startOnVisible = false,
     reverseMode = false,
     ...props
-}) => {
-    const [displayedText, setDisplayedText] = useState<string>("");
-    const [currentCharIndex, setCurrentCharIndex] = useState<number>(0);
-    const [isDeleting, setIsDeleting] = useState<boolean>(false);
-    const [currentTextIndex, setCurrentTextIndex] = useState<number>(0);
-    const [isVisible, setIsVisible] = useState<boolean>(!startOnVisible);
+}: TextTypeProps & React.HTMLAttributes<HTMLElement>) => {
+    const [displayedText, setDisplayedText] = useState("");
+    const [currentCharIndex, setCurrentCharIndex] = useState(0);
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [currentTextIndex, setCurrentTextIndex] = useState(0);
+    const [isVisible, setIsVisible] = useState(!startOnVisible);
     const cursorRef = useRef<HTMLSpanElement>(null);
     const containerRef = useRef<HTMLElement>(null);
 
     const textArray = Array.isArray(text) ? text : [text];
 
-    const getRandomSpeed = (): number => {
+    const getRandomSpeed = () => {
         if (!variableSpeed) return typingSpeed;
         const { min, max } = variableSpeed;
         return Math.random() * (max - min) + min;
     };
 
-    const getCurrentTextColor = (): string => {
+    const getCurrentTextColor = () => {
         if (textColors.length === 0) return "#ffffff";
         return textColors[currentTextIndex % textColors.length];
     };
@@ -109,7 +101,7 @@ const TextType: React.FC<TextTypeProps> = ({
     useEffect(() => {
         if (!isVisible) return;
 
-        let timeout: ReturnType<typeof setTimeout>;
+        let timeout: NodeJS.Timeout;
 
         const currentText = textArray[currentTextIndex];
         const processedText = reverseMode
@@ -130,20 +122,25 @@ const TextType: React.FC<TextTypeProps> = ({
 
                     setCurrentTextIndex((prev) => (prev + 1) % textArray.length);
                     setCurrentCharIndex(0);
-                    timeout = window.setTimeout(() => { }, pauseDuration);
+                    timeout = setTimeout(() => { }, pauseDuration);
                 } else {
-                    timeout = window.setTimeout(() => {
+                    timeout = setTimeout(() => {
                         setDisplayedText((prev) => prev.slice(0, -1));
                     }, deletingSpeed);
                 }
             } else {
                 if (currentCharIndex < processedText.length) {
-                    timeout = window.setTimeout(() => {
-                        setDisplayedText((prev) => prev + processedText[currentCharIndex]);
-                        setCurrentCharIndex((prev) => prev + 1);
-                    }, variableSpeed ? getRandomSpeed() : typingSpeed);
+                    timeout = setTimeout(
+                        () => {
+                            setDisplayedText(
+                                (prev) => prev + processedText[currentCharIndex]
+                            );
+                            setCurrentCharIndex((prev) => prev + 1);
+                        },
+                        variableSpeed ? getRandomSpeed() : typingSpeed
+                    );
                 } else if (textArray.length > 1) {
-                    timeout = window.setTimeout(() => {
+                    timeout = setTimeout(() => {
                         setIsDeleting(true);
                     }, pauseDuration);
                 }
@@ -151,13 +148,12 @@ const TextType: React.FC<TextTypeProps> = ({
         };
 
         if (currentCharIndex === 0 && !isDeleting && displayedText === "") {
-            timeout = window.setTimeout(executeTypingAnimation, initialDelay);
+            timeout = setTimeout(executeTypingAnimation, initialDelay);
         } else {
             executeTypingAnimation();
         }
 
         return () => clearTimeout(timeout);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
         currentCharIndex,
         displayedText,
@@ -195,8 +191,7 @@ const TextType: React.FC<TextTypeProps> = ({
         showCursor && (
             <span
                 ref={cursorRef}
-                className={`text-type__cursor ${cursorClassName} ${shouldHideCursor ? "text-type__cursor--hidden" : ""
-                    }`}
+                className={`text-type__cursor ${cursorClassName} ${shouldHideCursor ? "text-type__cursor--hidden" : ""}`}
             >
                 {cursorCharacter}
             </span>

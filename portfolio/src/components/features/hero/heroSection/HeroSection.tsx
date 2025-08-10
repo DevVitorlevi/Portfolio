@@ -27,7 +27,6 @@ const HeroSection = () => (
                     typingSpeed={75}
                     pauseDuration={1500}
                     showCursor={true}
-                    cursorCharacter="|"
                 />
             </h1>
         </Content>

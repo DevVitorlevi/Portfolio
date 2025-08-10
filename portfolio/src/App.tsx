@@ -9,25 +9,53 @@ import Services from "./components/features/services/Services"
 import Projects from "./components/features/projects/Projects"
 import Contact from "./components/features/contact/Contact"
 import { GlobalStyles } from "./styles/GlobalStyles"
-import SplashCursor from './components/animations/SplashCursor'
+import Particles from "./components/animations/Particles"
+import styled from "styled-components";
 
-<SplashCursor />
-//Common
+
+
+const ParticlesWrapper = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  `;
+const BackgroundContainer = styled.div`
+  position: relative;
+  width: 100%;
+  min-height: 100vh; 
+  overflow: hidden;
+`;
 function App() {
-
-
   return (
     <>
       <GlobalStyles />
-      <SplashCursor />
       <Header />
       <Hero />
-      <About />
-      <Techs />
-      <Services />
-      <Projects />
-      <Contact />
-      <Footer />
+
+      <BackgroundContainer>
+        <ParticlesWrapper>
+          <Particles
+            particleColors={["#220279", "#540bdc"]}
+            particleCount={800}
+            particleSpread={10}
+            speed={0.2}
+            particleBaseSize={100}
+            moveParticlesOnHover={false}
+            alphaParticles={false}
+            disableRotation={false}
+          />
+        </ParticlesWrapper>
+
+        <About />
+        <Techs />
+        <Services />
+        <Projects />
+        <Contact />
+        <Footer />
+      </BackgroundContainer>
     </>
   )
 }

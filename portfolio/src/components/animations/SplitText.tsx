@@ -5,16 +5,16 @@ import { SplitText as GSAPSplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger, GSAPSplitText);
 
-interface SplitTextProps {
+export interface SplitTextProps {
     text: string;
     className?: string;
-    delay?: number; // em ms
-    duration?: number; // em s
-    ease?: gsap.EaseFunction | gsap.EaseString;
-    splitType?: "chars" | "words" | "lines";
+    delay?: number;
+    duration?: number;
+    ease?: string | ((t: number) => number);
+    splitType?: "chars" | "words" | "lines" | "words, chars";
     from?: gsap.TweenVars;
     to?: gsap.TweenVars;
-    threshold?: number; // entre 0 e 1
+    threshold?: number;
     rootMargin?: string;
     textAlign?: React.CSSProperties["textAlign"];
     onLetterAnimationComplete?: () => void;
@@ -34,7 +34,7 @@ const SplitText: React.FC<SplitTextProps> = ({
     textAlign = "center",
     onLetterAnimationComplete,
 }) => {
-    const ref = useRef<HTMLParagraphElement | null>(null);
+    const ref = useRef<HTMLParagraphElement>(null);
     const animationCompletedRef = useRef(false);
     const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
 
@@ -48,7 +48,7 @@ const SplitText: React.FC<SplitTextProps> = ({
         const absoluteLines = splitType === "lines";
         if (absoluteLines) el.style.position = "relative";
 
-        let splitter: GSAPSplitText | null = null;
+        let splitter: GSAPSplitText;
         try {
             splitter = new GSAPSplitText(el, {
                 type: splitType,
@@ -60,17 +60,19 @@ const SplitText: React.FC<SplitTextProps> = ({
             return;
         }
 
-        let targets: HTMLElement[] = [];
+        let targets: Element[];
         switch (splitType) {
             case "lines":
-                targets = splitter.lines as HTMLElement[];
+                targets = splitter.lines;
                 break;
             case "words":
-                targets = splitter.words as HTMLElement[];
+                targets = splitter.words;
                 break;
             case "chars":
+                targets = splitter.chars;
+                break;
             default:
-                targets = splitter.chars as HTMLElement[];
+                targets = splitter.chars;
         }
 
         if (!targets || targets.length === 0) {
@@ -80,13 +82,13 @@ const SplitText: React.FC<SplitTextProps> = ({
         }
 
         targets.forEach((t) => {
-            t.style.willChange = "transform, opacity";
+            (t as HTMLElement).style.willChange = "transform, opacity";
         });
 
         const startPct = (1 - threshold) * 100;
         const marginMatch = /^(-?\d+(?:\.\d+)?)(px|em|rem|%)?$/.exec(rootMargin);
         const marginValue = marginMatch ? parseFloat(marginMatch[1]) : 0;
-        const marginUnit = marginMatch ? marginMatch[2] || "px" : "px";
+        const marginUnit = marginMatch ? (marginMatch[2] || "px") : "px";
         const sign = marginValue < 0 ? `-=${Math.abs(marginValue)}${marginUnit}` : `+=${marginValue}${marginUnit}`;
         const start = `top ${startPct}%${sign}`;
 

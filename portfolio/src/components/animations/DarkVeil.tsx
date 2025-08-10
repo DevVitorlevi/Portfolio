@@ -74,6 +74,16 @@ void main(){
 }
 `;
 
+type Props = {
+    hueShift?: number;
+    noiseIntensity?: number;
+    scanlineIntensity?: number;
+    speed?: number;
+    scanlineFrequency?: number;
+    warpAmount?: number;
+    resolutionScale?: number;
+};
+
 export default function DarkVeil({
     hueShift = 0,
     noiseIntensity = 0,
@@ -82,13 +92,11 @@ export default function DarkVeil({
     scanlineFrequency = 0,
     warpAmount = 0,
     resolutionScale = 1,
-}) {
-    const ref = useRef<HTMLCanvasElement | null>(null);
+}: Props) {
+    const ref = useRef<HTMLCanvasElement>(null);
     useEffect(() => {
-        const canvas = ref.current;
-        if (!canvas) return;  // Se canvas for null, sai do useEffect
-        const parent = canvas.parentElement;
-        if (!parent) return;  // Se parent for null, sai do useEffect
+        const canvas = ref.current as HTMLCanvasElement;
+        const parent = canvas.parentElement as HTMLElement;
 
         const renderer = new Renderer({
             dpr: Math.min(window.devicePixelRatio, 2),
@@ -115,20 +123,9 @@ export default function DarkVeil({
         const mesh = new Mesh(gl, { geometry, program });
 
         const resize = () => {
-            const w = parent.clientWidth;
-            const h = parent.clientHeight;
-
-            // Ajusta resolução do canvas (pixels internos)
-            renderer.setSize(w * resolutionScale, h * resolutionScale); // false: não muda estilo CSS
-
-            // Ajusta o tamanho CSS do canvas para ocupar o container inteiro
-            const canvas = ref.current;
-            if (canvas) {
-                canvas.style.width = `${w}px`;
-                canvas.style.height = `${h}px`;
-            }
-
-            // Atualiza uniform de resolução (em pixels CSS)
+            const w = parent.clientWidth,
+                h = parent.clientHeight;
+            renderer.setSize(w * resolutionScale, h * resolutionScale);
             program.uniforms.uResolution.value.set(w, h);
         };
 

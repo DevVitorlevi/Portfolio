@@ -7,6 +7,8 @@
     margin-left: 0.25rem;
     display: inline-block;
     opacity: 1;
+    background-color: white;
+    width: 1%;
 }
 
 .text-type__cursor--hidden {
