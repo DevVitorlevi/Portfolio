@@ -8,7 +8,7 @@ export const HeaderWrapper = styled.header`
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(20px);
   background-color: #1212123d;
-  font-size: 1.4rem;
+  padding: .5rem;
 `;
 
 export const HeaderContent = styled.div`
@@ -89,26 +89,28 @@ export const NavList = styled.ul<{ $open: boolean }>`
 
 export const NavItem = styled.li`
   width: 100%;
-
+  
   @media (min-width: 800px) {
     width: auto;
   }
 `;
 
 export const NavLink = styled.a`
-  font-size: 1.5rem;
   width: 100%;
   padding: 1rem 0;
   display: block;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  font-family: var(--fonte-principal, Arial, sans-serif);
+  font-family: 'Poppins';
   transition: color 0.3s ease;
   white-space: nowrap;
+  cursor: pointer; /* <-- adicionado */
 
   &:hover {
-    background: linear-gradient(90deg, #7b2ff7, #2983f0);
+    background: linear-gradient(90deg, #5d07e7ff, #0514b6ff);
+    -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 
   @media (min-width: 800px) {
@@ -118,7 +120,7 @@ export const NavLink = styled.a`
   }
 
   @media (min-width: 1024px) {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     position: relative;
 
     &::after {
@@ -137,6 +139,8 @@ export const NavLink = styled.a`
     }
   }
 `;
+
+
 
 // Você já fez certo aqui com $active
 export const Overlay = styled.div<{ $active: boolean }>`

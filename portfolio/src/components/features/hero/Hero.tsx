@@ -1,7 +1,10 @@
+import HeroSection from "./heroSection/HeroSection"
 
 const Hero = () => {
     return (
-        <div>Hero</div>
+        <>
+            <HeroSection />
+        </>
     )
 }
 
