@@ -7,11 +7,11 @@ const Metrics = () => {
                 <p>Anos de Experiência</p>
             </Data>
             <Data>
-                <span className="destaq">40+</span>
+                <span className="destaq">30+</span>
                 <p>Projetos Feitos</p>
             </Data>
             <Data>
-                <span className="destaq">1200+</span>
+                <span className="destaq">1000+</span>
                 <p>Commits no GitHub</p>
             </Data>
         </Metricas>

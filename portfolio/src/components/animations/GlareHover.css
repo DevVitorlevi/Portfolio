@@ -1,15 +1,16 @@
 .glare-hover {
     width: 12rem;
     height: 10rem;
-    background: var(--gh-bg);
+    background: transparent;
     border-radius: 2rem;
-    border: 1px solid var(--gh-border);
+    border: 1px solid rgba(255, 255, 255, 0.144);
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     gap: 1rem;
 }
 
