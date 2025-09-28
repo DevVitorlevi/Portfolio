@@ -8,10 +8,9 @@ export const Metricas = styled.div`
     padding-bottom: 10px;
     width: 100%;
     gap: 1rem;
-    margin-top: 2rem;
 
 &::after{
-        content: "";
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;

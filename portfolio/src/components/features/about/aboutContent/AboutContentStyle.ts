@@ -1,4 +1,5 @@
 import styled, { keyframes, css } from 'styled-components';
+import Me from "../../../../assets/images/me.jpg";
 
 const fadeInUp = keyframes`
   from {
@@ -32,21 +33,24 @@ export const About = styled.div<{ $isVisible: boolean }>`
   transition: opacity 0.3s ease;
 
   ${({ $isVisible }) =>
-        $isVisible &&
-        css`
+    $isVisible &&
+    css`
       opacity: 1;
     `}
 `;
 
 export const SubTitle = styled.p<{ $isVisible: boolean }>`
   width: 50%;
-  font-size: 2rem;
-  margin: 10rem 0;
+  font-size: 1.6rem;
+  margin: 0rem 0;
   opacity: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 
   ${({ $isVisible }) =>
-        $isVisible &&
-        css`
+    $isVisible &&
+    css`
       animation: ${fadeInUp} 0.8s ease forwards;
     `}
 
@@ -58,8 +62,11 @@ export const SubTitle = styled.p<{ $isVisible: boolean }>`
 `;
 
 export const Image = styled.div<{ $isVisible: boolean }>`
-  width: 500px;
-  height: 500px;
+  background-image: url(${Me});
+  background-size: cover;
+  background-position: center;
+  width: 600px;
+  height: 600px;
   border-radius: 50%;
   border: 1px solid white;
   box-shadow: 0 0 60px 1px #8805edff;
@@ -67,9 +74,9 @@ export const Image = styled.div<{ $isVisible: boolean }>`
   transform: scale(0.5);
 
   ${({ $isVisible }) =>
-        $isVisible &&
-        css`
+    $isVisible &&
+    css`
       animation: ${zoomIn} 0.8s ease forwards;
-      animation-delay: 2s; /* começa depois do texto */
+      animation-delay: 1s; /* começa depois do texto */
     `}
 `;

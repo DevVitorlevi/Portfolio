@@ -13,7 +13,7 @@ const HeroSection = () => (
             />
             <h1>
                 <TextType
-                    text={["Desenvolvedor Full-Stack", "Desenvolvedor Web", "Programador Front-End", "Programador Back-End"]}
+                    text={["Desenvolvedor FullStack", "Desenvolvedor FrontEnd", "Desenvolvedor BackEnd","QA Automation"]}
                 />
             </h1>
         </Content>
