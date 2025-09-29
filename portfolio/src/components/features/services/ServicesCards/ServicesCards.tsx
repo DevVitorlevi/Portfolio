@@ -46,9 +46,10 @@ const ServicesCards = () => {
       style={{
         animationDelay: isVisible ? `${index * 0.5}s` : "0s",
         height: "30rem",
-        width: "20rem",
+        width: "22rem",
         display: "flex",
         flexDirection: "column", // organiza em coluna
+        alignItems:"center",
         justifyContent: "flex-start", // força o título no topo
       }}
     >

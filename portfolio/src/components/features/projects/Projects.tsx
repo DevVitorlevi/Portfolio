@@ -1,7 +1,12 @@
+import Title from "../../common/title/Title"
+import ProjectsCards from "./ProjectsCards/ProjectsCards"
 
 const Projects = () => {
     return (
-        <div>Projects</div>
+        <>
+        <Title text="Projetos"/>
+        <ProjectsCards/>
+        </>
     )
 }
 
