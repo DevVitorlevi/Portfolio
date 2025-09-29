@@ -24,6 +24,8 @@ export const Cards = styled.div<{ $isVisible: boolean }>`
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   width: 50vw;
+  margin-top: 5rem;
+  
 
   & > * {
     opacity: 0;

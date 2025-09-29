@@ -41,7 +41,7 @@ export const About = styled.div<{ $isVisible: boolean }>`
 
 export const SubTitle = styled.p<{ $isVisible: boolean }>`
   width: 50%;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   margin: 0rem 0;
   opacity: 0;
   display: flex;
@@ -65,8 +65,8 @@ export const Image = styled.div<{ $isVisible: boolean }>`
   background-image: url(${Me});
   background-size: cover;
   background-position: center;
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
   border: 1px solid white;
   box-shadow: 0 0 60px 1px #8805edff;

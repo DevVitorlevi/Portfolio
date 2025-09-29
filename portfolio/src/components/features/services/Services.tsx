@@ -1,8 +1,13 @@
+import Title from "../../common/title/Title"
+import ServicesCards from "./ServicesCards/ServicesCards"
 
 
 const Services = () => {
     return (
-        <div>Services</div>
+        <>
+        <Title text="Servicos"/>
+        <ServicesCards/>
+        </>
     )
 }
 
