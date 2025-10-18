@@ -17,6 +17,17 @@ export const Cards = styled.div<{ $isVisible: boolean }>`
   gap: 2rem;
   width: 80vw;
 
+  & > * {
+    opacity: 0;
+    transform: translateY(20px);
+    ${({ $isVisible }) =>
+      $isVisible &&
+      css`
+        animation: ${fadeInUp} 0.6s ease forwards;
+      `}
+  }
+`;
+export const CardContent = styled.div`
   ul {
     display: flex;
     flex-direction: column;
@@ -28,16 +39,7 @@ export const Cards = styled.div<{ $isVisible: boolean }>`
 
   h2 {
     font-size: 1.8rem;
-    margin-top: 2rem; 
+    margin-top: 2rem;
+    text-align: center;
   }
-
-  & > * {
-    opacity: 0;
-    transform: translateY(20px);
-    ${({ $isVisible }) =>
-      $isVisible &&
-      css`
-        animation: ${fadeInUp} 0.6s ease forwards;
-      `}
-  }
-`;
+`

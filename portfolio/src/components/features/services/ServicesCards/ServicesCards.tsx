@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import GlareHover from "../../../animations/GlareHover";
-import { Cards } from "./ServicesCardsStyle";
+import SpotlightCard from "../../../animations/SpotlightCard";
+import { Cards,CardContent } from "./ServicesCardsStyle";
 import { Container } from "../../techs/TechsCards/TechsCardsStyle";
 
 
@@ -39,20 +39,11 @@ const ServicesCards = () => {
     <Container>
 <Cards ref={cardsRef} $isVisible={isVisible}>
   {services.map(({ title, l1 ,l2 ,l3 ,l4 }, index) => (
-    <GlareHover
+    <SpotlightCard
       key={index}
-      glareColor="#a306ec"
-      transitionDuration={1000}
-      style={{
-        animationDelay: isVisible ? `${index * 0.5}s` : "0s",
-        height: "30rem",
-        width: "22rem",
-        display: "flex",
-        flexDirection: "column", // organiza em coluna
-        alignItems:"center",
-        justifyContent: "flex-start", // força o título no topo
-      }}
+      spotlightColor = "rgba(103, 10, 225, 0.529)"
     >
+      <CardContent>
       <h2 className="destaq">{title}</h2>
       <ul>
         <li>{l1}</li>
@@ -60,7 +51,8 @@ const ServicesCards = () => {
         <li>{l3}</li>
         <li>{l4}</li>
       </ul>
-    </GlareHover>
+      </CardContent>
+    </SpotlightCard>
   ))}
 </Cards>
 

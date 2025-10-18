@@ -49,7 +49,7 @@ function App() {
           />
         </ParticlesWrapper>
 
-        <About />
+        <About/>
         <Techs />
         <Services />
         <Projects />

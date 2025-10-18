@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import GlareHover from "../../../animations/GlareHover";
+import SpotlightCard from "../../../animations/SpotlightCard";
 import { Cards, Container } from './TechsCardsStyle';
 
 const techs = [
@@ -49,17 +49,13 @@ const TechsCards = () => {
         <Container>
             <Cards ref={cardsRef} $isVisible={isVisible}>
                 {techs.map(({ name, icon }, index) => (
-                    <GlareHover
+                    <SpotlightCard
                         key={index}
-                        glareColor="#a306ec"
-                        transitionDuration={1000}
-                        style={{
-                            animationDelay: isVisible ? `${index * 0.5}s` : "0s",
-                        }}
+                        spotlightColor = "rgba(103, 10, 225, 0.529)"
                     >
                         <img src={icon} alt={name} width={60} />
                         <h2>{name}</h2>
-                    </GlareHover>
+                    </SpotlightCard>
                 ))}
             </Cards>
         </Container>
