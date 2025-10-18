@@ -19,7 +19,7 @@ const projects = [
   },
   {
     image: img2,
-    title: "Obras de Proteção Costeira em Icapuí",
+    title: "Obras Costeiras em Icapuí",
     desc: "Estudo sobre a erosão costeira no litoral de Icapuí, analisando suas causas naturais, como ação das ondas, marés e processos climáticos, e causas antrópicas, incluindo urbanização, turismo e atividades econômicas.",
     web: "https://icapui-e-a-erosao-costeira.vercel.app/",
     git: "https://github.com/DevVitorlevi/icapui-e-a-erosao-costeira",
@@ -40,17 +40,17 @@ const ProjectsCards = () => {
         {projects.map(({ image, title, desc, web, git }, index) => (
           <Card key={index}>
             <img src={image} alt={title} />
-            <h3>{title}</h3>
+            <h2 className="destaq">{title}</h2>
             <p>{desc}</p>
 
             <ButtonWrapper>
               {web && (
-                <a href={web} target="_blank" rel="noopener noreferrer">
+                <a href={web} target="_blank" rel="noopener noreferrer" className="web">
                   🌐 Ver Projeto
                 </a>
               )}
               {git && (
-                <a href={git} target="_blank" rel="noopener noreferrer">
+                <a href={git} target="_blank" rel="noopener noreferrer" className="git">
                   💻 Repositório
                 </a>
               )}
