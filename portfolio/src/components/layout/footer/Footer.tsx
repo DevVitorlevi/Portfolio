@@ -1,8 +1,10 @@
-
+import { Foot } from "./FooterStyle"
 const Footer = () => {
     return (
         <>
-            @2025 Vitor Levi. Todos os Direitos Reservados
+            <Foot>
+                <p>©2025 <a href="https://github.com/DevVitorlevi" target="_blank">Vitor Levi</a>. Todos os Direitos Reservados</p>
+            </Foot>
         </>
     )
 }

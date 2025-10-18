@@ -1,7 +1,8 @@
+import Title from "../../common/title/Title"
 
 const Contact = () => {
     return (
-        <div>Contact</div>
+        <Title text="Contato"/>
     )
 }
 

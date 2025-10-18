@@ -7,7 +7,7 @@ export const HeaderWrapper = styled.header`
   z-index: 9999;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(20px);
-  background-color: #1212123d;
+  background-color: #30055e28;
   padding: .5rem;
 `;
 
@@ -51,7 +51,7 @@ export const NavList = styled.ul<{ $open: boolean }>`
   height: 100vh;
   width: 70vw;
   max-width: 320px;
-  background-color: #1212123d;
+  background-color: #30055e28;
   flex-direction: column;
   align-items: flex-start;
   padding: 4rem 2rem;
