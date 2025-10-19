@@ -11,22 +11,24 @@ export const Container = styled.div`
 export const Cards = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  align-items: stretch;
-  justify-content: center;
+  grid-auto-rows: 1fr; /* força todos os cards da mesma altura */
   gap: 2rem;
   width: 100%;
   max-width: 1600px;
 `;
+
 export const Card = styled.div`
-  border: 1px solid white;
   border-radius: 1rem;
   text-align: center;
   background-color: transparent;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
+
   display: flex;
-  flex-direction: column; /* permite organizar elementos verticalmente */
+  flex-direction: column;
   
+  /* faz os cards terem mesma altura dentro do grid */
+  height: 100%; 
+
   img {
     width: 100%;
     border-top-left-radius: 1rem;
@@ -44,6 +46,7 @@ export const Card = styled.div`
     font-size: 0.95rem;
     line-height: 1.4;
     text-align: left;
+    flex-grow: 1; /* Faz o parágrafo crescer e preencher o espaço */
   }
 
   &:hover {
@@ -51,6 +54,7 @@ export const Card = styled.div`
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   }
 `;
+
 
 export const ButtonWrapper = styled.div`
   display: flex;
