@@ -1,6 +1,7 @@
 import styled, { keyframes, css } from 'styled-components';
 import Me from "../../../../assets/images/me.jpg";
 
+// animação de fade do texto subindo
 const fadeInUp = keyframes`
   from {
     opacity: 0;
@@ -12,6 +13,7 @@ const fadeInUp = keyframes`
   }
 `;
 
+// animação de zoom inicial da imagem
 const zoomIn = keyframes`
   from {
     opacity: 0;
@@ -21,6 +23,13 @@ const zoomIn = keyframes`
     opacity: 1;
     transform: scale(1);
   }
+`;
+
+// animação de flutuação contínua da imagem
+const float = keyframes`
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
 `;
 
 export const About = styled.div<{ $isVisible: boolean }>`
@@ -42,7 +51,7 @@ export const About = styled.div<{ $isVisible: boolean }>`
 export const SubTitle = styled.p<{ $isVisible: boolean }>`
   width: 50%;
   font-size: 1.3rem;
-  margin: 0rem 0;
+  margin: 0;
   opacity: 0;
   display: flex;
   flex-direction: column;
@@ -68,7 +77,6 @@ export const Image = styled.div<{ $isVisible: boolean }>`
   width: 500px;
   height: 500px;
   border-radius: 50%;
-  border: 1px solid white;
   box-shadow: 0 0 60px 1px #8805edff;
   opacity: 0;
   transform: scale(0.5);
@@ -76,7 +84,8 @@ export const Image = styled.div<{ $isVisible: boolean }>`
   ${({ $isVisible }) =>
     $isVisible &&
     css`
-      animation: ${zoomIn} 0.8s ease forwards;
-      animation-delay: 1s; /* começa depois do texto */
+      /* zoom inicial */
+      animation: ${zoomIn} 0.8s ease forwards, ${float} 3s ease-in-out 1.0s infinite;
+      animation-fill-mode: forwards;
     `}
 `;
