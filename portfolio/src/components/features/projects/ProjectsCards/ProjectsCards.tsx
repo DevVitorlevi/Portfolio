@@ -1,7 +1,5 @@
 import { Card, Cards, Container, ButtonWrapper } from "./ProjectsCardsStyle";
 import img2 from "../../../../assets/images/page.png";
-import ElectricBorder from "../../../animations/ElectricBorder"; // importe o componente
-
 const projects = [
   {
     image: img2,
@@ -37,15 +35,7 @@ const ProjectsCards = () => {
   return (
     <Container>
       <Cards>
-        {projects.map(({ image, title, desc, web, git }, index) => (
-          <ElectricBorder
-            key={index}
-            color="#1f0546"
-            speed={1}
-            chaos={0.5}
-            thickness={2}
-            style={{ borderRadius: 16, marginBottom: '1rem' }}
-          >
+        {projects.map(({ image, title, desc, web, git }) => (
             <Card>
               <img src={image} alt={title} />
               <h2 className="destaq">{title}</h2>
@@ -64,7 +54,6 @@ const ProjectsCards = () => {
                 )}
               </ButtonWrapper>
             </Card>
-          </ElectricBorder>
         ))}
       </Cards>
     </Container>

@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import SpotlightCard from "../../../animations/SpotlightCard";
-import ElectricBorder from "../../../animations/ElectricBorder";
 import { Cards, Container } from './TechsCardsStyle';
 
 const techs = [
@@ -51,13 +50,6 @@ const TechsCards = () => {
 
             <Cards ref={cardsRef} $isVisible={isVisible}>
                 {techs.map(({ name, icon }, index) => (
-                <ElectricBorder
-                    color="#1f0546"
-                    speed={1}
-                    chaos={0.5}
-                    thickness={2}
-                    style={{ borderRadius: 16, marginBottom: '1rem' }}
-                >
                     <SpotlightCard
                     key={index}
                     spotlightColor = "rgba(103, 10, 225, 0.529)"
@@ -65,7 +57,6 @@ const TechsCards = () => {
                         <img src={icon} alt={name} width={60} />
                         <h2>{name}</h2>
                     </SpotlightCard>
-                    </ElectricBorder>
                 ))}
             </Cards>
         </Container>

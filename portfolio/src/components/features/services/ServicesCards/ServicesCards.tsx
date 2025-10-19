@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import SpotlightCard from "../../../animations/SpotlightCard";
-import ElectricBorder from "../../../animations/ElectricBorder"; // import do componente
+
 import { Cards, CardContent } from "./ServicesCardsStyle";
 import { Container } from "../../techs/TechsCards/TechsCardsStyle";
 
@@ -61,13 +61,6 @@ const ServicesCards = () => {
     <Container>
       <Cards ref={cardsRef} $isVisible={isVisible}>
         {services.map(({ title, l1, l2, l3, l4 }, index) => (
-            <ElectricBorder
-              color="#1f0546"
-              speed={1}
-              chaos={0.5}
-              thickness={2}
-              style={{ borderRadius: 16 }}
-            >
           <SpotlightCard key={index} spotlightColor="rgba(103, 10, 225, 0.529)">
             {/* Aqui envolvemos com ElectricBorder */}
               <CardContent>
@@ -80,7 +73,6 @@ const ServicesCards = () => {
                 </ul>
               </CardContent>
           </SpotlightCard>
-          </ElectricBorder>
         ))}
       </Cards>
     </Container>
