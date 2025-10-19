@@ -35,10 +35,6 @@ export const Card = styled.div`
     border-top-right-radius: 1rem;
   }
 
-  h2 {
-    margin-top: 1rem;
-    font-size: 1.4rem;
-  }
 
   p {
     margin-left: 1rem;
@@ -51,7 +47,7 @@ export const Card = styled.div`
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px #3C0061;
   }
 `;
 

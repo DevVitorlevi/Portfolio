@@ -25,7 +25,9 @@ export const Cards = styled.div<{ $isVisible: boolean }>`
   gap: 2rem;
   width: 50vw;
   margin-top: 5rem;
-  
+  h2{
+    font-size: 1.4rem;
+  }
 
   & > * {
     opacity: 0;

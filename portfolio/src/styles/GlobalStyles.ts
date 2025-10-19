@@ -18,11 +18,7 @@ export const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
   }
 
-  .destaq {
-    background: linear-gradient(90deg, #7B2FF7, #2983f0);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+
 
 
 `;

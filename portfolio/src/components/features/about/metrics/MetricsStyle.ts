@@ -25,11 +25,6 @@ export const Data = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-
- .destaq {
-    font-size: 4rem;
- }
-
 p {
     font-size: 1.4rem;
 }

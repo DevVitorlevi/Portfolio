@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import SpotlightCard from "../../../animations/SpotlightCard";
-
+import GradientText from "../../../animations/GradientText";
 import { Cards, CardContent } from "./ServicesCardsStyle";
 import { Container } from "../../techs/TechsCards/TechsCardsStyle";
 
@@ -64,7 +64,14 @@ const ServicesCards = () => {
           <SpotlightCard key={index} spotlightColor="rgba(103, 10, 225, 0.529)">
             {/* Aqui envolvemos com ElectricBorder */}
               <CardContent>
-                <h2 className="destaq">{title}</h2>
+                <GradientText
+                  colors={["#581dc5", "#4079ff", "#581dc5", "#4079ff", "#581dc5"]}
+                  animationSpeed={8}
+                  showBorder={false}
+                  className="services"
+                >
+                  {title}
+                </GradientText>
                 <ul>
                   <li>{l1}</li>
                   <li>{l2}</li>

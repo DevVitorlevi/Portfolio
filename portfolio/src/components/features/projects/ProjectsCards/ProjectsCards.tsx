@@ -1,5 +1,7 @@
 import { Card, Cards, Container, ButtonWrapper } from "./ProjectsCardsStyle";
+import img3 from "../../../../assets/images/image.png"
 import img2 from "../../../../assets/images/page.png";
+import GradientText from "../../../animations/GradientText"
 const projects = [
   {
     image: img2,
@@ -16,8 +18,8 @@ const projects = [
     git: "https://github.com/DevVitorlevi/PeixeControl",
   },
   {
-    image: img2,
-    title: "Obras Costeiras em Icapuí",
+    image: img3,
+    title: "Icapuí: Quando o Mar Avança",
     desc: "Estudo sobre a erosão costeira no litoral de Icapuí, analisando suas causas naturais, como ação das ondas, marés e processos climáticos, e causas antrópicas, incluindo urbanização, turismo e atividades econômicas.",
     web: "https://icapui-e-a-erosao-costeira.vercel.app/",
     git: "https://github.com/DevVitorlevi/icapui-e-a-erosao-costeira",
@@ -38,7 +40,14 @@ const ProjectsCards = () => {
         {projects.map(({ image, title, desc, web, git }) => (
             <Card>
               <img src={image} alt={title} />
-              <h2 className="destaq">{title}</h2>
+              <GradientText
+                colors={["#581dc5", "#4079ff", "#581dc5", "#4079ff", "#581dc5"]}
+                animationSpeed={8}
+                showBorder={false}
+                className="projects"
+              >
+                {title}
+              </GradientText>
               <p>{desc}</p>
 
               <ButtonWrapper>
