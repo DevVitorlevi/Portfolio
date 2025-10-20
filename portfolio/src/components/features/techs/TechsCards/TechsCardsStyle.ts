@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled, { keyframes, css } from "styled-components";
 
 const fadeInUp = keyframes`
   from {
@@ -13,29 +13,41 @@ const fadeInUp = keyframes`
 
 export const Container = styled.div`
   min-height: 70vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
-  justify-content: center; 
-  align-items: center;     
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 1rem;
 `;
 
 export const Cards = styled.div<{ $isVisible: boolean }>`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-width: 1200px;
   gap: 2rem;
-  width: 50vw;
-  margin-top: 5rem;
   h2{
     font-size: 1.4rem;
   }
+  /* Desktop / Notebook grande */
+  grid-template-columns: repeat(4, 1fr);
 
   & > * {
     opacity: 0;
     transform: translateY(20px);
     ${({ $isVisible }) =>
-        $isVisible &&
-        css`
+      $isVisible &&
+      css`
         animation: ${fadeInUp} 0.6s ease forwards;
       `}
+  }
+
+  /* Tablets / Notebooks médios */
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Celulares pequenos */
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;

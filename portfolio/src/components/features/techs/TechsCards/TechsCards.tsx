@@ -8,7 +8,6 @@ const techs = [
     { name: "JavaScript", icon: "https://skillicons.dev/icons?i=js" },
     { name: "TypeScript", icon: "https://skillicons.dev/icons?i=ts" },
     { name: "ReactJS", icon: "https://skillicons.dev/icons?i=react" },
-    { name: "Styled", icon: "https://skillicons.dev/icons?i=styledcomponents" },
     { name: "NextJS", icon: "https://skillicons.dev/icons?i=next" },
     { name: "Tailwind", icon: "https://skillicons.dev/icons?i=tailwind" },
     { name: "NodeJS", icon: "https://skillicons.dev/icons?i=nodejs" },
@@ -19,6 +18,7 @@ const techs = [
     { name: "Git", icon: "https://skillicons.dev/icons?i=git" },
     { name: "PostMan", icon: "https://skillicons.dev/icons?i=postman" },
     { name: "Cypress", icon: "https://skillicons.dev/icons?i=cypress" },
+    { name: "Vercel", icon: "https://skillicons.dev/icons?i=vercel"}
 ];
 
 const TechsCards = () => {
