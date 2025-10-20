@@ -16,7 +16,7 @@ export const fadeIn = keyframes`
 export const Container = styled.div`
   width: 100%;
   max-width: 480px;
-  margin: 60px auto;
+  margin: 1rem auto;
   padding: 32px;
   background: #111827;
   color: #fff;
