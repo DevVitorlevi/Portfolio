@@ -4,10 +4,11 @@ import ServicesCards from "./ServicesCards/ServicesCards"
 
 const Services = () => {
     return (
-        <>
-        <Title text="Servicos"/>
-        <ServicesCards/>
-        </>
+        <section id="services">
+            <Title text="Servicos"/>
+            <ServicesCards/>
+        </section>
+
     )
 }
 

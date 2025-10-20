@@ -5,10 +5,10 @@ import TechsCards from "./TechsCards/TechsCards"
 
 const Techs = () => {
     return (
-        <>
-            <Title text="Linguagens & Ferramentas" />
-            <TechsCards />
-        </>
+            <section id="techs">
+                <Title text="Linguagens & Ferramentas" />
+                <TechsCards />
+            </section>
     )
 }
 

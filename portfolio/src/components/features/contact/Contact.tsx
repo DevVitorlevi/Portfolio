@@ -5,9 +5,11 @@ import SocialLinks from "./socialLinks/SocialLinks"
 const Contact = () => {
     return (
         <>
-        <Title text="Contato"/>
-        <Form/>
-        <SocialLinks/>
+        <section id="contato">
+            <Title text="Contato"/>
+            <Form/>
+            <SocialLinks/>
+        </section>
         </>
     )
 }

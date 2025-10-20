@@ -3,10 +3,10 @@ import ProjectsCards from "./ProjectsCards/ProjectsCards"
 
 const Projects = () => {
     return (
-        <>
-        <Title text="Projetos Principais"/>
-        <ProjectsCards/>
-        </>
+        <section id="projetos">
+            <Title text="Projetos Principais"/>
+            <ProjectsCards/>
+        </section>
     )
 }
 

@@ -4,8 +4,10 @@ import Metrics from "./metrics/Metrics"
 const About = () => {
     return (
         <>
+            <section id="about">
             <AboutContent />
             <Metrics />
+            </section>
         </>
     )
 }

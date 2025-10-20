@@ -2,6 +2,9 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
+  html {
+    scroll-behavior: smooth;
+  }
   /* Reset e variáveis */
   *, *::before, *::after {
     margin: 0;

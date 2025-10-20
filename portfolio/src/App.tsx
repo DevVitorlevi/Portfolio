@@ -32,8 +32,8 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <Header />
       <Hero />
+      <Header />
 
       <BackgroundContainer>
         <ParticlesWrapper>
