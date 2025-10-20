@@ -9,13 +9,16 @@ const fadeInUp = keyframes`
     opacity: 1;
     transform: translateY(0);
   }
-`; 
+`;
 
 export const Cards = styled.div<{ $isVisible: boolean }>`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
   width: 80vw;
+  margin: 0 auto;
+
+  /* Desktop grande (>1440px) */
+  grid-template-columns: repeat(4, 1fr);
 
   & > * {
     opacity: 0;
@@ -26,7 +29,20 @@ export const Cards = styled.div<{ $isVisible: boolean }>`
         animation: ${fadeInUp} 0.6s ease forwards;
       `}
   }
+
+  @media (max-width: 1570px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 `;
+
 export const CardContent = styled.div`
   ul {
     display: flex;
@@ -42,4 +58,4 @@ export const CardContent = styled.div`
     margin-top: 2rem;
     text-align: center;
   }
-`
+`;
