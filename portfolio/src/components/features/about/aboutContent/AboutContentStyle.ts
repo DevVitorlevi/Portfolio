@@ -32,30 +32,43 @@ const float = keyframes`
   100% { transform: translateY(0); }
 `;
 
-export const About = styled.div<{ $isVisible: boolean }>`
+export const About = styled.section<{ $isVisible: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  height: 90vh;
+  height: 100vh;
+  gap: 4rem;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
+  scroll-margin-top: 100px; /* evita corte pelo header fixo */
 
   ${({ $isVisible }) =>
     $isVisible &&
     css`
       opacity: 1;
     `}
+
+  /* layout vertical em telas menores */
+  @media screen and (max-width: 1180px) {
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 3rem 1rem;
+    gap: 2.5rem;
+  }
 `;
 
 export const SubTitle = styled.p<{ $isVisible: boolean }>`
-  width: 50%;
-  font-size: 1.3rem;
+  width: 45%;
+  font-size: clamp(1rem, 1.2vw + 0.5rem, 1.4rem);
+  line-height: 1.8rem;
   margin: 0;
+  color: #f5f5f5;
   opacity: 0;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+  text-align: justify;
 
   ${({ $isVisible }) =>
     $isVisible &&
@@ -63,10 +76,9 @@ export const SubTitle = styled.p<{ $isVisible: boolean }>`
       animation: ${fadeInUp} 0.8s ease forwards;
     `}
 
-  .destaq {
-    background: linear-gradient(90deg, #7B2FF7, #2983f0);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+  @media screen and (max-width: 1180px) {
+    width: 90%;
+    line-height: 1.6rem;
   }
 `;
 
@@ -74,18 +86,28 @@ export const Image = styled.div<{ $isVisible: boolean }>`
   background-image: url(${Me});
   background-size: cover;
   background-position: center;
-  width: 500px;
-  height: 500px;
+  background-repeat: no-repeat;
+  width: clamp(220px, 40vw, 450px);
+  height: clamp(220px, 40vw, 450px);
   border-radius: 50%;
-  box-shadow: 0 0 60px 1px #8805edff;
+  box-shadow: 0 0 50px 2px #8805edff;
   opacity: 0;
   transform: scale(0.5);
 
   ${({ $isVisible }) =>
     $isVisible &&
     css`
-      /* zoom inicial */
-      animation: ${zoomIn} 0.8s ease forwards, ${float} 3s ease-in-out 1.0s infinite;
+      animation: ${zoomIn} 0.8s ease forwards, ${float} 3s ease-in-out 1s infinite;
       animation-fill-mode: forwards;
     `}
+
+  @media screen and (max-width: 1180px) {
+    width: clamp(180px, 60vw, 380px);
+    height: clamp(180px, 60vw, 380px);
+  }
+
+  @media screen and (max-width: 600px) {
+    width: clamp(150px, 70vw, 300px);
+    height: clamp(150px, 70vw, 300px);
+  }
 `;
