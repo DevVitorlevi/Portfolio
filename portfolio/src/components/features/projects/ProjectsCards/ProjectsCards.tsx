@@ -1,7 +1,10 @@
-import { Card, Cards, Container, ButtonWrapper } from "./ProjectsCardsStyle";
-import img3 from "../../../../assets/images/image.png"
+import { useEffect, useRef, useState } from "react";
+import GradientText from "../../../animations/GradientText";
+import { Cards, Container, ButtonWrapper, Card } from "./ProjectsCardsStyle";
+import img3 from "../../../../assets/images/image.png";
 import img2 from "../../../../assets/images/page.png";
-import GradientText from "../../../animations/GradientText"
+import styled, { keyframes, css } from "styled-components";
+
 const projects = [
   {
     image: img2,
@@ -33,11 +36,50 @@ const projects = [
   },
 ];
 
+const fadeInUp = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+`;
+
+// Wrapper que aplica delay individual
+const CardWrapper = styled.div<{ delay: number; isVisible: boolean }>`
+  opacity: 0;
+  transform: translateY(20px);
+
+  ${({ isVisible, delay }) =>
+    isVisible &&
+    css`
+      animation: ${fadeInUp} 1s ease forwards;
+      animation-delay: ${delay}s;
+    `}
+`;
 const ProjectsCards = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardsRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (cardsRef.current) observer.observe(cardsRef.current);
+
+    return () => {
+      if (cardsRef.current) observer.unobserve(cardsRef.current);
+    };
+  }, []);
+
   return (
     <Container>
-      <Cards>
-        {projects.map(({ image, title, desc, web, git }) => (
+      <Cards ref={cardsRef}>
+        {projects.map(({ image, title, desc, web, git }, index) => (
+          <CardWrapper key={index} delay={index * 0.2} isVisible={isVisible}>
             <Card>
               <img src={image} alt={title} />
               <GradientText
@@ -49,20 +91,12 @@ const ProjectsCards = () => {
                 {title}
               </GradientText>
               <p>{desc}</p>
-
               <ButtonWrapper>
-                {web && (
-                  <a href={web} target="_blank" rel="noopener noreferrer" className="web">
-                    🌐 Ver Projeto
-                  </a>
-                )}
-                {git && (
-                  <a href={git} target="_blank" rel="noopener noreferrer" className="git">
-                    💻 Repositório
-                  </a>
-                )}
+                {web && <a href={web} target="_blank" rel="noopener noreferrer" className="web">🌐 Ver Projeto</a>}
+                {git && <a href={git} target="_blank" rel="noopener noreferrer" className="git">💻 Repositório</a>}
               </ButtonWrapper>
             </Card>
+          </CardWrapper>
         ))}
       </Cards>
     </Container>

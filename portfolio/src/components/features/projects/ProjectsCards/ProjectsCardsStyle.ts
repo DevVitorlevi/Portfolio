@@ -11,7 +11,7 @@ export const Container = styled.div`
 export const Cards = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-auto-rows: 1fr; /* força todos os cards da mesma altura */
+  grid-auto-rows: 1fr; 
   gap: 2rem;
   width: 100%;
   max-width: 1600px;
@@ -26,7 +26,6 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   
-  /* faz os cards terem mesma altura dentro do grid */
   height: 100%; 
 
   img {
