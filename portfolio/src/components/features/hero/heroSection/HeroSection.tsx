@@ -8,9 +8,9 @@ const HeroSection = () => (
     <Container>
         <DarkVeil />
         <Content>
-            <SplitText
-                text="Olá! Me chamo Vitor Levi"
-            />
+                <SplitText
+                    text="Olá! Me chamo Vitor Levi"
+                />
             <h1>
                 <TextType
                     text={["Desenvolvedor FullStack", "Desenvolvedor FrontEnd", "Desenvolvedor BackEnd","QA Automation"]}
