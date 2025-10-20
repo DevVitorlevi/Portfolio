@@ -10,7 +10,7 @@ const Metrics = () => {
                   showBorder={false}
                   className="metrics"
                 >
-                    2+
+                    3+
                 </GradientText>
                 <p>Anos de Experiência</p>
             </Data>

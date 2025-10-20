@@ -10,9 +10,9 @@ export const Container = styled.div`
 
 export const Cards = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
   grid-auto-rows: 1fr; 
-  gap: 2rem;
+  gap: 3rem;
   width: 100%;
   max-width: 1600px;
 `;

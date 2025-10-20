@@ -4,7 +4,7 @@ import ProjectsCards from "./ProjectsCards/ProjectsCards"
 const Projects = () => {
     return (
         <>
-        <Title text="Projetos"/>
+        <Title text="Projetos Principais"/>
         <ProjectsCards/>
         </>
     )
