@@ -17,7 +17,6 @@ export const Cards = styled.div<{ $isVisible: boolean }>`
   width: 80vw;
   margin: 0 auto;
 
-  /* Desktop grande (>1440px) */
   grid-template-columns: repeat(4, 1fr);
 
   & > * {

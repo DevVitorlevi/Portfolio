@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
+
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
 
 export const Container = styled.div`
   margin-top: 5rem;
@@ -8,13 +19,39 @@ export const Container = styled.div`
   width: 100%;
 `;
 
-export const Cards = styled.div`
+export const Cards = styled.div<{ $isVisible?: boolean }>`
   display: grid;
-  grid-template-columns: repeat(4, minmax(250px, 1fr));
-  grid-auto-rows: 1fr; 
+  grid-template-columns: repeat(4,1fr);
+  justify-content:center;
   gap: 3rem;
   width: 100%;
   max-width: 1600px;
+
+  & > * {
+    opacity: 0;
+    transform: translateY(20px);
+    ${({ $isVisible }) =>
+      $isVisible &&
+      css`
+        animation: ${fadeInUp} 0.6s ease forwards;
+      `}
+  }
+
+  /* ======= RESPONSIVIDADE ======= */
+  @media (max-width: 1570px) {
+    grid-template-columns: repeat(2,500px);
+  }
+
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 360px);
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(1,80vw);
+    justify-content:center;
+    gap: 2rem;
+  }
 `;
 
 export const Card = styled.div`
@@ -22,11 +59,9 @@ export const Card = styled.div`
   text-align: center;
   background-color: transparent;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
   display: flex;
   flex-direction: column;
-  
-  height: 100%; 
+  height: 100%;
 
   img {
     width: 100%;
@@ -34,22 +69,20 @@ export const Card = styled.div`
     border-top-right-radius: 1rem;
   }
 
-
   p {
     margin-left: 1rem;
     padding: 1rem;
     font-size: 0.95rem;
     line-height: 1.4;
     text-align: left;
-    flex-grow: 1; /* Faz o parágrafo crescer e preencher o espaço */
+    flex-grow: 1;
   }
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 0 15px #3C0061;
+    box-shadow: 0 0 15px #3c0061;
   }
 `;
-
 
 export const ButtonWrapper = styled.div`
   display: flex;
@@ -59,24 +92,24 @@ export const ButtonWrapper = styled.div`
   padding: 1rem;
   margin-top: auto;
 
-  a{
+  a {
     font-size: 1.2rem;
-    border-radius: .4rem;
-    padding: .4rem;
-    transition: all.4s;
+    border-radius: 0.4rem;
+    padding: 0.4rem;
+    transition: all 0.4s;
   }
-  .web{
-    background-color: #073b8aff;
-  }
-  .git{
-    background-color: #24292E;
-  }
-  .web:hover{
-    box-shadow: 0 0 12px 8px #073b8aff;
-  }
-  .git:hover{
-    box-shadow: 0 0 12px 8px #24292E;
-  }
-  
-`;
 
+  .web {
+    background-color: #073b8a;
+  }
+  .git {
+    background-color: #24292e;
+  }
+
+  .web:hover {
+    box-shadow: 0 0 12px 8px #073b8a;
+  }
+  .git:hover {
+    box-shadow: 0 0 12px 8px #24292e;
+  }
+`;
