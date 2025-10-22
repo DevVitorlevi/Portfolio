@@ -21,8 +21,8 @@ export const Container = styled.div`
 
 export const Cards = styled.div<{ $isVisible?: boolean }>`
   display: grid;
-  grid-template-columns: repeat(4,1fr);
-  justify-content:center;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
   gap: 3rem;
   width: 100%;
   max-width: 1600px;
@@ -39,7 +39,7 @@ export const Cards = styled.div<{ $isVisible?: boolean }>`
 
   /* ======= RESPONSIVIDADE ======= */
   @media (max-width: 1570px) {
-    grid-template-columns: repeat(2,500px);
+    grid-template-columns: repeat(2, 500px);
   }
 
   @media (max-width: 992px) {
@@ -48,34 +48,41 @@ export const Cards = styled.div<{ $isVisible?: boolean }>`
   }
 
   @media (max-width: 768px) {
-    grid-template-columns: repeat(1,80vw);
-    justify-content:center;
+    grid-template-columns: repeat(1, 80vw);
+    justify-content: center;
     gap: 2rem;
   }
 `;
 
 export const Card = styled.div`
   border-radius: 1rem;
-  text-align: center;
   background-color: transparent;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
   display: flex;
   flex-direction: column;
+  align-items: center; /* centraliza conteúdo horizontalmente */
+  justify-content: space-between;
   height: 100%;
+  text-align: center;
 
-  img {
+  #img {
     width: 100%;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
   }
 
+  /* ======== DESCRIÇÃO ======== */
   p {
-    margin-left: 1rem;
-    padding: 1rem;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    text-align: left;
-    flex-grow: 1;
+    width: 90%;
+    margin-top: .4rem;
+    font-size: 1rem;
+    text-align: justify;
+    color: #eaeaea;
+    display: flex;
+    align-items: center; /* centraliza verticalmente o texto */
+    justify-content: center;
+    flex-grow: 1; /* ocupa o espaço restante do card */
   }
 
   &:hover {
@@ -111,5 +118,19 @@ export const ButtonWrapper = styled.div`
   }
   .git:hover {
     box-shadow: 0 0 12px 8px #24292e;
+  }
+`;
+
+export const StackWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0;
+
+  img {
+    width: 40px;
+    height: 40px;
   }
 `;
