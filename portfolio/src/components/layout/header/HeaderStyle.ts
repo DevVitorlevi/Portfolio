@@ -8,7 +8,7 @@ export const HeaderWrapper = styled.header`
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(20px);
   background-color: #30055e28;
-  padding: .5rem;
+  padding: 0.5rem;
 `;
 
 export const HeaderContent = styled.div`
@@ -23,17 +23,12 @@ export const HeaderContent = styled.div`
   @media (min-width: 800px) {
     justify-content: center;
   }
-
-  @media (min-width: 1024px) {
-    padding: 1rem 2rem;
-  }
 `;
 
 export const HamburgerButton = styled.button`
   display: block;
   background: transparent;
   border: none;
-  font-size: 2rem;
   color: white;
   cursor: pointer;
   z-index: 10000;
@@ -43,7 +38,6 @@ export const HamburgerButton = styled.button`
   }
 `;
 
-// Troquei open por $open (transient prop) para não passar para o DOM
 export const NavList = styled.ul<{ $open: boolean }>`
   position: fixed;
   top: 0;
@@ -63,8 +57,8 @@ export const NavList = styled.ul<{ $open: boolean }>`
   display: flex;
 
   ${({ $open }) =>
-        $open &&
-        css`
+    $open &&
+    css`
       transform: translateX(0);
     `}
 
@@ -77,7 +71,6 @@ export const NavList = styled.ul<{ $open: boolean }>`
     background: transparent;
     transform: none;
     box-shadow: none;
-    display: flex;
     gap: 0.6rem;
     justify-content: center;
   }
@@ -89,28 +82,59 @@ export const NavList = styled.ul<{ $open: boolean }>`
 
 export const NavItem = styled.li`
   width: 100%;
-  
   @media (min-width: 800px) {
     width: auto;
   }
 `;
-
-export const NavLink = styled.a`
+export const NavLink = styled.a<{ $active?: boolean }>`
   width: 100%;
   padding: 1rem 0;
   display: block;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-family: 'Poppins';
-  transition: color 0.3s ease;
+  transition: all 0.3s ease; /* suaviza cor, gradiente e underline */
   white-space: nowrap;
-  cursor: pointer; /* <-- adicionado */
+  position: relative;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
+  /* Hover */
   &:hover {
     background: linear-gradient(90deg, #5d07e7ff, #0514b6ff);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+
+    &::after {
+      width: 100%;
+    }
+  }
+
+  /* Ativo */
+  ${({ $active }) =>
+    $active &&
+    css`
+      background: linear-gradient(90deg, #5d07e7ff, #0514b6ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+
+      &::after {
+        width: 100%;
+      }
+    `}
+
+  /* Linha/borda inferior animada */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #7b2ff7, #2983f0);
+    transition: width 0.3s ease, left 0.3s ease; /* suaviza o movimento da linha */
   }
 
   @media (min-width: 800px) {
@@ -121,39 +145,21 @@ export const NavLink = styled.a`
 
   @media (min-width: 1024px) {
     font-size: 1.5rem;
-    position: relative;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #7b2ff7, #2983f0);
-      transition: width 0.3s ease;
-    }
-
-    &:hover::after {
-      width: 100%;
-    }
   }
 `;
 
 
-
-// Você já fez certo aqui com $active
 export const Overlay = styled.div<{ $active: boolean }>`
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0,0.7);
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   z-index: 9998;
   opacity: ${({ $active }) => ($active ? 1 : 0)};
   pointer-events: ${({ $active }) => ($active ? 'auto' : 'none')};
   transition: opacity 0.3s ease;
-`;
+`
