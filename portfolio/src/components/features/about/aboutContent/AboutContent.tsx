@@ -1,32 +1,11 @@
-import { useEffect, useRef, useState } from "react";
-import { About, SubTitle } from "./AboutContentStyle";
+import Me from "../../../../assets/images/me.png";
 import ProfileCard from "../../../animations/ProfileCard";
-import Me from "../../../../assets/images/me.png"
+import { About, SubTitle } from "./AboutContentStyle";
 const AboutContent = () => {
-    const [isVisible, setIsVisible] = useState(false);
-    const aboutRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.disconnect(); // para não ficar observando depois
-                }
-            },
-            { threshold: 0.3 } // dispara quando 30% da div estiver visível
-        );
-
-        if (aboutRef.current) {
-            observer.observe(aboutRef.current);
-        }
-
-        return () => observer.disconnect();
-    }, []);
 
     return (
-        <About ref={aboutRef} $isVisible={isVisible}>
-            <SubTitle $isVisible={isVisible}>
+        <About>
+            <SubTitle>
 
                 <p>Sou Desenvolvedor FullStack e Técnico em Desenvolvimento de Sistemas, com dois anos de experiência construindo aplicações completas e escaláveis. Atuo na criação de interfaces modernas e responsivas, desenvolvimento de APIs RESTful eficientes e integração com bancos de dados relacionais e não relacionais, utilizando ferramentas como Sequelize e Mongoose (ORMs/ODMs).</p>
 
