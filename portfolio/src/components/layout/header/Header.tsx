@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {
   HeaderWrapper,
   HeaderContent,
@@ -51,7 +51,7 @@ export const Header: React.FC = () => {
                 { id: 'hero', label: 'Início' },
                 { id: 'about', label: 'Sobre Mim' },
                 { id: 'techs', label: 'Tecnologias' },
-                { id: 'timeline', label: 'Experiencias' },
+                { id: 'timeline', label: 'Experiências' },
                 { id: 'projetos', label: 'Projetos' },
                 { id: 'contato', label: 'Contato' },
               ].map(link => (
