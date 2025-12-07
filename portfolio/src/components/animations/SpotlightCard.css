@@ -2,7 +2,7 @@
   position: relative;
   border-radius: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.091);
-  background-color: #111111b5;
+  background: linear-gradient(135deg, #0d041e 0%, #000 100%);
   padding: 1rem;
   display: flex;
   align-items: center;
@@ -13,7 +13,7 @@
   --mouse-x: 50%;
   --mouse-y: 50%;
   --spotlight-color: rgba(255, 255, 255, 0.05);
-  transition:ease-in .4s;
+  transition: ease-in .4s;
 }
 
 .card-spotlight::before {
