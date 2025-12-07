@@ -131,14 +131,8 @@ const ProjectsCards = () => {
           <Card key={index}>
             <img src={image} alt={title} id="img" />
 
-            <GradientText
-              colors={["#581dc5", "#4079ff", "#581dc5", "#4079ff", "#581dc5"]}
-              animationSpeed={8}
-              showBorder={false}
-              className="projects"
-            >
-              {title}
-            </GradientText>
+            <h1 className="text-2xl m-4">{title}</h1>
+
 
             <p>{desc}</p>
 
