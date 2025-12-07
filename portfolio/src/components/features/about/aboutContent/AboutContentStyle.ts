@@ -1,5 +1,4 @@
 import styled, { keyframes, css } from 'styled-components';
-import Me from "../../../../assets/images/me.jpg";
 
 // animação de fade do texto subindo
 const fadeInUp = keyframes`
