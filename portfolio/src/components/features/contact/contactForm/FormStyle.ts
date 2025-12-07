@@ -1,6 +1,6 @@
 import styled, { keyframes, css } from "styled-components";
 
-// 🔹 Animação de fade-in suave
+// Animação de fade-in suave
 export const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -12,20 +12,21 @@ export const fadeIn = keyframes`
   }
 `;
 
-// 🔹 Container principal do formulário
+// Container principal do formulário
 export const Container = styled.div`
   width: 100%;
-  max-width: 480px;
+  max-width: 680px;
   margin: 1rem auto;
   padding: 32px;
-  background: #111827;
+  background: linear-gradient(135deg, #0d041e 0%, #000 100%);
+  border: 1px solid rgba(255, 255, 255, 0.115);
   color: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   animation: ${fadeIn} 0.6s ease forwards;
 `;
 
-// 🔹 Título do formulário
+// Título do formulário
 export const Title = styled.h2`
   font-size: 1.8rem;
   text-align: center;
@@ -33,14 +34,14 @@ export const Title = styled.h2`
   color: #a78bfa;
 `;
 
-// 🔹 Wrapper do <form>
+//  Wrapper do <form>
 export const FormWrapper = styled.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
 `;
 
-// 🔹 Campos de input
+//  Campos de input
 export const Input = styled.input`
   padding: 12px 14px;
   font-size: 1rem;
@@ -56,7 +57,7 @@ export const Input = styled.input`
   }
 `;
 
-// 🔹 Campo de texto
+// Campo de texto
 export const TextArea = styled.textarea`
   padding: 12px 14px;
   font-size: 1rem;
@@ -73,7 +74,7 @@ export const TextArea = styled.textarea`
   }
 `;
 
-// 🔹 Botão de envio
+// Botão de envio
 export const Button = styled.button`
   padding: 12px;
   background: ${(props) => (props.disabled ? "#6b21a8" : "#7c3aed")};

@@ -13,7 +13,7 @@ import {
   Title,
 } from "./FormStyle";
 
-// 🔹 Spinner animado
+// Spinner animado
 const spin = keyframes`
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -90,7 +90,6 @@ const Form = () => {
         </Button>
       </FormWrapper>
 
-      {/* ToastContainer idealmente no App.tsx */}
       <ToastContainer />
     </Container>
   );
