@@ -13,25 +13,6 @@ const fadeInUp = keyframes`
   }
 `;
 
-// animação de zoom inicial da imagem
-const zoomIn = keyframes`
-  from {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-`;
-
-// animação de flutuação contínua da imagem
-const float = keyframes`
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0); }
-`;
-
 export const About = styled.section<{ $isVisible: boolean }>`
   display: flex;
   flex-direction: row;
@@ -82,32 +63,3 @@ export const SubTitle = styled.p<{ $isVisible: boolean }>`
   }
 `;
 
-export const Image = styled.div<{ $isVisible: boolean }>`
-  background-image: url(${Me});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: clamp(220px, 40vw, 450px);
-  height: clamp(220px, 40vw, 450px);
-  border-radius: 50%;
-  box-shadow: 0 0 50px 2px #8805edff;
-  opacity: 0;
-  transform: scale(0.5);
-
-  ${({ $isVisible }) =>
-    $isVisible &&
-    css`
-      animation: ${zoomIn} 0.8s ease forwards, ${float} 3s ease-in-out 1s infinite;
-      animation-fill-mode: forwards;
-    `}
-
-  @media screen and (max-width: 1180px) {
-    width: clamp(180px, 60vw, 380px);
-    height: clamp(180px, 60vw, 380px);
-  }
-
-  @media screen and (max-width: 600px) {
-    width: clamp(150px, 70vw, 300px);
-    height: clamp(150px, 70vw, 300px);
-  }
-`;
