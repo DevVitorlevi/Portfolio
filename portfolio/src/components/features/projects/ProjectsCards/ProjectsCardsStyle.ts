@@ -16,7 +16,7 @@ export const Container = styled.div`
 
 export const Cards = styled.div<{ $isVisible?: boolean }>`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
   gap: 3rem;
   width: 100%;
@@ -51,7 +51,7 @@ export const Cards = styled.div<{ $isVisible?: boolean }>`
 
 export const Card = styled.div`
   border-radius: 1rem;
-  background-color:#111111b5;
+   background: linear-gradient(135deg, #0d041e 0%, #000 100%);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   display: flex;
