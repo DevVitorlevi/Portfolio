@@ -5,7 +5,7 @@ import Title from '../../common/title/Title';
 export default function Timeline() {
     const experiences = [
         {
-            period: "Nov 2024",
+            period: "Set 2024",
             title: "Primeiro Freelancer",
             description: "Desenvolvi minha primeira landing page profissional para uma loja de roupas, criando uma interface responsiva em HTML, CSS e JavaScript. Foquei em entregar uma página leve, visualmente atraente e alinhada ao estilo da marca, sendo meu primeiro contato com demandas reais de um cliente."
         },
