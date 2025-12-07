@@ -51,7 +51,7 @@ export const Header: React.FC = () => {
                 { id: 'hero', label: 'Início' },
                 { id: 'about', label: 'Sobre Mim' },
                 { id: 'techs', label: 'Techs & Tools' },
-                { id: 'services', label: 'Serviços' },
+                { id: 'timeline', label: 'Experiencias' },
                 { id: 'projetos', label: 'Projetos' },
                 { id: 'contato', label: 'Contato' },
               ].map(link => (

@@ -2,26 +2,41 @@ import styled, { css } from 'styled-components';
 
 export const HeaderWrapper = styled.header`
   position: fixed;
-  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 2%;
   width: 100%;
+  max-width: 1000px;
   z-index: 9999;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(20px);
-  background-color: #30055e28;
-  padding: 0.5rem;
+  background-color: #01010265;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* botão hamburger sempre à direita na tela pequena */
+
+  @media screen and (min-width: 800px) {
+    justify-content: center; /* mantém centralizado na tela grande */
+  }
+
+  @media screen and (max-width: 1024px) {
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    top: 0;
+  }
 `;
 
 export const HeaderContent = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
   width: 100%;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* botão à direita */
   align-items: center;
 
   @media (min-width: 800px) {
-    justify-content: center;
+    justify-content: center; /* centraliza nav na tela grande */
   }
 `;
 
@@ -32,6 +47,7 @@ export const HamburgerButton = styled.button`
   color: white;
   cursor: pointer;
   z-index: 10000;
+  margin-left: auto;
 
   @media (min-width: 800px) {
     display: none;
@@ -43,13 +59,13 @@ export const NavList = styled.ul<{ $open: boolean }>`
   top: 0;
   right: 0;
   height: 100vh;
-  width: 70vw;
+  width: 90vw;
   max-width: 320px;
   background-color: #30055e28;
   flex-direction: column;
   align-items: flex-start;
   padding: 4rem 2rem;
-  gap: 1.5rem;
+  gap: 0.3rem;
   transform: translateX(100%);
   transition: transform 0.3s ease;
   box-shadow: -4px 0 12px rgba(0, 0, 0, 0.7);
@@ -76,7 +92,7 @@ export const NavList = styled.ul<{ $open: boolean }>`
   }
 
   @media (min-width: 1024px) {
-    gap: 4rem;
+    gap: 1rem;
   }
 `;
 
@@ -86,18 +102,18 @@ export const NavItem = styled.li`
     width: auto;
   }
 `;
+
 export const NavLink = styled.a<{ $active?: boolean }>`
   width: 100%;
   padding: 1rem 0;
   display: block;
   font-family: 'Poppins';
-  transition: all 0.3s ease; /* suaviza cor, gradiente e underline */
+  transition: all 0.3s ease;
   white-space: nowrap;
   position: relative;
   cursor: pointer;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
-  /* Hover */
   &:hover {
     background: linear-gradient(90deg, #5d07e7ff, #0514b6ff);
     -webkit-background-clip: text;
@@ -110,7 +126,6 @@ export const NavLink = styled.a<{ $active?: boolean }>`
     }
   }
 
-  /* Ativo */
   ${({ $active }) =>
     $active &&
     css`
@@ -125,7 +140,6 @@ export const NavLink = styled.a<{ $active?: boolean }>`
       }
     `}
 
-  /* Linha/borda inferior animada */
   &::after {
     content: '';
     position: absolute;
@@ -134,7 +148,7 @@ export const NavLink = styled.a<{ $active?: boolean }>`
     width: 0%;
     height: 2px;
     background: linear-gradient(90deg, #7b2ff7, #2983f0);
-    transition: width 0.3s ease, left 0.3s ease; /* suaviza o movimento da linha */
+    transition: width 0.3s ease, left 0.3s ease;
   }
 
   @media (min-width: 800px) {
@@ -144,10 +158,9 @@ export const NavLink = styled.a<{ $active?: boolean }>`
   }
 
   @media (min-width: 1024px) {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 `;
-
 
 export const Overlay = styled.div<{ $active: boolean }>`
   position: fixed;
@@ -162,4 +175,4 @@ export const Overlay = styled.div<{ $active: boolean }>`
   opacity: ${({ $active }) => ($active ? 1 : 0)};
   pointer-events: ${({ $active }) => ($active ? 'auto' : 'none')};
   transition: opacity 0.3s ease;
-`
+`;
