@@ -1,7 +1,6 @@
-// Timeline.tsx
 import { TimelineContainer, TimelineWrapper } from './TimelineStyle';
 import TimelineItem from './TimelineItem';
-import Title from '../../common/title/Title';
+import SplitText from "../../animations/SplitText"
 export default function Timeline() {
     const experiences = [
         {
@@ -34,8 +33,8 @@ export default function Timeline() {
     ];
 
     return (
-        <section id='timeline'>
-            <Title text='Minhas Experiencias Profissionais' />
+        <section id='timeline' className='my-40'>
+            <SplitText text='Minhas Experiencias Profissionais' className="text-6xl text-center w-full h-20" />
             <TimelineContainer>
 
                 <TimelineWrapper>
