@@ -1,6 +1,5 @@
 //Layouts
 import { Header } from "./components/layout/header/Header"
-import Footer from "./components/layout/footer/Footer"
 //Features
 import Hero from "./components/features/hero/Hero"
 import About from "./components/features/about/About"
@@ -54,7 +53,6 @@ function App() {
         <Timeline />
         <Projects />
         <Contact />
-        <Footer />
       </BackgroundContainer>
     </>
   )
