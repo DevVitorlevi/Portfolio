@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import GradientText from "../../../animations/GradientText";
 import {
   Cards,
   Container,
@@ -11,7 +10,6 @@ import {
 import img3 from "../../../../assets/images/icapui.png";
 import img1 from "../../../../assets/images/peixe.png";
 import img6 from "../../../../assets/images/fome.png";
-import img7 from "../../../../assets/images/link.png";
 import img8 from "../../../../assets/images/car.png";
 
 // Projects
