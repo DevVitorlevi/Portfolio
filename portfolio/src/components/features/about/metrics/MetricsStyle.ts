@@ -16,7 +16,7 @@ export const Metricas = styled.div`
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, #7B2FF7, #2983f0);
+    background: linear-gradient(135deg, #2b086b 0%, #290b5c  100%);
 }
     
     `
@@ -26,10 +26,10 @@ export const Data = styled.div`
     flex-direction: column;
     align-items: center;
 p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 @media screen and (max-width:768px){
-    p{ font-size:1rem;
+    p{ font-size:0.8rem;
     }
 }
 `
