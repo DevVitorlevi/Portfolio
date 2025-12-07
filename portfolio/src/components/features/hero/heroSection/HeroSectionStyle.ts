@@ -23,7 +23,7 @@ export const Content = styled.div`
     font-weight: 300;
 
     /* Gradiente no texto */
-    background: linear-gradient(90deg, #2b084b, #290b5c );
+    background: linear-gradient(90deg, white, #290b5c );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

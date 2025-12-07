@@ -14,7 +14,7 @@ export const fadeIn = keyframes`
 
 // Container principal do formulário
 export const Container = styled.div`
-  width: 100%;
+  width: 90%;
   max-width: 680px;
   margin: 1rem auto;
   padding: 32px;

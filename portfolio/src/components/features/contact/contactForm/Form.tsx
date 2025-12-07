@@ -78,7 +78,7 @@ const Form = () => {
 
   return (
     <Container>
-      <Title>Preencha o Formulário</Title>
+      <Title>Entre em Contato</Title>
 
       <FormWrapper ref={form} onSubmit={sendEmail}>
         <Input type="text" name="from_name" placeholder="Seu nome" required />

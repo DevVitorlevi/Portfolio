@@ -34,7 +34,7 @@ export default function Timeline() {
 
     return (
         <section id='timeline' className='my-40'>
-            <SplitText text='Minhas Experiencias Profissionais' className="text-6xl text-center w-full h-20" />
+            <SplitText text='Minhas Experiencias Profissionais' className="text-4xl text-center w-full md:text-4xl lg:text-6xl h-20" />
             <TimelineContainer>
 
                 <TimelineWrapper>

@@ -5,7 +5,7 @@ export const ItemWrapper = styled.div<{ delay: number; isLeft: boolean }>`
   margin-bottom: 60px;
   animation: fadeInUp 0.6s ease-out forwards;
   opacity: 0;
-  animation-delay: ${props => props.delay}s;
+  animation-delay: ${props => props.delay};
   width: calc(50% - 40px);
   margin-left: ${props => props.isLeft ? '0' : 'auto'};
   margin-right: ${props => props.isLeft ? 'auto' : '0'};
@@ -44,9 +44,12 @@ export const ItemWrapper = styled.div<{ delay: number; isLeft: boolean }>`
     height: 2px;
     background: linear-gradient(${props => props.isLeft ? '90deg' : '-90deg'}, #a78bfa 0%, transparent 100%);
   }
+  @media  (max-width: 600px) {
+    width: 40rem;
+  }
 
   @media (max-width: 768px) {
-    width: calc(100% - 60px);
+    width: 40rem;
     margin-left: 0 !important;
     margin-right: 0 !important;
     
