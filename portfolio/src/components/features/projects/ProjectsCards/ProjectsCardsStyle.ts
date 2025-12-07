@@ -1,14 +1,9 @@
 import styled, { keyframes, css } from 'styled-components';
 
+// Animations
 const fadeInUp = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 `;
 
 export const Container = styled.div`
@@ -31,8 +26,8 @@ export const Cards = styled.div<{ $isVisible?: boolean }>`
     opacity: 0;
     transform: translateY(20px);
     ${({ $isVisible }) =>
-      $isVisible &&
-      css`
+    $isVisible &&
+    css`
         animation: ${fadeInUp} 0.6s ease forwards;
       `}
   }
@@ -56,12 +51,12 @@ export const Cards = styled.div<{ $isVisible?: boolean }>`
 
 export const Card = styled.div`
   border-radius: 1rem;
-  background-color: transparent;
+  background-color:#111111b5;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   display: flex;
   flex-direction: column;
-  align-items: center; /* centraliza conteúdo horizontalmente */
+  align-items: center;
   justify-content: space-between;
   height: 100%;
   text-align: center;
@@ -72,7 +67,6 @@ export const Card = styled.div`
     border-top-right-radius: 1rem;
   }
 
-  /* ======== DESCRIÇÃO ======== */
   p {
     width: 90%;
     margin-top: .4rem;
@@ -80,9 +74,9 @@ export const Card = styled.div`
     text-align: justify;
     color: #eaeaea;
     display: flex;
-    align-items: center; /* centraliza verticalmente o texto */
+    align-items: center;
     justify-content: center;
-    flex-grow: 1; /* ocupa o espaço restante do card */
+    flex-grow: 1;
   }
 
   &:hover {
