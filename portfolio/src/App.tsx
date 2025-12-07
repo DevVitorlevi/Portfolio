@@ -5,7 +5,7 @@ import Footer from "./components/layout/footer/Footer"
 import Hero from "./components/features/hero/Hero"
 import About from "./components/features/about/About"
 import Techs from "./components/features/techs/Techs"
-import Services from "./components/features/services/Services"
+import Timeline from "./components/features/TimeLine/Timeline"
 import Projects from "./components/features/projects/Projects"
 import Contact from "./components/features/contact/Contact"
 import { GlobalStyles } from "./styles/GlobalStyles"
@@ -49,9 +49,9 @@ function App() {
           />
         </ParticlesWrapper>
 
-        <About/>
+        <About />
         <Techs />
-        <Services />
+        <Timeline />
         <Projects />
         <Contact />
         <Footer />
