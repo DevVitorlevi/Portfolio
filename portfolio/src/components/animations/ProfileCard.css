@@ -57,7 +57,7 @@
 
 .pc-card {
   height: 80svh;
-  max-height: 580px;
+  max-height: 690px;
   display: grid;
   aspect-ratio: 0.718;
   border-radius: var(--card-radius);
@@ -70,6 +70,7 @@
   background: rgba(0, 0, 0, 0.9);
   backface-visibility: hidden;
   overflow: hidden;
+  border: .2px solid rgba(255, 255, 255, 0.115);
 }
 
 .pc-card:hover,

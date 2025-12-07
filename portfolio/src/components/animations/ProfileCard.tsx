@@ -23,7 +23,7 @@ interface ProfileCardProps {
   onContactClick?: () => void;
 }
 
-const DEFAULT_INNER_GRADIENT = 'linear-gradient(145deg,#38055888 0%,#14080844 100%)';
+const DEFAULT_INNER_GRADIENT = 'linear-gradient(135deg, #0d041e 0%, #000 100%);';
 
 const ANIMATION_CONFIG = {
   INITIAL_DURATION: 1200,
