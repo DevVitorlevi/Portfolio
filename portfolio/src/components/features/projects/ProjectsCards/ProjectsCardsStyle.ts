@@ -1,10 +1,6 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-// Animations
-const fadeInUp = keyframes`
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-`;
+
 
 export const Container = styled.div`
   margin-top: 5rem;
@@ -14,7 +10,7 @@ export const Container = styled.div`
   width: 100%;
 `;
 
-export const Cards = styled.div<{ $isVisible?: boolean }>`
+export const Cards = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
@@ -22,15 +18,6 @@ export const Cards = styled.div<{ $isVisible?: boolean }>`
   width: 100%;
   max-width: 1600px;
 
-  & > * {
-    opacity: 0;
-    transform: translateY(20px);
-    ${({ $isVisible }) =>
-    $isVisible &&
-    css`
-        animation: ${fadeInUp} 0.6s ease forwards;
-      `}
-  }
 
   /* ======= RESPONSIVIDADE ======= */
   @media (max-width: 1570px) {

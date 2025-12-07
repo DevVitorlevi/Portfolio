@@ -44,11 +44,25 @@ export const ItemWrapper = styled.div<{ delay: number; isLeft: boolean }>`
     height: 2px;
     background: linear-gradient(${props => props.isLeft ? '90deg' : '-90deg'}, #a78bfa 0%, transparent 100%);
   }
-  @media  (max-width: 600px) {
-    width: 40rem;
+  @media (max-width: 600px) {
+    width: 20rem;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    
+    &::before {
+      left: -32px !important;
+      right: auto !important;
+      width: 16px;
+      height: 16px;
+    }
+
+    &::after {
+      left: -12px !important;
+      right: auto !important;
+    }
   }
 
-  @media (max-width: 768px) {
+  @media (min-width: 768px) and (max-width:769px) {
     width: 40rem;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -113,6 +127,7 @@ export const Description = styled.p`
   color: white;
   line-height: 1.8;
   margin: 0;
+  text-align: justify;
 `;
 
 export const Badge = styled.span`

@@ -6,7 +6,7 @@ export const HeaderWrapper = styled.header`
   transform: translateX(-50%);
   top: 2%;
   width: 100%;
-  max-width: 1000px;
+  max-width: 900px;
   z-index: 9999;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(20px);

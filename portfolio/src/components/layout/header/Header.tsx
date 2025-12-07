@@ -53,7 +53,6 @@ export const Header: React.FC = () => {
                 { id: 'techs', label: 'Tecnologias' },
                 { id: 'timeline', label: 'Experiências' },
                 { id: 'projetos', label: 'Projetos' },
-                { id: 'contato', label: 'Contato' },
               ].map(link => (
                 <NavItem key={link.id}>
                   <NavLink

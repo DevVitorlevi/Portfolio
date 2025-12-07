@@ -5,7 +5,7 @@ const Contact = () => {
 
     return (
         <>
-            <section id="contato" className="h-[90vh] space-y-10 flex justify-center flex-col items-center my-20">
+            <section id="contato" className=" space-y-10 flex justify-center flex-col items-center max-md:mt-40 my-20 mb-10">
                 <Form />
                 <SocialLinks />
             </section>

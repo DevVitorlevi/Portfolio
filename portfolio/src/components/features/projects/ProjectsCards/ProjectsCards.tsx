@@ -100,31 +100,10 @@ const projects = [
 
 // Component
 const ProjectsCards = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardsRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const el = cardsRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(el);
-
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <Container>
-      <Cards ref={cardsRef} $isVisible={isVisible}>
+      <Cards>
         {projects.map(({ image, title, desc, web, git, stack }, index) => (
           <Card key={index}>
             <img src={image} alt={title} id="img" />
@@ -148,7 +127,7 @@ const ProjectsCards = () => {
                   rel="noopener noreferrer"
                   className="web"
                 >
-                  🌐 Ver Projeto
+                  🌐 Projeto
                 </a>
               )}
               {git && (
