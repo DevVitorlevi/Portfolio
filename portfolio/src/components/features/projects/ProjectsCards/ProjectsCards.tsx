@@ -32,21 +32,6 @@ const projects = [
     },
   },
   {
-    image: img1,
-    title: "Thinker",
-    desc: "Sistema de aprendizado gamificado com quizzes interativos e dashboard de desempenho. Permite acompanhar evolução, conquistar patentes e melhorar habilidades de forma envolvente e dinâmica.",
-    web: "https://thinker-project.vercel.app/",
-    git: "https://github.com/DevVitorlevi/Thinker",
-    stack: {
-      1: "https://skillicons.dev/icons?i=js",
-      2: "https://skillicons.dev/icons?i=nodejs",
-      3: "https://skillicons.dev/icons?i=express",
-      4: "https://skillicons.dev/icons?i=mongodb",
-      5: "https://skillicons.dev/icons?i=react",
-      6: "https://skillicons.dev/icons?i=styledcomponents",
-    },
-  },
-  {
     image: img3,
     title: "Icapuí: Quando o Mar Avança",
     desc: "Estudo sobre a erosão costeira no litoral de Icapuí, analisando suas causas naturais e antrópicas, incluindo urbanização, turismo e atividades econômicas.",
@@ -95,18 +80,6 @@ const projects = [
     desc: "Landing page responsiva para restaurante, com design moderno, cores harmoniosas e animações fluidas que destacam menus, fotos e promoções.",
     web: "https://landing-page--rust.vercel.app/",
     git: "https://github.com/DevVitorlevi/Fome",
-    stack: {
-      1: "https://skillicons.dev/icons?i=html",
-      2: "https://skillicons.dev/icons?i=css",
-      3: "https://skillicons.dev/icons?i=js",
-    },
-  },
-  {
-    image: img7,
-    title: "Linktree",
-    desc: "Linktree pessoal com design escuro e tipografia elegante. Botões minimalistas e visual limpo, ideal para portfólios e perfis profissionais.",
-    web: "https://link-tree-nine-liart.vercel.app/",
-    git: "https://github.com/DevVitorlevi/LinkTree",
     stack: {
       1: "https://skillicons.dev/icons?i=html",
       2: "https://skillicons.dev/icons?i=css",
