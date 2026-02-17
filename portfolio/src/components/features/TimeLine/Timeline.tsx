@@ -5,7 +5,7 @@ export default function Timeline() {
     const experiences = [
         {
             period: "Set 2024",
-            title: "Primeiro Freelancer",
+            title: "Freelancer • Landing Page",
             description: "Desenvolvi minha primeira landing page profissional para uma loja de roupas, criando uma interface responsiva em HTML, CSS e JavaScript. Foquei em entregar uma página leve, visualmente atraente e alinhada ao estilo da marca, sendo meu primeiro contato com demandas reais de um cliente."
         },
         {
@@ -25,11 +25,11 @@ export default function Timeline() {
             description: "Atuei no time de QA automatizando fluxos E2E para sistemas do governo do estado do Ceara. Trabalhei com Cenarios e Casos de Testes, automatizei testes em Cypress e Desenvolvi uma pipeline para o fluxo continuo de testes"
         },
         {
-            period: "Nov 2025 – Atual",
+            period: "Nov 2025 – Dez 2025",
             title: "Estágio Desenvolvedor FullStack",
             badge: "Golden Cloud Technology",
             description: "Passei a integrar o time de desenvolvimento da Golden. Fiquei encarregado de desenvolver um painel adminstrativo para uma empresa europeia. No FrontEnd, utilizei Next.js e TailwindCSS para criar formulários e dashboards interativos com foco em performance e usabilidade. No BackEnd, trabalhei com Node.js aprimorando o fluxo de recuperação de senha e criando filtros avançados de consulta de dados"
-        }
+        }2
     ];
 
     return (

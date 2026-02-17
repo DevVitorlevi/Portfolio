@@ -18,7 +18,7 @@ const techs = [
     { name: "Git", icon: "https://skillicons.dev/icons?i=git" },
     { name: "PostMan", icon: "https://skillicons.dev/icons?i=postman" },
     { name: "Cypress", icon: "https://skillicons.dev/icons?i=cypress" },
-    { name: "Vercel", icon: "https://skillicons.dev/icons?i=vercel"}
+    { name: "Vercel", icon: "https://skillicons.dev/icons?i=vercel" }
 ];
 
 const TechsCards = () => {
@@ -30,7 +30,7 @@ const TechsCards = () => {
             ([entry]) => {
                 if (entry.isIntersecting) {
                     setIsVisible(true);
-                    observer.disconnect(); // anima só uma vez
+                    observer.disconnect();
                 }
             },
             { threshold: 0.2 }
@@ -51,8 +51,8 @@ const TechsCards = () => {
             <Cards ref={cardsRef} $isVisible={isVisible}>
                 {techs.map(({ name, icon }, index) => (
                     <SpotlightCard
-                    key={index}
-                    spotlightColor = "rgba(103, 10, 225, 0.529)"
+                        key={index}
+                        spotlightColor="rgba(103, 10, 225, 0.529)"
                     >
                         <img src={icon} alt={name} width={60} />
                         <h2>{name}</h2>

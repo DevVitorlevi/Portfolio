@@ -8,19 +8,8 @@ import Timeline from "./components/features/TimeLine/Timeline"
 import Projects from "./components/features/projects/Projects"
 import Contact from "./components/features/contact/Contact"
 import { GlobalStyles } from "./styles/GlobalStyles"
-import Particles from "./components/animations/Particles"
 import styled from "styled-components";
 
-
-
-const ParticlesWrapper = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  `;
 const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
@@ -35,19 +24,6 @@ function App() {
       <Header />
 
       <BackgroundContainer>
-        <ParticlesWrapper>
-          <Particles
-            particleColors={["#220279", "#540bdc"]}
-            particleCount={1000}
-            particleSpread={10}
-            speed={.1}
-            particleBaseSize={100}
-            moveParticlesOnHover={true}
-            alphaParticles={false}
-            disableRotation={false}
-          />
-        </ParticlesWrapper>
-
         <About />
         <Techs />
         <Timeline />
