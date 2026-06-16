@@ -1,6 +1,4 @@
-import styled, { css } from 'styled-components';
-
-
+import styled from 'styled-components';
 
 export const Container = styled.div`
   margin-top: 5rem;
@@ -8,37 +6,27 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  padding: 0 1rem;
 `;
 
 export const Cards = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-content: center;
-  gap: 3rem;
+  gap: 2.5rem;
   width: 100%;
   max-width: 1600px;
 
-
-  /* ======= RESPONSIVIDADE ======= */
-  @media (max-width: 1570px) {
-    grid-template-columns: repeat(2, 500px);
-  }
-
-  @media (max-width: 992px) {
-    grid-template-columns: repeat(2, 360px);
-    gap: 2rem;
-  }
-
   @media (max-width: 768px) {
-    grid-template-columns: repeat(1, 80vw);
-    justify-content: center;
+    grid-template-columns: 1fr;
+    max-width: 480px;
     gap: 2rem;
   }
 `;
 
 export const Card = styled.div`
   border-radius: 1rem;
-   background: linear-gradient(135deg, #0d041e 0%, #000 100%);
+  background: linear-gradient(135deg, #0d041e 0%, #000 100%);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   display: flex;
@@ -47,17 +35,20 @@ export const Card = styled.div`
   justify-content: space-between;
   height: 100%;
   text-align: center;
+  overflow: hidden;
 
   #img {
     width: 100%;
+    display: block;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+    transition: transform 0.4s ease;
   }
 
   p {
     width: 90%;
-    margin-top: .4rem;
-    font-size: 1rem;
+    margin-top: 0.4rem;
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
     text-align: justify;
     color: #eaeaea;
     display: flex;
@@ -70,21 +61,33 @@ export const Card = styled.div`
     transform: translateY(-5px);
     box-shadow: 0 0 15px #3c0061;
   }
+
+  &:hover #img {
+    transform: scale(1.04);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:hover { transform: none; }
+    &:hover #img { transform: none; }
+  }
 `;
 
 export const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   padding: 1rem;
   margin-top: auto;
+  flex-wrap: wrap;
 
   a {
     font-size: 1.2rem;
     border-radius: 0.4rem;
-    padding: 0.4rem;
+    padding: 0.5rem 0.6rem;
     transition: all 0.4s;
+    display: inline-flex;
   }
 
   .web {
@@ -107,11 +110,16 @@ export const StackWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.5rem;
   margin: 1rem 0;
 
   img {
-    width: 40px;
-    height: 40px;
+    width: clamp(28px, 6vw, 40px);
+    height: clamp(28px, 6vw, 40px);
+    transition: transform 0.25s ease;
+  }
+
+  img:hover {
+    transform: translateY(-3px);
   }
 `;

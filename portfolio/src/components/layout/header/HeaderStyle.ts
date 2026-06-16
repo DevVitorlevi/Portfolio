@@ -1,42 +1,37 @@
 import styled, { css } from 'styled-components';
 
-export const HeaderWrapper = styled.header`
+export const HeaderWrapper = styled.header<{ $isBlack: boolean; $menuOpen: boolean }>`
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  top: 2%;
+  top: 0%;
   width: 100%;
-  max-width: 900px;
   z-index: 9999;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(20px);
-  background-color: #01010265;
-  border-radius: 2rem;
+
+  background-color: ${({ $isBlack, $menuOpen }) => ($isBlack || $menuOpen ? '#000000' : 'transparent')};
+  transition: background-color 0.3s ease-in-out;
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* botão hamburger sempre à direita na tela pequena */
-
-  @media screen and (min-width: 800px) {
-    justify-content: center; /* mantém centralizado na tela grande */
-  }
-
-  @media screen and (max-width: 1024px) {
-    background-color: transparent;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    top: 0;
-  }
 `;
 
 export const HeaderContent = styled.div`
   width: 100%;
   padding: 1rem 2rem;
   display: flex;
-  justify-content: flex-end; /* botão à direita */
+  justify-content: flex-end;
   align-items: center;
 
-  @media (min-width: 800px) {
-    justify-content: center; /* centraliza nav na tela grande */
+  nav {
+    display: flex;
+    justify-content: flex-end;
+
+    @media (min-width: 800px) {
+      width: auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.85rem 1.25rem;
   }
 `;
 
@@ -48,6 +43,15 @@ export const HamburgerButton = styled.button`
   cursor: pointer;
   z-index: 10000;
   margin-left: auto;
+  transition: transform 0.25s ease, color 0.25s ease;
+
+  &:hover {
+    color: #a78bfa;
+  }
+
+  &:active {
+    transform: scale(0.92);
+  }
 
   @media (min-width: 800px) {
     display: none;
@@ -61,13 +65,13 @@ export const NavList = styled.ul<{ $open: boolean }>`
   height: 100vh;
   width: 90vw;
   max-width: 320px;
-  background-color: #30055e28;
+  background-color: #000;
   flex-direction: column;
   align-items: flex-start;
   padding: 4rem 2rem;
   gap: 0.3rem;
   transform: translateX(100%);
-  transition: transform 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   box-shadow: -4px 0 12px rgba(0, 0, 0, 0.7);
   z-index: 9999;
   display: flex;
@@ -88,7 +92,7 @@ export const NavList = styled.ul<{ $open: boolean }>`
     transform: none;
     box-shadow: none;
     gap: 0.6rem;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
   @media (min-width: 1024px) {
@@ -108,18 +112,19 @@ export const NavLink = styled.a<{ $active?: boolean }>`
   padding: 1rem 0;
   display: block;
   font-family: 'Poppins';
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   white-space: nowrap;
   position: relative;
   cursor: pointer;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: clamp(1rem, 3vw, 1.1rem);
 
   &:hover {
     background: linear-gradient(90deg, #5d07e7ff, #0514b6ff);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent;
 
     &::after {
       width: 100%;
@@ -129,11 +134,11 @@ export const NavLink = styled.a<{ $active?: boolean }>`
   ${({ $active }) =>
     $active &&
     css`
-      background: linear-gradient(90deg, #5d07e7ff, #0514b6ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: transparent;
+      background: linear-gradient(90deg, #5d07e7ff, #0514b6ff) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      color: transparent !important;
 
       &::after {
         width: 100%;
@@ -168,9 +173,9 @@ export const Overlay = styled.div<{ $active: boolean }>`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 9998;
   opacity: ${({ $active }) => ($active ? 1 : 0)};
   pointer-events: ${({ $active }) => ($active ? 'auto' : 'none')};

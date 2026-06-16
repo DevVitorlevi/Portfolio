@@ -13,33 +13,56 @@ import { Menu, X } from 'lucide-react';
 export const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('hero');
+  const [isPastHero, setIsPastHero] = useState(false);
 
   const toggleMenu = () => setMenuOpen(prev => !prev);
   const closeMenu = () => setMenuOpen(false);
 
   useEffect(() => {
-    const sections = document.querySelectorAll('section[id]');
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top + window.scrollY - 120;
-        const sectionHeight = section.clientHeight;
-        const sectionId = section.getAttribute('id');
+    const sectionIds = ['hero', 'techs', 'timeline', 'projetos'];
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean) as HTMLElement[];
 
-        if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight && sectionId) {
-          setActiveSection(sectionId);
-        }
-      });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            if (id) {
+              setActiveSection(id);
+              if (id !== 'hero') {
+                setIsPastHero(true);
+              } else {
+                setIsPastHero(false);
+              }
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '-30% 0px -40% 0px',
+        threshold: 0,
+      }
+    );
+
+    sections.forEach(section => observer.observe(section));
+
+    const handleScrollFallback = () => {
+      if (window.scrollY < 50) {
+        setActiveSection('hero');
+        setIsPastHero(false);
+      }
     };
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    window.addEventListener('scroll', handleScrollFallback);
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      sections.forEach(section => observer.unobserve(section));
+      window.removeEventListener('scroll', handleScrollFallback);
+    };
   }, []);
 
   return (
     <>
-      <HeaderWrapper id="header">
+      <HeaderWrapper id="header" $isBlack={isPastHero} $menuOpen={menuOpen}>
         <HeaderContent>
           <HamburgerButton id="hamburger" aria-label="Menu" onClick={toggleMenu}>
             {menuOpen ? <X size={34} /> : <Menu size={34} />}
@@ -49,8 +72,7 @@ export const Header: React.FC = () => {
             <NavList $open={menuOpen}>
               {[
                 { id: 'hero', label: 'Início' },
-                { id: 'about', label: 'Sobre Mim' },
-                { id: 'techs', label: 'Tecnologias' },
+                { id: 'techs', label: 'Habilidades' },
                 { id: 'timeline', label: 'Experiências' },
                 { id: 'projetos', label: 'Projetos' },
               ].map(link => (

@@ -5,7 +5,7 @@ import TechsCards from "./TechsCards/TechsCards"
 
 const Techs = () => {
     return (
-        <section id="techs" className="mt-30">
+        <section id="techs" className="mt-40">
             <SplitText text="Minhas Tecnologias" className="text-4xl text-center w-full md:text-5xl lg:text-6xl h-20" />
             <TechsCards />
         </section>
