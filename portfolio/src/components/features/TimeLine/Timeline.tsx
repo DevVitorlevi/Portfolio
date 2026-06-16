@@ -29,7 +29,7 @@ export default function Timeline() {
             title: "Estágio Desenvolvedor FullStack",
             badge: "Golden Cloud Technology",
             description: "Passei a integrar o time de desenvolvimento da Golden. Fiquei encarregado de desenvolver um painel adminstrativo para uma empresa europeia. No FrontEnd, utilizei Next.js e TailwindCSS para criar formulários e dashboards interativos com foco em performance e usabilidade. No BackEnd, trabalhei com Node.js aprimorando o fluxo de recuperação de senha e criando filtros avançados de consulta de dados"
-        }2
+        }
     ];
 
     return (

@@ -1,11 +1,9 @@
-// src/styles/GlobalStyles.ts
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   html {
     scroll-behavior: smooth;
   }
-  /* Reset e variáveis */
   *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -20,8 +18,5 @@ export const GlobalStyles = createGlobalStyle`
     background-color: black;
     overflow-x: hidden;
   }
-
-
-
 
 `;

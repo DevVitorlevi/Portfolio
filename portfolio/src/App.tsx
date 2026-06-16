@@ -2,7 +2,6 @@
 import { Header } from "./components/layout/header/Header"
 //Features
 import Hero from "./components/features/hero/Hero"
-import About from "./components/features/about/About"
 import Techs from "./components/features/techs/Techs"
 import Timeline from "./components/features/TimeLine/Timeline"
 import Projects from "./components/features/projects/Projects"
@@ -13,7 +12,7 @@ import styled from "styled-components";
 const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
-  min-height: 100vh; 
+  min-height: 100vh;
   overflow: hidden;
 `;
 function App() {
@@ -24,7 +23,6 @@ function App() {
       <Header />
 
       <BackgroundContainer>
-        <About />
         <Techs />
         <Timeline />
         <Projects />
