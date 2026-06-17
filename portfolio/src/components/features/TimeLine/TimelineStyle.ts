@@ -13,34 +13,42 @@ export const TimelineWrapper = styled.div`
   position: relative;
   padding: 0 20px;
 
+  --line-width: 4px;
+  --dot-size: 20px;
+  --item-gap: 40px;
+  --rail-padding: 20px;
+  --line-left: 50%;
+
   &::before {
     content: '';
     position: absolute;
-    left: 50%;
+    left: var(--line-left);
     top: 0;
     z-index: -20;
     bottom: 0;
-    width: 4px;
+    width: var(--line-width);
     background: linear-gradient(180deg, #290b5c 0%, #0e0322 50%, #2b086b 100%);
     transform: translateX(-50%);
     box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
   }
 
   @media (max-width: 768px) {
-    padding-left: 40px;
+    --rail-padding: 40px;
+    --line-left: 20px;
+    --dot-size: 16px;
+
+    padding-left: var(--rail-padding);
     padding-right: 12px;
 
     &::before {
-      left: 20px;
       transform: translateX(0);
     }
   }
 
   @media (max-width: 480px) {
-    padding-left: 32px;
+    --rail-padding: 32px;
+    --line-left: 14px;
 
-    &::before {
-      left: 14px;
-    }
+    padding-left: var(--rail-padding);
   }
 `;

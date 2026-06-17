@@ -12,16 +12,27 @@ const float = keyframes`
 `;
 
 export const Container = styled.section`
-  position: relative;
+position: relative;
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
-  background-color: transparent;
+  background-color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 6rem 4rem;
   box-sizing: border-box;
+
+  .ferrofluid-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    will-change: transform;
+  }
 
   @media screen and (max-width: 1024px) {
     padding: 6rem 2rem 3rem;
@@ -35,7 +46,7 @@ export const Container = styled.section`
 
 export const Content = styled.div`
   position: relative;
-  z-index: 9999;
+  z-index: 2;
   width: 100%;
   max-width: 1200px;
   display: flex;
@@ -135,7 +146,7 @@ export const CVButton = styled.a`
   gap: 0.5rem;
   margin-top: 0.5rem;
   padding: 0.75rem 2rem;
-  background: linear-gradient(90deg, #7c3aed55, #7c3aed44);
+  background: linear-gradient(90deg, #4a3a95, #4c1d95);
   color: #fff;
   font-size: 0.95rem;
   font-weight: 500;
@@ -146,7 +157,7 @@ export const CVButton = styled.a`
   letter-spacing: 0.03em;
 
   &:hover {
-    background: #4c1d95;
+    background: #3c1d95;
     transform: translateY(-2px);
     box-shadow: 0 8px 24px -8px #7c3aedaa;
   }

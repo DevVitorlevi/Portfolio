@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
 import {
   Cards,
   Container,
   ButtonWrapper,
   Card,
   StackWrapper,
+  ProjectImage,
 } from "./ProjectsCardsStyle";
 
 import img3 from "../../../../assets/images/icapui.png";
@@ -100,22 +100,35 @@ const projects = [
 
 // Component
 const ProjectsCards = () => {
-
   return (
     <Container>
       <Cards>
         {projects.map(({ image, title, desc, web, git, stack }, index) => (
           <Card key={index}>
-            <img src={image} alt={title} id="img" />
+            <ProjectImage
+              src={image}
+              alt={title}
+              loading="lazy"
+              decoding="async"
+              width={400}
+              height={225}
+            />
 
             <h1 className="text-2xl m-4">{title}</h1>
-
 
             <p>{desc}</p>
 
             <StackWrapper>
               {Object.values(stack).map((icon, i) => (
-                <img key={i} src={icon} alt={`stack-${i}`} />
+                <img
+                  key={i}
+                  src={icon}
+                  alt={`stack-${i}`}
+                  loading="lazy"
+                  decoding="async"
+                  width={32}
+                  height={32}
+                />
               ))}
             </StackWrapper>
 

@@ -22,21 +22,21 @@ const categories: Category[] = [
             { name: "HTML5", icon: "https://skills.syvixor.com/api/icons?i=html" },
             { name: "CSS3", icon: "https://skills.syvixor.com/api/icons?i=css" },
             { name: "JavaScript", icon: "https://skills.syvixor.com/api/icons?i=js" },
-            { name: "TypeScript", icon: "https://skills.syvixor.com/api/icons?i=ts" },
             { name: "React.js", icon: "https://skills.syvixor.com/api/icons?i=react" },
             { name: "Next.js", icon: "https://skills.syvixor.com/api/icons?i=nextjs" },
             { name: "TailwindCSS", icon: "https://skills.syvixor.com/api/icons?i=tailwind" },
-            { name: "ShadCN/UI", icon: "https://skills.syvixor.com/api/icons?i=shadcn" },
         ],
     },
     {
         title: "Back-end",
         icon: Server,
         techs: [
+          { name: "TypeScript", icon: "https://skills.syvixor.com/api/icons?i=ts" },
             { name: "Node.js", icon: "https://skills.syvixor.com/api/icons?i=node" },
             { name: "Express.js", icon: "https://skills.syvixor.com/api/icons?i=expressjs" },
             { name: "Fastify", icon: "https://skills.syvixor.com/api/icons?i=fastify" },
             { name: "PrismaORM", icon: "https://skills.syvixor.com/api/icons?i=prisma" },
+                        { name: "Docker", icon: "https://skills.syvixor.com/api/icons?i=docker" },
         ],
     },
     {
@@ -54,6 +54,7 @@ const categories: Category[] = [
         techs: [
             { name: "Cypress", icon: "https://skills.syvixor.com/api/icons?i=cypress" },
             { name: "Vitest", icon: "https://skills.syvixor.com/api/icons?i=vitest" },
+            { name: "PostMan", icon: "https://skills.syvixor.com/api/icons?i=postman" },
         ],
     },
     {
@@ -61,8 +62,10 @@ const categories: Category[] = [
         icon: Wrench,
         techs: [
             { name: "Git", icon: "https://skills.syvixor.com/api/icons?i=git" },
-            { name: "PostMan", icon: "https://skills.syvixor.com/api/icons?i=postman" },
-            { name: "Docker", icon: "https://skills.syvixor.com/api/icons?i=docker" },
+            { name: "Github", icon: "https://skills.syvixor.com/api/icons?i=github" },
+            { name: "Github Actions ", icon: "https://skills.syvixor.com/api/icons?i=githubactions" },
+            { name: "VSCode", icon: "https://skills.syvixor.com/api/icons?i=vscode" },
+
         ],
     },
 ];
@@ -74,7 +77,7 @@ const TechsCards = () => {
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
+                if (entry?.isIntersecting) {
                     setIsVisible(true);
                     observer.disconnect();
                 }
@@ -107,7 +110,7 @@ const TechsCards = () => {
                                     key={index}
                                     spotlightColor="rgba(103, 10, 225, 0.529)"
                                 >
-                                    <img src={icon} alt={name} width={32} />
+                                    <img src={icon} alt={name} width={48} />
                                     <h3>{name}</h3>
                                 </SpotlightCard>
                             ))}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, createElement } from "react";
+import { useEffect, useRef, useState, createElement, useCallback } from "react";
 import type { ElementType } from "react";
 import { gsap } from "gsap";
 import "./TextType.css";
@@ -33,7 +33,7 @@ const TextType = ({
     initialDelay = 0,
     pauseDuration = 2000,
     deletingSpeed = 30,
-    loop = true,
+    loop = false,
     className = "",
     showCursor = true,
     hideCursorWhileTyping = false,
@@ -43,7 +43,7 @@ const TextType = ({
     textColors = [],
     variableSpeed,
     onSentenceComplete,
-    startOnVisible = false,
+    startOnVisible = true,
     reverseMode = false,
     ...props
 }: TextTypeProps & React.HTMLAttributes<HTMLElement>) => {
@@ -57,27 +57,26 @@ const TextType = ({
 
     const textArray = Array.isArray(text) ? text : [text];
 
-    const getRandomSpeed = () => {
+    const getRandomSpeed = useCallback(() => {
         if (!variableSpeed) return typingSpeed;
         const { min, max } = variableSpeed;
         return Math.random() * (max - min) + min;
-    };
+    }, [variableSpeed, typingSpeed]);
 
-    const getCurrentTextColor = () => {
+    const getCurrentTextColor = useCallback(() => {
         if (textColors.length === 0) return "#ffffff";
-        return textColors[currentTextIndex % textColors.length];
-    };
+        return textColors[currentTextIndex % textColors.length] || "#ffffff";
+    }, [textColors, currentTextIndex]);
 
     useEffect(() => {
         if (!startOnVisible || !containerRef.current) return;
 
         const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        setIsVisible(true);
-                    }
-                });
+            ([entry]) => {
+                if (entry && entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
             },
             { threshold: 0.1 }
         );
@@ -104,7 +103,7 @@ const TextType = ({
 
         let timeout: ReturnType<typeof setTimeout>;
 
-        const currentText = textArray[currentTextIndex];
+        const currentText = textArray[currentTextIndex] || "";
         const processedText = reverseMode
             ? currentText.split("").reverse().join("")
             : currentText;
@@ -113,17 +112,11 @@ const TextType = ({
             if (isDeleting) {
                 if (displayedText === "") {
                     setIsDeleting(false);
-                    if (currentTextIndex === textArray.length - 1 && !loop) {
-                        return;
-                    }
-
                     if (onSentenceComplete) {
-                        onSentenceComplete(textArray[currentTextIndex], currentTextIndex);
+                        onSentenceComplete(currentText, currentTextIndex);
                     }
-
                     setCurrentTextIndex((prev) => (prev + 1) % textArray.length);
                     setCurrentCharIndex(0);
-                    timeout = setTimeout(() => { }, pauseDuration);
                 } else {
                     timeout = setTimeout(() => {
                         setDisplayedText((prev) => prev.slice(0, -1));
@@ -134,13 +127,17 @@ const TextType = ({
                     timeout = setTimeout(
                         () => {
                             setDisplayedText(
-                                (prev) => prev + processedText[currentCharIndex]
+                                (prev) => prev + (processedText[currentCharIndex] || "")
                             );
                             setCurrentCharIndex((prev) => prev + 1);
                         },
                         variableSpeed ? getRandomSpeed() : typingSpeed
                     );
                 } else if (textArray.length > 1) {
+                    const isLastText = currentTextIndex === textArray.length - 1;
+
+                    if (isLastText && !loop) return;
+
                     timeout = setTimeout(() => {
                         setIsDeleting(true);
                     }, pauseDuration);
@@ -170,11 +167,13 @@ const TextType = ({
         reverseMode,
         variableSpeed,
         onSentenceComplete,
+        getRandomSpeed,
     ]);
 
+    const currentTextLength = (textArray[currentTextIndex] || "").length;
     const shouldHideCursor =
         hideCursorWhileTyping &&
-        (currentCharIndex < textArray[currentTextIndex].length || isDeleting);
+        (currentCharIndex < currentTextLength || isDeleting);
 
     return createElement(
         Component,

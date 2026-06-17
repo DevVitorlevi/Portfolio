@@ -1,3 +1,4 @@
+// ProjectsCardsStyle.ts
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -24,6 +25,16 @@ export const Cards = styled.div`
   }
 `;
 
+export const ProjectImage = styled.img`
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  transition: transform 0.4s ease;
+`;
+
 export const Card = styled.div`
   border-radius: 1rem;
   background: linear-gradient(135deg, #0d041e 0%, #000 100%);
@@ -36,14 +47,6 @@ export const Card = styled.div`
   height: 100%;
   text-align: center;
   overflow: hidden;
-
-  #img {
-    width: 100%;
-    display: block;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    transition: transform 0.4s ease;
-  }
 
   p {
     width: 90%;
@@ -62,14 +65,14 @@ export const Card = styled.div`
     box-shadow: 0 0 15px #3c0061;
   }
 
-  &:hover #img {
+  &:hover ${ProjectImage} {
     transform: scale(1.04);
   }
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
     &:hover { transform: none; }
-    &:hover #img { transform: none; }
+    &:hover ${ProjectImage} { transform: none; }
   }
 `;
 
